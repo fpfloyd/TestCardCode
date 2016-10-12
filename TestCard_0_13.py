@@ -89,13 +89,24 @@ WashVol=50
 SilverRate=100
 SilverVol=50
 
-#ASV PARAMETERS
+#DETECTION CHAMBER PARAMETERS
 SandwichRate=100     #Sandwich Resuspension Flowrate (uL/min)
 SandwichVol=50       #Sandwich Resuspension Time (sec)
 MoveRate=50          #Sandwich Move Flowrate (uL/min)
 MoveVol=100          #Sandwich Move Flow Time (sec)
 ElecRate=50          #Electrolyte Flowrate (uL/min)
 ElecVol=40           #Electrolyte Flow Time (sec)
+
+#ASV PARAMETERS
+DissTime = 30
+DissVolt = 1.1
+DepoTime = 120
+DepoVolt = -1.0
+StartSweep = -1
+EndSweep = 0.1
+SweepStep = 100
+SweepInc = 10000
+
 
 ##########
 #
@@ -145,6 +156,7 @@ def assay(theRig):
         #StartUp
         filename = raw_input('Enter Filename for ASV Data (then press Enter)')
         stopAll(theRig)
+        theRig.SetupASV(DissVolt,DissTime,DepoVolt,DepoTime,StartSweep,EndSweep,SweepStep,SweepInc)
 
         #Open all Valves
         print 'Setting Valves, press ctrl+c to quit'

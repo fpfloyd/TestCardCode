@@ -156,6 +156,10 @@ class TestCardRig:
                 db.PrintDebug("Vibrating Mixer")
                 self.theVibrationController.Vibrate(SweepTime,StartFreq,EndFreq,TotalCycles)
 
+        def SetupASV(self,DissVolt,DissTime,DepoVolt,DepoTime,StartSweep,EndSweep,SweepStep,SweepInc):
+                db.PrintDebug("Passing ASV Parameters")
+                self.thePotentiostat.SetupASV(DissVolt,DissTime,DepoVolt,DepoTime,StartSweep,EndSweep,SweepStep,SweepInc)
+
         def RunASV(self):
                 db.PrintDebug('Running ASV')
                 self.thePotentiostat.RunASV()

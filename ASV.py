@@ -55,6 +55,15 @@ class ASV:
                 if (self.theConnection):
                         self.theConnection.close()
 
+        def SetupASV(self,DissVolt,DissTime,DepoVolt,DepoTime,StartSweep,EndSweep,SweepStep,SweepInc):
+                db.PrintDebug("Setting ASV Parameters")
+                if (self.theConnection):
+                        self.theConnection.flushInput()
+                        self.theConnection.flushOutput()
+                        self.theConnection.write('{} {} {} {} {} {} {} {} {} {}\r\n'.format(
+                            DissVolt,DissTime,DepoVolt,DepoTime,StartSweep,EndSweep,SweepStep,SweepInc))
+                        return
+
         def RunASV(self):
                 db.PrintDebug("run 1")
                 if (self.theConnection):
