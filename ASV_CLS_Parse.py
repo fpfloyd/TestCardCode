@@ -14,10 +14,19 @@ import DebugFunctions as db
 import re
 import csv
 import os
+import numpy as np
+from findPeaks import findPeaks
+
 
 
 class ParseASV:
 
+
+        thePeakFinder={}
+
+        def __init__(self):
+
+            self.thePeakFinder=findPeaks()
 
         def ParseASV(self,filepath,folder):
             db.PrintDebug("Parsing ASV Data")
@@ -26,7 +35,7 @@ class ParseASV:
             # outfile = raw_input("Enter .csv filename to be written to: ")
 
             # read in folder with data and pass to list
-            folderDirectory = "{}\{}".format(filepath,folder)
+            folderDirectory = "{}/{}".format(filepath,folder)
             fileList = os.listdir(folderDirectory)
             db.PrintListDB(fileList)
 
@@ -35,8 +44,18 @@ class ParseASV:
             j = 0
             # make counter for finding blank lists
             counter = 0
+            summaryCount = 0
 
             # create list of list for value storage
+            summaryMatrix = []
+            summaryList = []
+            summaryMatrix.append([])
+            peakMatrix = []
+
+            nameMatrix = []
+            filenameList =[]
+
+            sweepList = []
             sweepMatrix = [[]]
             sweepMatrix.append([])
 
@@ -74,14 +93,12 @@ class ParseASV:
                     if dissolution != None:
                         dissolutionValue = dissolution.group(1)
                         db.PrintDebug(dissolutionValue)
-
                         dissolutionCounter = 1
                         depositionCounter = 0
 
                     if deposition != None:
                         depositionValue = deposition.group(1)
                         db.PrintDebug(depositionValue)
-
                         dissolutionCounter = 0
                         depositionCounter = 1
 
@@ -97,6 +114,10 @@ class ParseASV:
 
                         # assign variables to the list corresponding to the file that is opened
                         sweepMatrix[i + 1].append(sweep.group(2))
+                        filenameList.append(filename)
+                        sweepList.append(float(sweep.group(2)))
+
+
 
                     if Dis_dep != None:
                         counter = 1
@@ -123,6 +144,7 @@ class ParseASV:
                     counter = 0
 
                 # add empty list to list of lists
+                summaryMatrix.append([])
                 sweepMatrix.append([])
                 dissolutionMatrix.append([])
                 dissolutionMatrix.append([])
@@ -133,6 +155,17 @@ class ParseASV:
                 writeTimeDep = False
                 writeTimeDis = False
 
+                #Find Peaks
+                if sweepList != []:
+                    startVoltage = sweepMatrix[0][0]
+                    endVoltage = sweepMatrix[0][-1]
+                    peaks = self.thePeakFinder.findPeakPositions(sweepList,startVoltage,endVoltage)
+                    peaks = ",".join(map(str,peaks))
+                    peakRow = "{},{}\n".format(filename,peaks)
+                    summaryMatrix.append(peakRow)
+
+
+                sweepList = []
                 i = i + 1
                 j = j + 1
 
@@ -143,6 +176,9 @@ class ParseASV:
             # transpose matrix
             transposedMatrix = zip(*fullMatrix)
 
+            filterSummaryMatrix = filter(None,summaryMatrix)
+            cleanSummaryMatrix =np.vstack(filterSummaryMatrix)
+
             filterDepositionMatrix = filter(None, depositionMatrix)
             transposedDepositionMatrix = zip(*filterDepositionMatrix)
 
@@ -150,29 +186,34 @@ class ParseASV:
             transposedDissolutionMatrix = zip(*filterDissolutionMatrix)
 
             # write sweep information to csv file
-            with open('sweep.csv', "wb") as f:
+            with open('Sweep.csv', "wb") as f:
                 writer = csv.writer(f)
+                f.write("{}\{}\n".format(filepath, folder))
                 headerList = ",".join(headerList)
                 f.write("voltage (V)," + str(headerList) + "\n")
                 writer.writerows(transposedMatrix)
 
             # write deposition information to csv file
-            with open('Deposition.csv', "wb") as f:
+            with open('Deposit.csv', "wb") as f:
                 depdisHeaderList = ",".join(depdisHeaderList)
                 writer = csv.writer(f)
-                f.write("ramp Finishing Value (V)," + str(rampValue) + "\n")
+                f.write("{}\{}\n".format(filepath, folder))
                 f.write("Time (s)," + str(depdisHeaderList) + "\n")
                 writer.writerows(transposedDepositionMatrix)
 
             # write dissolution information to csv file
-            with open('Dissolution.csv', "wb") as f:
+            with open('Dissolve.csv', "wb") as f:
                 writer = csv.writer(f)
+                f.write("{}\{}\n".format(filepath, folder))
                 f.write("Time (s)," + str(depdisHeaderList) + "\n")
                 writer.writerows(transposedDissolutionMatrix)
 
-            with open('Summary.csv', "wb") as f:
+            with open('Summary.csv',"wb") as f:
                 writer = csv.writer(f)
-                f.write("Dissolution Voltage (V)," + str(dissolutionValue) + "\n")
-                f.write("Deposition Voltage (V)," + str(depositionValue) + "\n")
-                f.write("ramp Finishing Value (V)," + str(rampValue) + "\n")
-                print "Folder Successfully Parsed"
+                f.write("{}\{}\n".format(filepath,folder))
+                f.write("Filename, Peak Location (V), Peak Area (uC), Peak Height (uA) \n")
+                f.write(cleanSummaryMatrix)
+
+            print ("Folder Parsed")
+
+
