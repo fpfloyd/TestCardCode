@@ -28,7 +28,7 @@ import csv
 import DebugFunctions as db
 from TestCardRig import TestCardRig
 
-Debug = True # set this to True to enable debug by default. Can always toggle it with 'd' command
+Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
 Fakeout = True #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
 filepath = '/Users/fredfloyd/Desktop/C1_Output'

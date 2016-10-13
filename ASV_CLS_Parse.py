@@ -82,14 +82,19 @@ class ParseASV:
 
                 # Parse through file
                 for line in rawData:
+                    stepTime = re.search('Step period in sweep phase\s*: \s*(\S*) uS', line)
                     dissolution = re.search('Dissolution phase\. Polarization voltage = \s*(\S*) Volts', line)
                     deposition = re.search('Deposition phase\. Polarization voltage =\s*(\S*) Volts', line)
                     ramp = re.search('Sweep phase\. Linear ramp up to\s*(\S*) Volts.', line)
-                    sweep = re.search('Cell voltage:\s*(\S*) Volts,	Cell current:\s*(\S*) uA', line)
+                    sweep = re.search('\s*(\S*) V, \s*(\S*) uA', line)
                     Dis_dep = re.search('Time \(S\): (\S*)\s*ADC voltage:\s*\S* Volts,	Cell current:\s*(\S*) uA',
                                         line)
 
                     # assign values to appropriate list
+
+                    if stepTime != None:
+                        stepTimeUS = stepTime.group(1)
+
                     if dissolution != None:
                         dissolutionValue = dissolution.group(1)
                         db.PrintDebug(dissolutionValue)
@@ -159,7 +164,7 @@ class ParseASV:
                 if sweepList != []:
                     startVoltage = sweepMatrix[0][0]
                     endVoltage = sweepMatrix[0][-1]
-                    peaks = self.thePeakFinder.findPeakPositions(sweepList,startVoltage,endVoltage)
+                    peaks = self.thePeakFinder.findPeakPositions(sweepList,startVoltage,endVoltage,stepTimeUS)
                     peaks = ",".join(map(str,peaks))
                     peakRow = "{},{}\n".format(filename,peaks)
                     summaryMatrix.append(peakRow)
