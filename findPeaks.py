@@ -3,7 +3,7 @@
 
 class findPeaks:
 
-    def findPeakPositions(self,data,startVoltage,endVoltage):
+    def findPeakPositions(self,rawData,startVoltage,endVoltage):
         """
         - find the max value in this range - that is the peak
         - find the min between the peak and the right side. From there, Work left toward the peak until the current
@@ -13,6 +13,15 @@ class findPeaks:
           peak. That is the left end of the peak.
         - the noise floor is assumed to be a constant value, same as the value at the right end of the peak.
         """
+
+        #Adjust data to only look for peaks in a certain voltage range
+        rangeStart = -0.9
+        rangeEnd = -0.1
+        stepSize = round((float(endVoltage) - float(startVoltage)) / (len(rawData) - 1),3)
+        startData = int((float(rangeStart) - float(startVoltage))/stepSize)
+        endData = int(len(rawData) - (float(endVoltage)-float(rangeEnd))/stepSize)
+        data = rawData[startData:endData]
+
         peakValue = max(data)
         peakPos = data.index(peakValue)
 
@@ -26,6 +35,9 @@ class findPeaks:
 
         # at this point, we know where the rise starts - call that the right side
         rightPos = valleyPos
+        print 'right pos'
+        print rightPos
+        print data[rightPos]
 
         # the left pos is the point at which the value to the left of the peak dips to the
         # value at the right side (since we're just going to call that the noise floor
@@ -33,13 +45,25 @@ class findPeaks:
         leftPos = peakPos
         while (leftPos > 0 and data[leftPos] > targetValue):
             leftPos = leftPos - 1
+        print 'left pos'
+        print leftPos
+        print data[leftPos]
+
 
         stepSize = (float(endVoltage)-float(startVoltage))/(len(data)-1)
         stepSize = round(stepSize,3)
         peakVolts = (float(startVoltage)+(peakPos*stepSize))
 
+        #find are with respect to curve, not zero
+        baseArea = 0.5 * (data[rightPos]-data[leftPos])*(rightPos-leftPos)+(data[rightPos]*(rightPos-leftPos))
+        peakArea = sum(data[leftPos:rightPos]) - baseArea
+
+        #lets find peak height frome baseline
+        slope = (data[rightPos]-data[leftPos])/(rightPos-leftPos)
+        peakCurrent = peakValue-data[leftPos]+(slope*(peakPos-leftPos))
+
 
         # OK, I think we're done here
-        list = peakVolts, sum(data[leftPos:rightPos]),peakValue
+        list = peakVolts, peakArea, peakCurrent
         return list
 

@@ -64,8 +64,8 @@ MagFlowVol=50           #Mag Bead volume (uL)
 
 #MIX PARAMETERS
 MagSweepTime = 30       #Magnet Mixing Sweep Time (sec)
-MagStartFreq = 125      #Magnet Mixing Start Frequency (hz)
-MagEndFreq = 250        #Magnet Mixing End Frequency  (hz)
+MagStartFreq = 90       #Magnet Mixing Start Frequency (hz)
+MagEndFreq = 125        #Magnet Mixing End Frequency  (hz)
 MagCycles = 2           #Number of Sweep Cycles
 MagMixingSteps = 1      #Number of mixing steps
 MagMixingInc = 600      #Time between mag mixing steps (sec)
@@ -98,6 +98,7 @@ ElecRate=50          #Electrolyte Flowrate (uL/min)
 ElecVol=40           #Electrolyte Flow Time (sec)
 
 #ASV PARAMETERS
+PreASVWait = 600
 DissTime = 30
 DissVolt = 1.1
 DepoTime = 120
@@ -185,6 +186,21 @@ def assay(theRig):
         time.sleep(B5PrimeTime)
         if Pause == True:
             raw_input('Press enter to continue')
+
+        #PreFill Mix Chamber to stop bubbles
+        print 'Priming Waste & Mixing Channels with Electrolyte'
+        theRig.ValveClose('V3')
+        time.sleep(0.5)
+        theRig.ValveClose('V4')
+        time.sleep(0.5)
+        theRig.ValveOpen('V2')
+        theRig.PumpStart('B3',ElecRate,25)
+        time.sleep(8)
+        theRig.ValveOpen('V1')
+        time.sleep(0.5)
+        theRig.ValveClose('V2')
+        theRig.PumpStart('B3',ElecRate,25)
+        time.sleep(30)
 
         #Prime ASV Channel
         print 'Priming ASV Channel with ',ASVPrimeVol,'uL @',ASVPrimeRate,'uL/min, press ctrl+c to quit'
@@ -419,6 +435,21 @@ def assay(theRig):
         if Pause == True:
             raw_input('Press enter to continue')
 
+        #PreFill Mix Chamber to stop bubbles
+        print 'Priming Waste & Mixing Channels with Electrolyte'
+        theRig.ValveClose('V3')
+        time.sleep(0.5)
+        theRig.ValveClose('V4')
+        time.sleep(0.5)
+        theRig.ValveOpen('V2')
+        theRig.PumpStart('B3',ElecRate,10)
+        time.sleep(8)
+        theRig.ValveOpen('V1')
+        time.sleep(0.5)
+        theRig.ValveClose('V2')
+        theRig.PumpStart('B3',ElecRate,20)
+        time.sleep(30)
+
         #Fill ASV Chamber with Electrolyte
         print'Filling ASV Chamber with',ElecVol,'uL of Electrolyte at',ElecRate,'uL/min, press ctrl+c to quit'
         theRig.ValveClose('V4')
@@ -438,6 +469,8 @@ def assay(theRig):
             raw_input('Press enter to continue')
 
         #RUN ASV
+        print 'Wetting Electrode'
+        time.sleep(PreASVWait)
         print 'Running ASV'
         theRig.RunASV()
         print 'Saving ASV'

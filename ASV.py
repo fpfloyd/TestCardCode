@@ -69,7 +69,7 @@ class ASV:
                 if (self.theConnection):
                         self.theConnection.flushInput()
                         self.theConnection.flushOutput()
-                        self.theConnection.write('run 1 \r\n')
+                        self.theConnection.write('run \r\n')
                         raw = ''
                         while (raw[:25] != 'Running dissolution phase'):
                                 raw = self.theConnection.readline()
