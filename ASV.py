@@ -57,13 +57,19 @@ class ASV:
 
         def SetupASV(self,DissVolt,DissTime,DepoVolt,DepoTime,StartSweep,EndSweep,SweepStep,SweepInc):
                 db.PrintDebug("Setting ASV Parameters")
-                #if (self.theConnection):
-                #self.theConnection.flushInput()
-                #self.theConnection.flushOutput()
-                #self.theConnection.write('{} {} {} {} {} {} {} {} \r\n'.format(
-                #    DissVolt,DissTime,DepoVolt,DepoTime,StartSweep,EndSweep,SweepStep,SweepInc))
-                print ('prm {} {} {} {} {} {} {} {} \r\n'.format(
-                    DissVolt,DissTime,DepoVolt,DepoTime,StartSweep,EndSweep,SweepStep,SweepInc))
+                if (self.theConnection):
+                        self.theConnection.flushInput()
+                        self.theConnection.flushOutput()
+                        self.theConnection.write('prm {} {} {} {} {} {} {} {} \r\n'.format(
+                            DissVolt,DissTime,DepoVolt,DepoTime,StartSweep,EndSweep,SweepStep,SweepInc))
+                return
+
+        def SetGains(self, DisGain, DepGain, SweGain):
+                db.PrintDebug("Setting ASV Gains")
+                if (self.theConnection):
+                        self.theConnection.flushInput()
+                        self.theConnection.flushOutput()
+                        self.theConnection.write('sag {} {} {} \r\n'.format(DisGain,DepGain,SweGain))
                 return
 
         def RunASV(self):

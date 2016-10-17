@@ -28,10 +28,10 @@ import csv
 import DebugFunctions as db
 from TestCardRig import TestCardRig
 
-Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
+Debug = True # set this to True to enable debug by default. Can always toggle it with 'd' command
 Fakeout = True #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
-filepath = '/Users/fredfloyd/Desktop/C1_Output'
+filepath = 'c:\Users\Flowtest\Desktop\C1_Output'
 
 
 
@@ -107,6 +107,10 @@ StartSweep = -1
 EndSweep = 0.1
 SweepStep = 100
 SweepInc = 10000
+DissGain = 2
+DepoGain = 4
+SweepGain = 5
+
 
 
 ##########
@@ -158,6 +162,7 @@ def assay(theRig):
         filename = raw_input('Enter Filename for ASV Data (then press Enter)')
         stopAll(theRig)
         theRig.SetupASV(DissVolt,DissTime,DepoVolt,DepoTime,StartSweep,EndSweep,SweepStep,SweepInc)
+        theRig.SetGains(DissGain,DepoGain,SweepGain)
 
         #Open all Valves
         print 'Setting Valves, press ctrl+c to quit'

@@ -35,7 +35,7 @@ class ParseASV:
             # outfile = raw_input("Enter .csv filename to be written to: ")
 
             # read in folder with data and pass to list
-            folderDirectory = "{}/{}".format(filepath,folder)
+            folderDirectory = "{}\{}".format(filepath,folder)
             fileList = os.listdir(folderDirectory)
             db.PrintListDB(fileList)
 
@@ -182,7 +182,8 @@ class ParseASV:
             transposedMatrix = zip(*fullMatrix)
 
             filterSummaryMatrix = filter(None,summaryMatrix)
-            cleanSummaryMatrix =np.vstack(filterSummaryMatrix)
+            print filterSummaryMatrix
+            cleanSummaryMatrix =np.vstack(list(filterSummaryMatrix))
 
             filterDepositionMatrix = filter(None, depositionMatrix)
             transposedDepositionMatrix = zip(*filterDepositionMatrix)

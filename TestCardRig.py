@@ -160,6 +160,10 @@ class TestCardRig:
                 db.PrintDebug("Passing ASV Parameters")
                 self.thePotentiostat.SetupASV(DissVolt,DissTime,DepoVolt,DepoTime,StartSweep,EndSweep,SweepStep,SweepInc)
 
+        def SetGains(self,DisGain,DepGain,SweGain):
+                db.PrintDebug("Passing ASV Gains")
+                self.thePotentiostat.SetGains(DisGain,DepGain,SweGain)
+
         def RunASV(self):
                 db.PrintDebug('Running ASV')
                 self.thePotentiostat.RunASV()
