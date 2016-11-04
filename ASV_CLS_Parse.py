@@ -35,7 +35,7 @@ class ParseASV:
             # outfile = raw_input("Enter .csv filename to be written to: ")
 
             # read in folder with data and pass to list
-            folderDirectory = "{}\{}".format(filepath,folder)
+            folderDirectory = "{}/{}".format(filepath,folder)
             fileList = os.listdir(folderDirectory)
             db.PrintListDB(fileList)
 

@@ -25,13 +25,14 @@ VERSION='0.013'
 
 import time
 import csv
+import ConfigParser
 import DebugFunctions as db
 from TestCardRig import TestCardRig
 
 Debug = True # set this to True to enable debug by default. Can always toggle it with 'd' command
 Fakeout = True #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
-filepath = 'c:\Users\Flowtest\Desktop\C1_Output'
+filepath = '/Users/fredfloyd/Desktop/C1_Output'
 
 
 
@@ -109,21 +110,8 @@ SweepStep = 100
 SweepInc = 10000
 DissGain = 2
 DepoGain = 4
-SweepGain = 5
+SweepGain = 4
 
-
-
-##########
-#
-# Syringe Sizes
-#
-##########
-DiameterB1 = 11.99      # BD plastic 5ml syringe ID (mm)
-DiameterB2 = 4.79       # BD plastic 5ml syringe ID (mm)
-DiameterB3 = 11.99      # BD plastic 5ml syringe ID (mm)
-DiameterB4 = 11.99      # BD plastic 5ml syringe ID (mm)
-DiameterB5 = 11.99      # BD plastic 5ml syringe ID (mm)
-#DiameterR6 = 11.99      # BD plastic 5ml syringe ID (mm)
 
 ##########
 #
@@ -223,7 +211,7 @@ def assay(theRig):
         #Ensure Chamber Is Empty
         print 'Emptying Chamber with', WashoutVol50, 'uL @', WashoutRate50, 'uL/min , press ctrl+c to quit'
         theRig.ValveClose('V3')
-        time.sleep(1)
+        time.sleep(0.5)
         theRig.ValveOpen('V2')
         time.sleep(0.5)
         theRig.ValveClose('V1')
@@ -276,7 +264,6 @@ def assay(theRig):
         print 'Pulling Down Mags'
         theRig.MagnetEngage()
         time.sleep(PulldownTime)
-        time.sleep(2)
         if Pause == True:
                 raw_input('Press enter to continue')
 
@@ -461,11 +448,11 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.ValveOpen('V2')
         theRig.PumpStart('B3',ElecRate, ElecVol)
-        time.sleep(2)
+        time.sleep(0.5)
         theRig.ValveClose('V2')
         time.sleep(0.5)
         theRig.ValveOpen('V1')
-        time.sleep(2)
+        time.sleep(0.5)
         theRig.ValveOpen('V3')
         time.sleep(0.5)
         theRig.ValveClose('V1')
@@ -689,23 +676,29 @@ def main():
 
         print ('Test Card v'+VERSION)
 
+        # Import Configuration from setup file
+        config = ConfigParser.ConfigParser()
+        config.read('setup.ini')
+        config.sections()
+
         # Configure the Arduinos
         # (valve controller, Magnet Controller, Vibration Controller, Potentiostat)
-        theRig=TestCardRig('COM32','COM36','COM29','COM38')
+        theRig=TestCardRig(config.get('ArduinoSetup','ComValve'),config.get('ArduinoSetup','ComMag'),
+                           config.get('ArduinoSetup','ComVib'),config.get('ArduinoSetup','ComASV'))
 
         # Configure the pumps
-        theRig.PumpConfigure('B1','COM22',DiameterB1)
-        theRig.PumpConfigure('B2','COM31',DiameterB2)
-        theRig.PumpConfigure('B3','COM26',DiameterB3)
-        theRig.PumpConfigure('B4','COM35',DiameterB5)
-        theRig.PumpConfigure('B5','Com13',DiameterB4)
-        #theRig.PumpConfigure('B6','Com28',DiameterB4)
+        theRig.PumpConfigure('B1',config.get('SyringeSetup','ComB1'),config.get('SyringeSetup','DiameterB1'))
+        theRig.PumpConfigure('B2',config.get('SyringeSetup','ComB2'),config.get('SyringeSetup','DiameterB2'))
+        theRig.PumpConfigure('B3',config.get('SyringeSetup','ComB3'),config.get('SyringeSetup','DiameterB3'))
+        theRig.PumpConfigure('B4',config.get('SyringeSetup','ComB4'),config.get('SyringeSetup','DiameterB4'))
+        theRig.PumpConfigure('B5',config.get('SyringeSetup','ComB5'),config.get('SyringeSetup','DiameterB5'))
+        #theRig.PumpConfigure('B6',config.get('SyringePumpSetup','ComB6'),config.get('SyringeSetup','DiameterB6'))
 
         # Configure the valves. These numbers are the digital output line of the Arduino.
-        theRig.ValveConfigure('V1',8)
-        theRig.ValveConfigure('V2',9)
-        theRig.ValveConfigure('V3',10)
-        theRig.ValveConfigure('V4',11)
+        theRig.ValveConfigure('V1',config.get('PortSetup','PortV1'))
+        theRig.ValveConfigure('V2',config.get('PortSetup','PortV2'))
+        theRig.ValveConfigure('V3',config.get('PortSetup','PortV3'))
+        theRig.ValveConfigure('V4',config.get('PortSetup','PortV4'))
 
 
         if (Fakeout):

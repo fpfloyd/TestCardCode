@@ -17,7 +17,8 @@ class findPeaks:
         #Adjust data to only look for peaks in a certain voltage range
         rangeStart = -0.9
         rangeEnd = -0.1
-        stepSize = round((float(endVoltage) - float(startVoltage)) / (len(rawData) - 1),3)
+        stepSize = round((float(endVoltage) - float(startVoltage)) / (len(rawData)-1),3)
+        print stepSize
         startData = int((float(rangeStart) - float(startVoltage))/stepSize)
         endData = int(len(rawData) - (float(endVoltage)-float(rangeEnd))/stepSize)
         data = rawData[startData:endData]
