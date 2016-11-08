@@ -28,12 +28,12 @@ MagFlowVol=50           #Mag Bead volume (uL)
 
 #MIX PARAMETERS
 MagSweepTime = 30       #Magnet Mixing Sweep Time (sec)
-MagStartFreq = 90       #Magnet Mixing Start Frequency (hz)
-MagEndFreq = 125        #Magnet Mixing End Frequency  (hz)
+MagStartFreq = 100      #Magnet Mixing Start Frequency (hz)
+MagEndFreq = 200        #Magnet Mixing End Frequency  (hz)
 MagCycles = 2           #Number of Sweep Cycles
 MagMixingSteps = 1      #Number of mixing steps
-MagMixingInc = 180      #Time between mag mixing steps (sec)
-SilverMixingInc = 180  #Time between Silver Mixing Steps (sec)
+MagMixingInc = 300      #Time between mag mixing steps (sec)
+SilverMixingInc = 900  #Time between Silver Mixing Steps (sec)
 MagMixingPause = (MagCycles * MagSweepTime) + 10 #Sweep Time is not exact
 
 #PULLDOWN AND WASHOUT PARAMETERS

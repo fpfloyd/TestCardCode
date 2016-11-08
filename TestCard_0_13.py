@@ -30,10 +30,10 @@ import param
 import DebugFunctions as db
 from TestCardRig import TestCardRig
 
-Debug = True # set this to True to enable debug by default. Can always toggle it with 'd' command
+Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
 Fakeout = True #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
-filepath = '/Users/fredfloyd/Desktop/C1_Output'
+filepath = 'c:\C1_Output'
 
 
 ##########
@@ -352,7 +352,7 @@ def assay(theRig):
             raw_input('Press enter to continue')
 
         #RUN ASV
-        print 'Wetting Electrode for ', param.PreASVWait
+        print 'Wetting Electrode for', param.PreASVWait, "seconds"
         time.sleep(param.PreASVWait)
         print 'Running ASV'
         theRig.RunASV()
