@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="cf655bb6-4445-4077-9ad6-ab7e86028693" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ASV_CLS_Parse.py" afterPath="$PROJECT_DIR$/ASV_CLS_Parse.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestCard_0_13.py" afterPath="$PROJECT_DIR$/TestCard_0_13.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/findPeaks.py" afterPath="$PROJECT_DIR$/findPeaks.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.ini" afterPath="$PROJECT_DIR$/setup.ini" />
     </list>
     <ignored path="TestCardCode.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +29,41 @@
       <file leaf-file-name="TestCard_0_13.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestCard_0_13.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="261" column="8" selection-start-line="261" selection-start-column="8" selection-end-line="261" selection-end-column="8" />
+            <state relative-caret-position="112">
+              <caret line="277" column="66" selection-start-line="277" selection-start-column="66" selection-end-line="277" selection-end-column="66" />
               <folding>
                 <element signature="e#1338#1349#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="findPeaks.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/findPeaks.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-474">
+              <caret line="19" column="88" selection-start-line="19" selection-start-column="88" selection-end-line="19" selection-end-column="88" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ASV_CLS_Parse.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ASV_CLS_Parse.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-30">
+              <caret line="183" column="60" selection-start-line="183" selection-start-column="60" selection-end-line="183" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setup.ini" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/setup.ini">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,11 +123,11 @@
         <option value="$PROJECT_DIR$/ParseASV.py" />
         <option value="$PROJECT_DIR$/TestCardRig.py" />
         <option value="$PROJECT_DIR$/ASV.py" />
-        <option value="$PROJECT_DIR$/ASV_CLS_Parse.py" />
-        <option value="$PROJECT_DIR$/findPeaks.py" />
-        <option value="$PROJECT_DIR$/setup.ini" />
         <option value="$PROJECT_DIR$/parameters.py" />
         <option value="$PROJECT_DIR$/param.py" />
+        <option value="$PROJECT_DIR$/setup.ini" />
+        <option value="$PROJECT_DIR$/findPeaks.py" />
+        <option value="$PROJECT_DIR$/ASV_CLS_Parse.py" />
         <option value="$PROJECT_DIR$/TestCard_0_13.py" />
       </list>
     </option>
@@ -129,7 +163,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -150,7 +184,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -420,32 +454,39 @@
       <option name="project" value="LOCAL" />
       <updated>1478646293191</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added extra wash before resuspending in silver">
+      <created>1478704014562</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1478704014562</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="13" y="23" width="1371" height="823" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30561635" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3284055" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32692307" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4587912" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4587912" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3284055" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -491,7 +532,8 @@
     <MESSAGE value="intial computer file setup" />
     <MESSAGE value="Adjusted the printed output for better readability, also changed air reset to withdraw only" />
     <MESSAGE value="Fixed Parameters for cTnI benchmark" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Parameters for cTnI benchmark" />
+    <MESSAGE value="Added extra wash before resuspending in silver" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added extra wash before resuspending in silver" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -606,13 +648,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ParseASV.py" />
     <entry file="file:///Volumes/daktari-files/Fileserver/PRODUCTS/CLINK/ENGINEERING/FIXTURES/Test Fixtures/C1_Fixture_Code/Arduino/Vibration_Motor_Control/Vibration_Motor_Control.ino" />
-    <entry file="file://$PROJECT_DIR$/setup.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/parameters.py" />
     <entry file="file://$USER_HOME$/Desktop/TestCard_0_13.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -628,24 +663,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/findPeaks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="87" selection-start-line="19" selection-start-column="87" selection-end-line="19" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TestCardRig.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2370">
           <caret line="164" column="69" selection-start-line="164" selection-start-column="69" selection-end-line="164" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ASV_CLS_Parse.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -671,10 +692,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/setup.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/findPeaks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-474">
+          <caret line="19" column="88" selection-start-line="19" selection-start-column="88" selection-end-line="19" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ASV_CLS_Parse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30">
+          <caret line="183" column="60" selection-start-line="183" selection-start-column="60" selection-end-line="183" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TestCard_0_13.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="261" column="8" selection-start-line="261" selection-start-column="8" selection-end-line="261" selection-end-column="8" />
+        <state relative-caret-position="112">
+          <caret line="277" column="66" selection-start-line="277" selection-start-column="66" selection-end-line="277" selection-end-column="66" />
           <folding>
             <element signature="e#1338#1349#0" expanded="true" />
           </folding>

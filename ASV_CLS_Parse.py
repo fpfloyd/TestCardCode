@@ -182,7 +182,6 @@ class ParseASV:
             transposedMatrix = zip(*fullMatrix)
 
             filterSummaryMatrix = filter(None,summaryMatrix)
-            print filterSummaryMatrix
             cleanSummaryMatrix =np.vstack(list(filterSummaryMatrix))
 
             filterDepositionMatrix = filter(None, depositionMatrix)

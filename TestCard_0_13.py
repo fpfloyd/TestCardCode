@@ -33,7 +33,7 @@ from TestCardRig import TestCardRig
 Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
 Fakeout = True #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
-filepath = 'c:\C1_Output'
+filepath = '/Users/fredfloyd/Desktop/C1_Output'
 
 
 ##########
@@ -44,14 +44,15 @@ filepath = 'c:\C1_Output'
 def assay(theRig):
 
         #StartUp
-        filename = raw_input('Enter Filename for ASV Data (then press Enter)')
+        filename = raw_input('Enter Filename for ASV Data (then press Enter):')
         stopAll(theRig)
         theRig.SetupASV(param.DissVolt,param.DissTime,param.DepoVolt,param.DepoTime,param.StartSweep,
                         param.EndSweep,param.SweepStep,param.SweepInc)
         theRig.SetGains(param.DissGain,param.DepoGain,param.SweepGain)
 
         #Open all Valves
-        print 'Setting Valves, press ctrl+c to quit'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Starting Assay, Press ctrl+c at any time to quit'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Setting Valves'
         theRig.ValveOpen('V1')
         time.sleep(0.5)
         theRig.ValveOpen('V2')
@@ -64,7 +65,7 @@ def assay(theRig):
                 raw_input('Press enter to continue')
 
         #Prime Other Channels
-        print'Priming B4 & B5 Channels'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Priming Blister Channels'
         #theRig.PumpStart('B1', param.PrimeRate, param.B1PrimeVol)
         #time.sleep(param.B1PrimeTime)
         #theRig.PumpStart('B2', param.PrimeRate, param.B2PrimeVol)
@@ -79,7 +80,7 @@ def assay(theRig):
             raw_input('Press enter to continue')
 
         #PreFill Mix Chamber to stop bubbles
-        print 'Priming Waste & Mixing Channels with Electrolyte'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Priming Waste & Mixing Channels with Electrolyte'
         theRig.ValveClose('V3')
         time.sleep(0.5)
         theRig.ValveClose('V4')
@@ -94,7 +95,7 @@ def assay(theRig):
         time.sleep(30)
 
         #Prime ASV Channel
-        print 'Priming ASV Channel with ',param.ASVPrimeVol,'uL @',param.ASVPrimeRate,'uL/min, press ctrl+c to quit'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Priming ASV Channel with ',param.ASVPrimeVol,'uL @',param.ASVPrimeRate,'uL/min'
         theRig.ValveOpen('V3')
         time.sleep(0.5)
         theRig.ValveClose('V1')
@@ -107,7 +108,7 @@ def assay(theRig):
             raw_input('Press enter to continue')
 
         #Ensure Chamber Is Empty
-        print 'Emptying Chamber with', param.WashoutVol50, 'uL @', param.WashoutRate50, 'uL/min , press ctrl+c to quit'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with', param.WashoutVol50, 'uL @', param.WashoutRate50, 'uL/min '
         theRig.ValveClose('V3')
         time.sleep(0.5)
         theRig.ValveOpen('V2')
@@ -121,7 +122,7 @@ def assay(theRig):
             raw_input('Press enter to continue')
 
         #Push plasma to mixing chamber with lysis buffer
-        print 'Pushing Plasma to Mixing Chamber with ',param.PlasmaPushVol,'uL @',param.PlasmaPushRate,'uL/min, press ctrl+c to quit'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Pushing Plasma to Mixing Chamber with ',param.PlasmaPushVol,'uL @',param.PlasmaPushRate,'uL/min'
         theRig.ValveOpen('V1')
         time.sleep(0.5)
         theRig.ValveClose('V2')
@@ -138,11 +139,11 @@ def assay(theRig):
         while i <= param.MagMixingSteps:
             i = i + 1
             theRig.VibrationStart(param.MagSweepTime, param.MagStartFreq, param.MagEndFreq, param.MagCycles)
-            print 'Mixing Step:', i-1, 'of ',param.MagMixingSteps
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i-1, 'of ',param.MagMixingSteps
             time.sleep(param.MagMixingPause)
 
         #Add Mags while adding to chamber
-        print 'Diluting Lysis and Adding Mags with',param.MagFlowVol,'uL @',param.MagFlowRate,'uL/min, press ctrl+c to quit'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Diluting Lysis and Adding Mags with',param.MagFlowVol,'uL @',param.MagFlowRate,'uL/min'
         theRig.VibrationStart(param.MagFlowTime,param.MagStartFreq,param.MagEndFreq,1)
         theRig.PumpStart('B4', param.MagFlowRate, param.MagFlowVol)
         time.sleep(param.MagFlowTime+10)
@@ -151,22 +152,23 @@ def assay(theRig):
 
         # Mix Mags While Adding
         i = 1
-        print 'Mixing and Incubating Mags'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing and Incubating Mags for ',\
+                str(param.MagMixingInc), 'seconds'
         while i <= param.MagMixingSteps:
                 i = i + 1
                 theRig.VibrationStart(param.MagSweepTime, param.MagStartFreq, param.MagEndFreq, param.MagCycles)
-                print 'Mixing Step:', i-1, 'of ',param.MagMixingSteps
+                print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i-1, 'of ',param.MagMixingSteps
                 time.sleep(param.MagMixingPause + param.MagMixingInc)
 
         # Pulldown Mags
-        print 'Pulling Down Mags'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Pulling Down Mags'
         theRig.MagnetEngage()
         time.sleep(param.PulldownTime)
         if Pause == True:
                 raw_input('Press enter to continue')
 
         #Empty Chamber
-        print 'Emptying Chamber with',param.WashoutVol100,'uL @',param.WashoutRate100,'uL/min , press ctrl+c to quit'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with',param.WashoutVol100,'uL @',param.WashoutRate100,'uL/min '
         theRig.ValveOpen('V2')
         time.sleep(0.5)
         theRig.ValveClose('V1')
@@ -177,7 +179,7 @@ def assay(theRig):
             raw_input('Press enter to continue')
 
         #Wash and Resuspend
-        print 'Washing half sandwiches with',param.WashVol,'uL @',param.WashRate,'uL/min, press ctrl+c to quit'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Washing half sandwiches with',param.WashVol,'uL @',param.WashRate,'uL/min'
         theRig.ValveOpen('V1')
         time.sleep(0.5)
         theRig.ValveClose('V2')
@@ -189,23 +191,23 @@ def assay(theRig):
 
         # Mixing Sandwiches
         i = 1
-        print 'Mixing/Washing Half Sandwiches'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing/Washing Half Sandwiches'
         theRig.MagnetRetract()
         while i <= param.MagMixingSteps:
             i = i + 1
             theRig.VibrationStart(param.MagSweepTime, param.MagStartFreq, param.MagEndFreq, param.MagCycles)
-            print 'Mixing Step:', i-1, 'of ',param.MagMixingSteps
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i-1, 'of ',param.MagMixingSteps
             time.sleep(param.MagMixingPause)
 
         # Pulldown Sandwiches
-        print 'Pulling Down Half Sandwiches'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Pulling Down Half Sandwiches'
         theRig.MagnetEngage()
         time.sleep(param.PulldownTime)
         if Pause == True:
             raw_input('Press enter to continue')
 
         #Empty Chamber
-        print 'Emptying Chamber with',param.WashoutVol50,'uL @',param.WashoutRate50,'uL/min, press ctrl+c to quit'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with',param.WashoutVol50,'uL @',param.WashoutRate50,'uL/min'
         theRig.ValveOpen('V2')
         time.sleep(0.5)
         theRig.ValveClose('V1')
@@ -216,7 +218,7 @@ def assay(theRig):
             raw_input('Press enter to continue')
 
         #Add Silver and Resuspend
-        print 'Adding Silver with',param.SilverVol,'uL @',param.SilverRate,'uL/min, press ctrl+c to quit'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Silver with',param.SilverVol,'uL @',param.SilverRate,'uL/min'
         theRig.ValveOpen('V1')
         time.sleep(0.5)
         theRig.ValveClose('V2')
@@ -228,23 +230,24 @@ def assay(theRig):
 
         #Mix Sandwiches
         i = 1
-        print 'Mixing Full Sandwiches'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing & Incubating Full Sandwiches for',\
+                param.SilverMixingInc,' seconds'
         theRig.MagnetRetract()
         while i <= param.MagMixingSteps:
             i = i + 1
             theRig.VibrationStart(param.MagSweepTime, param.MagStartFreq, param.MagEndFreq, param.MagCycles)
-            print 'Mixing/Incubation Step:', i-1, 'of ', param.MagMixingSteps
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing/Incubation Step:', i-1, 'of ', param.MagMixingSteps
             time.sleep(param.MagMixingPause + param.SilverMixingInc)
 
         # Pulldown Sandwiches
-        print 'Pulling Down Full Sandwiches'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Pulling Down Full Sandwiches'
         theRig.MagnetEngage()
         time.sleep(param.PulldownTime)
         if Pause == True:
             raw_input('Press enter to continue')
 
         #Empty Chamber
-        print 'Emptying Chamber with',param.WashoutVol50,'uL @',param.WashoutRate50,'uL/min, press ctrl+c to quit'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with',param.WashoutVol50,'uL @',param.WashoutRate50,'uL/min'
         theRig.ValveOpen('V2')
         time.sleep(0.5)
         theRig.ValveClose('V1')
@@ -255,7 +258,7 @@ def assay(theRig):
             raw_input('Press enter to continue')
 
         #Wash and pull down
-        print 'Washing half sandwiches with',param.WashVol,'uL @',param.WashRate,'uL/min, press ctrl+c to quit'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Washing half sandwiches with',param.WashVol,'uL @',param.WashRate,'uL/min'
         theRig.ValveOpen('V1')
         time.sleep(0.5)
         theRig.ValveClose('V2')
@@ -267,23 +270,23 @@ def assay(theRig):
 
         #Mix Sandwiches
         i = 1
-        print 'Mixing/Washing Half Sandwiches'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing/Washing Full Sandwiches'
         theRig.MagnetRetract()
         while i <= param.MagMixingSteps:
             i = i + 1
             theRig.VibrationStart(param.MagSweepTime, param.MagStartFreq, param.MagEndFreq, param.MagCycles)
-            print 'Mixing Step:', i-1
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i-1
             time.sleep(param.MagMixingPause)
 
         # Pulldown Sandwiches
-        print 'Pulling Down Full Sandwiches'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Pulling Down Full Sandwiches'
         theRig.MagnetEngage()
         time.sleep(param.PulldownTime)
         if Pause == True:
             raw_input('Press enter to continue')
 
         #Empty Chamber
-        print 'Emptying Chamber with',param.WashoutVol50,'uL @',param.WashoutRate50,'uL/min , press ctrl+c to quit'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with',param.WashoutVol50,'uL @',param.WashoutRate50,'uL/min '
         theRig.ValveOpen('V2')
         time.sleep(0.5)
         theRig.ValveClose('V1')
@@ -294,7 +297,7 @@ def assay(theRig):
             raw_input('Press enter to continue')
 
         #Resuspend Sandwiches
-        print 'Resuspending Full Sandwiches with',param.SandwichVol,'uL @',param.SandwichRate,'uL/min , press ctrl+c to quit'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Resuspending Full Sandwiches with',param.SandwichVol,'uL @',param.SandwichRate,'uL/min '
         theRig.ValveOpen('V1')
         time.sleep(0.5)
         theRig.ValveClose('V2')
@@ -306,16 +309,16 @@ def assay(theRig):
 
         #Resuspend Sandwiches
         i = 1
-        print 'Resuspending Full Sandwiches'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Resuspending Full Sandwiches'
         theRig.MagnetRetract()
         while i <= param.MagMixingSteps:
             i = i + 1
             theRig.VibrationStart(param.MagSweepTime, param.MagStartFreq, param.MagEndFreq, param.MagCycles)
-            print 'Mixing Step:', i-1
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i-1
             time.sleep(param.MagMixingPause)
 
         #Move to ASV Chamber
-        print 'Moving Sandwiches to ASV Chamber with',param.MoveVol,'uL @',param.MoveRate,'uL/min, press ctrl+c to quit'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Moving Sandwiches to ASV Chamber with',param.MoveVol,'uL @',param.MoveRate,'uL/min'
         theRig.ValveOpen('V3')
         time.sleep(0.5)
         theRig.ValveClose('V1')
@@ -326,7 +329,7 @@ def assay(theRig):
             raw_input('Press enter to continue')
 
         #PreFill Mix Chamber to stop bubbles
-        print 'Priming Waste & Mixing Channels with Electrolyte'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Priming Waste & Mixing Channels with Electrolyte'
         theRig.ValveClose('V3')
         time.sleep(0.5)
         theRig.ValveClose('V4')
@@ -341,7 +344,7 @@ def assay(theRig):
         time.sleep(30)
 
         #Fill ASV Chamber with Electrolyte
-        print'Filling ASV Chamber with',param.ElecVol,'uL of Electrolyte at',param.ElecRate,'uL/min, press ctrl+c to quit'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with',param.ElecVol,'uL of Electrolyte at',param.ElecRate,'uL/min'
         theRig.ValveClose('V4')
         time.sleep(0.5)
         theRig.ValveOpen('V3')
@@ -352,14 +355,14 @@ def assay(theRig):
             raw_input('Press enter to continue')
 
         #RUN ASV
-        print 'Wetting Electrode for', param.PreASVWait, "seconds"
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Wetting Electrode for', param.PreASVWait, 'seconds'
         time.sleep(param.PreASVWait)
-        print 'Running ASV'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Running ASV'
         theRig.RunASV()
-        print 'Saving ASV'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Saving ASV'
         theRig.SaveASV(filepath,folder,filename)
 
-        print 'Assay Complete!'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Assay Complete!'
         stopAll(theRig)
         beep()
         time.sleep(0.1)
@@ -561,8 +564,6 @@ def main():
 
         db.setDebug(Debug)
 
-        print ('Test Card v'+VERSION)
-
         # Import Configuration from setup file
         config = ConfigParser.ConfigParser()
         config.read('setup.ini')
@@ -596,10 +597,12 @@ def main():
                 folder = ''
                 done=False
                 while folder =='':
+                        print time.strftime("%b %d %Y", time.localtime())
                         folder = raw_input('Enter Output Folder Name (then press ENTER):')
 
                 while not done:
                         print 'Output will be saved in: {}\{}\ '.format(filepath, folder)
+                        print time.strftime("%H:%M:%S", time.localtime())
                         a=raw_input('key to start: (a)ssay, (p)rime, (c)hange folder name, pa(r)se folder, a(i)r reset, (m)anual operation, (q)uit\n')
                         # secretly, we can also turn debug messages on and off with 'd'
                         try:
