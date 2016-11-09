@@ -267,7 +267,7 @@ def assay(theRig):
 
         #Mix Sandwiches
         i = 1
-        print 'Mixing/Washing Full Sandwiches'
+        print 'Mixing/Washing Half Sandwiches'
         theRig.MagnetRetract()
         while i <= param.MagMixingSteps:
             i = i + 1
