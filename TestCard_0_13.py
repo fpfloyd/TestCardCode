@@ -207,13 +207,13 @@ def assay(theRig):
             raw_input('Press enter to continue')
 
         #Empty Chamber
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with',param.WashoutVol50,'uL @',param.WashoutRate50,'uL/min'
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with',param.WashoutVol100,'uL @',param.WashoutRate100,'uL/min'
         theRig.ValveOpen('V2')
         time.sleep(0.5)
         theRig.ValveClose('V1')
         time.sleep(0.5)
-        theRig.PumpStart('B2', param.WashoutRate50, param.WashoutVol50)
-        time.sleep(param.WashoutTime50)
+        theRig.PumpStart('B2', param.WashoutRate100, param.WashoutVol100)
+        time.sleep(param.WashoutTime100)
         if Pause == True:
             raw_input('Press enter to continue')
 
@@ -286,13 +286,13 @@ def assay(theRig):
             raw_input('Press enter to continue')
 
         #Empty Chamber
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with',param.WashoutVol50,'uL @',param.WashoutRate50,'uL/min '
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with',param.WashoutVol100,'uL @',param.WashoutRate100,'uL/min '
         theRig.ValveOpen('V2')
         time.sleep(0.5)
         theRig.ValveClose('V1')
         time.sleep(0.5)
-        theRig.PumpStart('B2', param.WashoutRate50, param.WashoutVol50)
-        time.sleep(param.WashoutTime50)
+        theRig.PumpStart('B2', param.WashoutRate100, param.WashoutVol100)
+        time.sleep(param.WashoutTime100)
         if Pause == True:
             raw_input('Press enter to continue')
 

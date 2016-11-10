@@ -10,7 +10,7 @@ PrimeRate=100
 B1PrimeVol=0
 B2PrimeVol=0
 B3PrimeVol=0
-B4PrimeVol=22
+B4PrimeVol=25
 B5PrimeVol=30
 
 
@@ -64,7 +64,7 @@ ElecVol=40           #Electrolyte Flow Time (sec)
 #ASV PARAMETERS
 PreASVWait = 600
 DissTime = 30
-DissVolt = 1.1
+DissVolt = 1.3
 DepoTime = 120
 DepoVolt = -1.0
 StartSweep = -1
