@@ -573,9 +573,9 @@ def main():
         config.sections()
 
         # Configure the Arduinos
-        # (valve controller, Magnet Controller, Vibration Controller, Potentiostat)
-        theRig=TestCardRig(config.get('ArduinoSetup','ComValve'),config.get('ArduinoSetup','ComMag'),
-                           config.get('ArduinoSetup','ComVib'),config.get('ArduinoSetup','ComASV'))
+        # (VibVal controller, Magnet Controller, Potentiostat)
+        theRig=TestCardRig(config.get('ArduinoSetup','ComVibVal'),config.get('ArduinoSetup','ComMag'),
+                           config.get('ArduinoSetup','ComASV'))
 
         # Configure the pumps
         theRig.PumpConfigure('B1',config.get('SyringeSetup','ComB1'),config.get('SyringeSetup','DiameterB1'))
