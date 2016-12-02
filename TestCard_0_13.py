@@ -68,10 +68,10 @@ def assay(theRig):
         print time.strftime('%H:%M:%S -', time.localtime()), 'Priming Blister Channels'
         #theRig.PumpStart('B1', param.PrimeRate, param.B1PrimeVol)
         #time.sleep(param.B1PrimeTime)
+        #theRig.PumpStart('B6', param.PrimeRate, param.B6PrimeVol)
+        #time.sleep(B6PrimeTime)
         #theRig.PumpStart('B2', param.PrimeRate, param.B2PrimeVol)
-        #time.sleep(B2PrimeTime)
-        #theRig.PumpStart('B3', param.PrimeRate, param.B3PrimeVol)
-        #time.sleep(param.B3PrimeTime)
+        #time.sleep(param.B2PrimeTime)
         theRig.PumpStart('B4', param.PrimeRate, param.B4PrimeVol)
         time.sleep(param.B4PrimeTime)
         theRig.PumpStart('B5', param.PrimeRate, param.B5PrimeVol)
@@ -86,12 +86,12 @@ def assay(theRig):
         theRig.ValveClose('V4')
         time.sleep(0.5)
         theRig.ValveOpen('V2')
-        theRig.PumpStart('B3',param.ElecRate,25)  #MAKE THIS PARAMETER
+        theRig.PumpStart('B2',param.ElecRate,25)  #MAKE THIS PARAMETER
         time.sleep(8)
         theRig.ValveOpen('V1')
         time.sleep(0.5)
         theRig.ValveClose('V2')
-        theRig.PumpStart('B3',param.ElecRate,25)  #MAKE THIS PARAMETER
+        theRig.PumpStart('B2',param.ElecRate,25)  #MAKE THIS PARAMETER
         time.sleep(30)
 
         #Prime ASV Channel
@@ -103,7 +103,7 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.ValveClose('V2')
         time.sleep(0.5)
-        theRig.PumpStart('B3', param.ASVPrimeRate, param.ASVPrimeVol)
+        theRig.PumpStart('B2', param.ASVPrimeRate, param.ASVPrimeVol)
         time.sleep(param.ASVPrimeTime)
         if Pause == True:
             raw_input('Press enter to continue')
@@ -118,7 +118,7 @@ def assay(theRig):
         theRig.ValveClose('V1')
         time.sleep(0.5)
         theRig.ValveOpen('V4')
-        theRig.PumpStart('B2', param.WashoutRate50, param.WashoutVol50)
+        theRig.PumpStart('B6', param.WashoutRate50, param.WashoutVol50)
         time.sleep(param.WashoutTime50)
         if Pause == True:
             raw_input('Press enter to continue')
@@ -177,7 +177,7 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.ValveClose('V1')
         time.sleep(0.5)
-        theRig.PumpStart('B2', param.WashoutRate100, param.WashoutVol100)
+        theRig.PumpStart('B6', param.WashoutRate100, param.WashoutVol100)
         time.sleep(param.WashoutTime100)
         if Pause == True:
             raw_input('Press enter to continue')
@@ -218,7 +218,7 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.ValveClose('V1')
         time.sleep(0.5)
-        theRig.PumpStart('B2', param.WashoutRate100, param.WashoutVol100)
+        theRig.PumpStart('B6', param.WashoutRate100, param.WashoutVol100)
         time.sleep(param.WashoutTime100)
         if Pause == True:
             raw_input('Press enter to continue')
@@ -261,7 +261,7 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.ValveClose('V1')
         time.sleep(0.5)
-        theRig.PumpStart('B2', param.WashoutRate50, param.WashoutVol50)
+        theRig.PumpStart('B6', param.WashoutRate50, param.WashoutVol50)
         time.sleep(param.WashoutTime50)
         if Pause == True:
             raw_input('Press enter to continue')
@@ -302,7 +302,7 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.ValveClose('V1')
         time.sleep(0.5)
-        theRig.PumpStart('B2', param.WashoutRate100, param.WashoutVol100)
+        theRig.PumpStart('B6', param.WashoutRate100, param.WashoutVol100)
         time.sleep(param.WashoutTime100)
         if Pause == True:
             raw_input('Press enter to continue')
@@ -336,7 +336,7 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.ValveClose('V1')
         time.sleep(0.5)
-        theRig.PumpStart('B2',param.MoveRate,param.MoveVol)
+        theRig.PumpStart('B6',param.MoveRate,param.MoveVol)
         time.sleep(param.MoveTime)
         if Pause == True:
             raw_input('Press enter to continue')
@@ -348,12 +348,12 @@ def assay(theRig):
         theRig.ValveClose('V4')
         time.sleep(0.5)
         theRig.ValveOpen('V2')
-        theRig.PumpStart('B3',param.ElecRate,10) #MAKE PARAMETER
+        theRig.PumpStart('B2',param.ElecRate,10) #MAKE PARAMETER
         time.sleep(8)
         theRig.ValveOpen('V1')
         time.sleep(0.5)
         theRig.ValveClose('V2')
-        theRig.PumpStart('B3',param.ElecRate,20) #MAKE PARAMETER
+        theRig.PumpStart('B2',param.ElecRate,20) #MAKE PARAMETER
         time.sleep(30)
 
         #Fill ASV Chamber with Electrolyte
@@ -362,7 +362,7 @@ def assay(theRig):
         theRig.ValveClose('V4')
         time.sleep(0.5)
         theRig.ValveOpen('V3')
-        theRig.PumpStart('B3',param.ElecRate, param.ElecVol)
+        theRig.PumpStart('B2',param.ElecRate, param.ElecVol)
         theRig.ValveClose('V1')
         time.sleep(param.ElecTime-5)
         if Pause == True:
@@ -393,9 +393,9 @@ def airReset(theRig):
         ans = raw_input('Ensure card is removed from rig and press Enter')
         theRig.ValveOpen('V4')
         time.sleep(0.5)
-        theRig.PumpStart('B2', 1800, -1000)
+        theRig.PumpStart('B6', 1800, -1000)
         time.sleep(35)
-        theRig.PumpRate('B2', 100)
+        theRig.PumpRate('B6', 100)
         return
 
 
@@ -414,12 +414,12 @@ def prime(theRig):
                 theRig.PumpStop('B1')
                 stopAll(theRig)
 
-        ans=raw_input('Prime B3 path?')
+        ans=raw_input('Prime B2 path?')
         if (len(ans)>0) and ans[0]=='y':
                 raw_input('Press enter to start')
-                theRig.PumpStart('B3',300)
-                raw_input('press enter to stop B3')
-                theRig.PumpStop('B3')
+                theRig.PumpStart('B2',300)
+                raw_input('press enter to stop B2')
+                theRig.PumpStop('B2')
                 stopAll(theRig)
 
         ans=raw_input('Prime B4 path?')
@@ -580,9 +580,10 @@ def main():
         # Configure the pumps
         theRig.PumpConfigure('B1',config.get('SyringeSetup','ComB1'),config.get('SyringeSetup','DiameterB1'))
         theRig.PumpConfigure('B2',config.get('SyringeSetup','ComB2'),config.get('SyringeSetup','DiameterB2'))
-        theRig.PumpConfigure('B3',config.get('SyringeSetup','ComB3'),config.get('SyringeSetup','DiameterB3'))
+        theRig.PumpConfigure('B3',config.get('SyringeSetup', 'ComB3'), config.get('SyringeSetup', 'DiameterB3'))
         theRig.PumpConfigure('B4',config.get('SyringeSetup','ComB4'),config.get('SyringeSetup','DiameterB4'))
         theRig.PumpConfigure('B5',config.get('SyringeSetup','ComB5'),config.get('SyringeSetup','DiameterB5'))
+        theRig.PumpConfigure('B6',config.get('SyringeSetup', 'ComB6'), config.get('SyringeSetup', 'DiameterB6'))
         #theRig.PumpConfigure('B6',config.get('SyringePumpSetup','ComB6'),config.get('SyringeSetup','DiameterB6'))
 
         # Configure the valves. These numbers are the digital output line of the Arduino.
