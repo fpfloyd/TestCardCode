@@ -16,7 +16,7 @@ import DebugFunctions as db
 import serial
 import time
 
-class Vibration:
+class VibVal:
 
         theComPort=""
         theConnection=None

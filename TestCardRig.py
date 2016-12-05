@@ -13,8 +13,7 @@
 #               v0.4    20160928        Added ASV and Haptic Motor Control
 import DebugFunctions as db
 from SyringePump import SyringePump
-from Valves import Valves
-from Vibration import Vibration
+from VibVal import VibVal
 from Magnet import Magnet
 from ASV import ASV
 from ASV_CLS_Parse import ParseASV
@@ -30,30 +29,25 @@ class TestCardRig:
         theSentriesInverse={}
         thePotentiostat={}
         theParser={}
-        theValveController=None
 
-        def __init__(self, valvecom,magcom,vibcom,asvcom):
+        def __init__(self, vvcom,magcom,asvcom):
                 # Need four syringe pumps, which we'll access by name
                 
                 # Now we need access to the valves
-                self.theValveController=Valves(valvecom)
                 self.theMagnetController=Magnet(magcom)
-                self.theVibrationController=Vibration(vibcom)
+                self.theVibValController=VibVal(vvcom)
                 self.thePotentiostat=ASV(asvcom)
                 self.theParser=ParseASV()
                 
         def Connect(self):
                 success=True
 
-                if not self.theValveController.Connect():
-                        db.PrintDebug("Could not connect Valves")
-                        success=False
 
                 if not self.theMagnetController.Connect():
                         db.PrintDebug("Could not connect to Magnet")
                         success=False
 
-                if not self.theVibrationController.Connect():
+                if not self.theVibValController.Connect():
                         db.PrintDebug("Cound not connect to Mixer")
                         success = False
 
@@ -66,7 +60,9 @@ class TestCardRig:
         def Disconnect(self):
                 for p in self.thePumps:
                         self.thePumps[p].Disconnect()
-                self.theValveController.Disconnect()
+                self.theVibValController.Disconnect()
+                self.thePotentiostat.Disconnect()
+                self.theMagnetController.Disconnect()
 
         def PumpConfigure(self,which,port,diameter):
                 db.PrintDebug("Configure pump "+port+" to diameter "+str(diameter))
@@ -125,14 +121,14 @@ class TestCardRig:
         def ValveOpen(self,which):
                 if which in self.theValves:
                         db.PrintDebug("Valve Open "+which)
-                        self.theValveController.Open(self.theValves[which])
+                        self.theVibValController.Open(self.theValves[which])
                 else:
                         db.PrintDebug("FAIL No valve "+which)
 
         def ValveClose(self,which):
                 if which in self.theValves:
                         db.PrintDebug("Valve Close "+which)
-                        self.theValveController.Close(self.theValves[which])
+                        self.theVibValController.Close(self.theValves[which])
                 else:
                         db.PrintDebug("FAIL No valve "+which)
 
@@ -154,7 +150,7 @@ class TestCardRig:
 
         def VibrationStart(self,SweepTime,StartFreq,EndFreq,TotalCycles):
                 db.PrintDebug("Vibrating Mixer")
-                self.theVibrationController.Vibrate(SweepTime,StartFreq,EndFreq,TotalCycles)
+                self.theVibValController.Vibrate(SweepTime,StartFreq,EndFreq,TotalCycles)
 
         def SetupASV(self,DissVolt,DissTime,DepoVolt,DepoTime,StartSweep,EndSweep,SweepStep,SweepInc):
                 db.PrintDebug("Passing ASV Parameters")
