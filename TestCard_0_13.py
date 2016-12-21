@@ -31,9 +31,9 @@ import DebugFunctions as db
 from TestCardRig import TestCardRig
 
 Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
-Fakeout = True #Fakeout connections, use for debugging without full test rig
+Fakeout = False #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
-filepath = '/Users/fredfloyd/Desktop/C1_Output'
+filepath = 'c:\C1_Output'
 
 
 ##########
@@ -81,17 +81,19 @@ def assay(theRig):
 
         #PreFill Mix Chamber with Electrolyte to Stop Bubbles
         print time.strftime('%H:%M:%S -', time.localtime()), 'Priming Waste & Mixing Channels with Electrolyte'
+        theRig.ValveClose('V1')
+        time.sleep(0.5)
         theRig.ValveClose('V3')
         time.sleep(0.5)
         theRig.ValveClose('V4')
         time.sleep(0.5)
         theRig.ValveOpen('V2')
-        theRig.PumpStart('B2',param.ElecRate,25)  #MAKE THIS PARAMETER
+        theRig.PumpStart('B2',param.ElecRate,15)  #MAKE THIS PARAMETER
         time.sleep(8)
         theRig.ValveOpen('V1')
         time.sleep(0.5)
         theRig.ValveClose('V2')
-        theRig.PumpStart('B2',param.ElecRate,25)  #MAKE THIS PARAMETER
+        theRig.PumpStart('B2',param.ElecRate,15)  #MAKE THIS PARAMETER
         time.sleep(30)
 
         #Prime ASV Channel
@@ -516,9 +518,9 @@ def connect(theRig):
 ##########
 def disconnect(theRig):
         theRig.AllPumpsStop()
+        theRig.MagnetHome()
         theRig.AllValvesClose() 
         theRig.Disconnect()
-        theRig.MagnetHome()
 
 ##########
 #
@@ -580,7 +582,7 @@ def main():
         # Configure the pumps
         theRig.PumpConfigure('B1',config.get('SyringeSetup','ComB1'),config.get('SyringeSetup','DiameterB1'))
         theRig.PumpConfigure('B2',config.get('SyringeSetup','ComB2'),config.get('SyringeSetup','DiameterB2'))
-        theRig.PumpConfigure('B3',config.get('SyringeSetup', 'ComB3'), config.get('SyringeSetup', 'DiameterB3'))
+        #theRig.PumpConfigure('B3',config.get('SyringeSetup', 'ComB3'), config.get('SyringeSetup', 'DiameterB3'))
         theRig.PumpConfigure('B4',config.get('SyringeSetup','ComB4'),config.get('SyringeSetup','DiameterB4'))
         theRig.PumpConfigure('B5',config.get('SyringeSetup','ComB5'),config.get('SyringeSetup','DiameterB5'))
         theRig.PumpConfigure('B6',config.get('SyringeSetup', 'ComB6'), config.get('SyringeSetup', 'DiameterB6'))

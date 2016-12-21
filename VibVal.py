@@ -57,14 +57,14 @@ class VibVal:
                 db.PrintDebug("Opening valve " + str(which))
                 if (self.theConnection):
                         self.theConnection.flushInput()
-                        self.theConnection.write(str(which) + ",1\r")  # arduino looks for \r
+                        self.theConnection.write("vlv "+str(which)+" 1\r\n")  # arduino looks for \r
                         #                       db.PrintDebug(self.theConnection.readline())
 
         def Close(self, which):
                 db.PrintDebug("Closing valve " + str(which))
                 if (self.theConnection):
                         self.theConnection.flushInput()
-                        self.theConnection.write(str(which) + ",0\r")  # arduino looks for \r
+                        self.theConnection.write("vlv "+str(which)+" 0\r\n")  # arduino looks for \r
 
         def Vibrate(self,SweepTime,StartFreq,EndFreq,TotalCycles):
                 db.PrintDebug("Vibrating Mixer")
