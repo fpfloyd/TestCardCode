@@ -10,8 +10,8 @@ PrimeRate=100
 B1PrimeVol=0
 B2PrimeVol=0
 B3PrimeVol=0
-B4PrimeVol=25
-B5PrimeVol=30
+B4PrimeVol=9
+B5PrimeVol=8
 
 
 #ASV PRIME PARAMETERS
@@ -28,21 +28,21 @@ MagFlowVol=50           #Mag Bead volume (uL)
 
 #MIX PARAMETERS
 MagSweepTime = 30       #Magnet Mixing Sweep Time (sec)
-MagStartFreq = 100      #Magnet Mixing Start Frequency (hz)
-MagEndFreq = 200        #Magnet Mixing End Frequency  (hz)
+MagStartFreq = 80       #Magnet Mixing Start Frequency (hz)
+MagEndFreq = 125        #Magnet Mixing End Frequency  (hz)
 MagCycles = 2           #Number of Sweep Cycles
 MagMixingSteps = 1      #Number of mixing steps
-MagMixingInc = 300      #Time between mag mixing steps (sec)
-SilverMixingInc = 900  #Time between Silver Mixing Steps (sec)
+MagMixingInc = 30       #Time between mag mixing steps (sec)
+SilverMixingInc = 30    #Time between Silver Mixing Steps (sec)
 MagMixingPause = (MagCycles * MagSweepTime) + 10 #Sweep Time is not exact
 
 #PULLDOWN AND WASHOUT PARAMETERS
-PulldownTime=60         #Time for mags to pull down
+PulldownTime=40         #Time for mags to pull down
 WashoutRate100=100      #Air flowrate for 100 uL(uL/min)
-WashoutVol100=125       #Air Volume for 100 uL (uL)
+WashoutVol100=160       #Air Volume for 100 uL (uL)
 PulldownTime1=10        #Time for mags to pull down
 WashoutRate50=100       #Air flowrate (uL/min)
-WashoutVol50=75         #Air volume for 50uL (uL/min)
+WashoutVol50=110        #Air volume for 50uL (uL/min)
 
 #WASH PARAMETERS
 WashRate=100
@@ -57,7 +57,7 @@ SilverVol=50
 SandwichRate=100     #Sandwich Resuspension Flowrate (uL/min)
 SandwichVol=50       #Sandwich Resuspension Time (sec)
 MoveRate=50          #Sandwich Move Flowrate (uL/min)
-MoveVol=100          #Sandwich Move Flow Time (sec)
+MoveVol=125          #Sandwich Move Flow Time (sec)
 ElecRate=50          #Electrolyte Flowrate (uL/min)
 ElecVol=40           #Electrolyte Flow Time (sec)
 
@@ -66,7 +66,7 @@ PreASVWait = 600
 DissTime = 30
 DissVolt = 1.3
 DepoTime = 120
-DepoVolt = -1.0
+DepoVolt = -1.3
 StartSweep = -1
 EndSweep = 0.1
 SweepStep = 100
