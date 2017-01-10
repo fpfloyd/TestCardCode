@@ -32,8 +32,8 @@ MagStartFreq = 80       #Magnet Mixing Start Frequency (hz)
 MagEndFreq = 125        #Magnet Mixing End Frequency  (hz)
 MagCycles = 2           #Number of Sweep Cycles
 MagMixingSteps = 1      #Number of mixing steps
-MagMixingInc = 30       #Time between mag mixing steps (sec)
-SilverMixingInc = 30    #Time between Silver Mixing Steps (sec)
+MagMixingInc = 3        #Time between mag mixing steps (sec)
+SilverMixingInc = 3     #Time between Silver Mixing Steps (sec)
 MagMixingPause = (MagCycles * MagSweepTime) + 10 #Sweep Time is not exact
 
 #PULLDOWN AND WASHOUT PARAMETERS

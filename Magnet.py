@@ -45,6 +45,11 @@ class Magnet:
 
                 return success
 
+        def Configure(self,MagEngage):
+                global magSteps
+                magSteps = float(MagEngage)
+
+
         def Disconnect(self):
                 db.PrintDebug("Disconnecting Magnet on port "+str(self.theComPort))
                 if (self.theListenThread):
@@ -59,16 +64,24 @@ class Magnet:
                         self.theConnection.flushInput()
                         self.theConnection.write("fmov 2 500 b f \r\n") # arduino looks for \r
                         time.sleep(1)
-                        self.theConnection.write("fmov 2 35 b s \r\n")
+                        self.theConnection.write("fmov 2 500 b s \r\n")
 
 
         def Engage(self):
+                global magSteps
                 db.PrintDebug("Engaging Magnet")
                 if (self.theConnection):
                         self.theConnection.flushInput()
-                        self.theConnection.write("fmov 2 500 f f \r\n")
-                        time.sleep(1)
-                        self.theConnection.write("fmov 2 120 f s \r\n")
+                        if magSteps > 1000:
+                                'Magnet Engagement Too High'
+                                return False
+                        if magSteps > 500:
+                                magSteps = magSteps - 500
+                                self.theConnection.write("fmov 2 500 f f \r\n")
+                                time.sleep(1)
+                                self.theConnection.write("fmov 2 " + str(magSteps) + " f s \r\n")
+                        if magSteps < 500:
+                                self.theConnection.write("fmov 2 " + str(magSteps) + " f s \r\n")
 
         def Home(self):
                 db.PrintDebug("Homing Magnet")
