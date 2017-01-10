@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cf655bb6-4445-4077-9ad6-ab7e86028693" name="Default" comment="Added Stop and Push to V2">
+    <list default="true" id="cf655bb6-4445-4077-9ad6-ab7e86028693" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Magnet.py" afterPath="$PROJECT_DIR$/Magnet.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestCardRig.py" afterPath="$PROJECT_DIR$/TestCardRig.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestCard_0_13.py" afterPath="$PROJECT_DIR$/TestCard_0_13.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VibVal.py" afterPath="$PROJECT_DIR$/VibVal.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/param.py" afterPath="$PROJECT_DIR$/param.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.ini" afterPath="$PROJECT_DIR$/setup.ini" />
     </list>
     <ignored path="TestCardCode.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,8 +78,8 @@
       <file leaf-file-name="TestCard_0_13.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestCard_0_13.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7515">
-              <caret line="533" column="10" lean-forward="true" selection-start-line="533" selection-start-column="10" selection-end-line="533" selection-end-column="10" />
+            <state relative-caret-position="285">
+              <caret line="53" column="2" lean-forward="true" selection-start-line="53" selection-start-column="2" selection-end-line="53" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -570,7 +564,14 @@
       <option name="project" value="LOCAL" />
       <updated>1483646089075</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Added Ability to Retract Vibration Tip Using Servo">
+      <created>1484081905365</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1484081905365</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -646,7 +647,8 @@
     <MESSAGE value="Updated for new blister layout" />
     <MESSAGE value="Updated Code for B2.5" />
     <MESSAGE value="Added Stop and Push to V2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Stop and Push to V2" />
+    <MESSAGE value="Added Ability to Retract Vibration Tip Using Servo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Ability to Retract Vibration Tip Using Servo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -824,8 +826,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TestCard_0_13.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7515">
-          <caret line="533" column="10" lean-forward="true" selection-start-line="533" selection-start-column="10" selection-end-line="533" selection-end-column="10" />
+        <state relative-caret-position="285">
+          <caret line="53" column="2" lean-forward="true" selection-start-line="53" selection-start-column="2" selection-end-line="53" selection-end-column="2" />
           <folding />
         </state>
       </provider>
