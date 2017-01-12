@@ -145,17 +145,18 @@ def assay(theRig):
         # Mix and Incubate Mags
         if param.EvenlySpaced == True:
             i = 2
-            print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing and Incubating Mags for ', \
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing and Incubating Mags for', \
                 str(param.MagMixingInc), 'seconds'
             while i <= param.MagMixingSteps:
                 i = i + 1
-                time.sleep(param.MagMixingInc / (param.MagMixingSteps-1))
+                time.sleep((param.MagMixingInc / (param.MagMixingSteps-1))-param.MagMixingPause)
                 print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i - 1, 'of', param.MagMixingSteps
                 theRig.VibrationStart(param.MagSweepTime, param.MagStartFreq, param.MagEndFreq, param.MagCycles)
+                time.sleep(param.MagMixingPause)
 
         if param.EvenlySpaced == False:
             i = 2
-            print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing and Incubating Mags for ', \
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing and Incubating Mags for', \
                 str(param.MagMixingInc), 'seconds'
             while i <= param.MagMixingSteps:
                 i = i + 1

@@ -27,13 +27,13 @@ MagFlowRate=100         #Flowrate for mag beads being pushed into mixing chamber
 MagFlowVol=50           #Mag Bead volume (uL)
 
 #MAG MIX PARAMETERS
-EvenlySpaced = False
+EvenlySpaced = True
 MagSweepTime = 30       #Magnet Mixing Sweep Time (sec)
 MagStartFreq = 60       #Magnet Mixing Start Frequency (hz)
 MagEndFreq = 90         #Magnet Mixing End Frequency  (hz)
 MagCycles = 1           #Number of Sweep Cycles per Sweep Step
 MagMixingSteps = 2      #Number of mixing steps
-MagMixingInc = 100      #Mag Incubation Time (sec)
+MagMixingInc = 300      #Mag Incubation Time (sec)
 MagMixingPause = (MagCycles * MagSweepTime) + 10 #Sweep Time is not exact
 ### Is the Mag Sweep Time Independent of Cycles?? ###
 
