@@ -27,21 +27,22 @@ MagFlowRate=100         #Flowrate for mag beads being pushed into mixing chamber
 MagFlowVol=50           #Mag Bead volume (uL)
 
 #MAG MIX PARAMETERS
+EvenlySpaced = False
 MagSweepTime = 30       #Magnet Mixing Sweep Time (sec)
 MagStartFreq = 60       #Magnet Mixing Start Frequency (hz)
 MagEndFreq = 90         #Magnet Mixing End Frequency  (hz)
-MagCycles = 1           #Number of Sweep Cycles
-MagMixingSteps = 4      #Number of mixing steps
-MagMixingInc = 300      #Mag Incubation Time (sec)
+MagCycles = 1           #Number of Sweep Cycles per Sweep Step
+MagMixingSteps = 2      #Number of mixing steps
+MagMixingInc = 100      #Mag Incubation Time (sec)
 MagMixingPause = (MagCycles * MagSweepTime) + 10 #Sweep Time is not exact
-### Is the Mag Sweep Time Independent of Cycles??
+### Is the Mag Sweep Time Independent of Cycles?? ###
 
 #SILVER MIX PARAMETERS
 SilverSweepTime = 30
 SilverStartFreq = 60
 SilverEndFreq = 80
 SilverCycles = 1
-SilverMixingSteps= 4    #Number of Silver Mixing Steps
+SilverMixingSteps= 30    #Number of Silver Mixing Steps
 SilverMixingInc = 3     #Silver Incubation Time (sec)
 SilverMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exact
 
