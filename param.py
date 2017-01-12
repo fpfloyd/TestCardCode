@@ -26,15 +26,32 @@ PlasmaPushVol=71        #Plasma Push Volume (uL)
 MagFlowRate=100         #Flowrate for mag beads being pushed into mixing chamber (uL/min)
 MagFlowVol=50           #Mag Bead volume (uL)
 
-#MIX PARAMETERS
+#MAG MIX PARAMETERS
 MagSweepTime = 30       #Magnet Mixing Sweep Time (sec)
-MagStartFreq = 80       #Magnet Mixing Start Frequency (hz)
-MagEndFreq = 125        #Magnet Mixing End Frequency  (hz)
-MagCycles = 2           #Number of Sweep Cycles
-MagMixingSteps = 1      #Number of mixing steps
-MagMixingInc = 3        #Time between mag mixing steps (sec)
-SilverMixingInc = 3     #Time between Silver Mixing Steps (sec)
+MagStartFreq = 60       #Magnet Mixing Start Frequency (hz)
+MagEndFreq = 90         #Magnet Mixing End Frequency  (hz)
+MagCycles = 1           #Number of Sweep Cycles
+MagMixingSteps = 4      #Number of mixing steps
+MagMixingInc = 300      #Mag Incubation Time (sec)
 MagMixingPause = (MagCycles * MagSweepTime) + 10 #Sweep Time is not exact
+### Is the Mag Sweep Time Independent of Cycles??
+
+#SILVER MIX PARAMETERS
+SilverSweepTime = 30
+SilverStartFreq = 60
+SilverEndFreq = 80
+SilverCycles = 1
+SilverMixingSteps= 4    #Number of Silver Mixing Steps
+SilverMixingInc = 3     #Silver Incubation Time (sec)
+SilverMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exact
+
+#Other MIX PARAMETERS
+OtherSweepTime = 30
+OtherStartFreq = 60
+OtherEndFreq = 80
+OtherCycles = 1
+OtherMixingSteps= 1   #Number of Silver Mixing Steps
+OtherMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exact
 
 #PULLDOWN AND WASHOUT PARAMETERS
 PulldownTime=40         #Time for mags to pull down

@@ -77,15 +77,8 @@ class VibVal:
                 db.PrintDebug('vswp '+str(SweepTime)+' '+str(StartFreq)+' '+str(EndFreq)+' '+str(TotalCycles)+'\r\n')
                 if (self.theConnection):
                         self.theConnection.flushInput()
-                        self.theConnection.write("enga " + VibEngageAng + " \r\n")
-                        time.sleep(1)
-                        self.theConnection.flushInput()
                         self.theConnection.flushOutput()
                         self.theConnection.write("vswp "+str(SweepTime)+" "+str(StartFreq)+" "+str(EndFreq)+" "+str(TotalCycles)+"\r\n")
-                        time.sleep(SweepTime*TotalCycles+10)
-                        self.theConnection.flushInput()
-                        self.theConnection.write("enga " + VibRetractAng + " \r\n")
-                        time.sleep(2)
 
         def Engage(self):
                 global VibEngageAng
