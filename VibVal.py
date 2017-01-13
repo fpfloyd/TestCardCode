@@ -80,16 +80,3 @@ class VibVal:
                         self.theConnection.flushOutput()
                         self.theConnection.write("vswp "+str(SweepTime)+" "+str(StartFreq)+" "+str(EndFreq)+" "+str(TotalCycles)+"\r\n")
 
-        def Engage(self):
-                global VibEngageAng
-                db.PrintDebug("Engaging Vibration Tip")
-                if (self.theConnection):
-                        self.theConnection.flushInput()
-                        self.theConnection.write("enga " + VibEngageAng + " \r\n")
-
-        def Retract(self):
-                global VibEngageAng
-                db.PrintDebug("Retracting Vibration Tip")
-                if (self.theConnection):
-                        self.theConnection.flushInput()
-                        self.theConnection.write("enga " + VibRetractAng + " \r\n")

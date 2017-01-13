@@ -58,7 +58,7 @@ class Magnet:
                 if (self.theConnection):
                         self.theConnection.close()
 
-        def Retract(self):
+        def MagRetract(self):
                 db.PrintDebug("Retracting Magnet")
                 if (self.theConnection):
                         self.theConnection.flushInput()
@@ -67,7 +67,7 @@ class Magnet:
                         self.theConnection.write("fmov 2 500 b s \r\n")
 
 
-        def Engage(self):
+        def MagEngage(self):
                 global magSteps
                 db.PrintDebug("Engaging Magnet")
                 if (self.theConnection):
@@ -83,12 +83,26 @@ class Magnet:
                         if magSteps < 500:
                                 self.theConnection.write("fmov 2 " + str(magSteps) + " f s \r\n")
 
-        def Home(self):
+        def MagHome(self):
                 db.PrintDebug("Homing Magnet")
                 if (self.theConnection):
                         self.theConnection.flushInput()
                         self.theConnection.write("fmov 2 500 b s \r\n")
                         time.sleep(2)
                         self.theConnection.write("fmov 2 500 b s \r\n")
+
+        def VibEngage(self):
+                global VibEngageAng
+                db.PrintDebug("Engaging Vibration Tip")
+                if (self.theConnection):
+                        self.theConnection.flushInput()
+                        self.theConnection.write("serv " + VibEngageAng + " \r\n")
+
+        def VibRetract(self):
+                global VibEngageAng
+                db.PrintDebug("Retracting Vibration Tip")
+                if (self.theConnection):
+                        self.theConnection.flushInput()
+                        self.theConnection.write("serv " + VibRetractAng + " \r\n")
 
 
