@@ -33,6 +33,7 @@ from TestCardRig import TestCardRig
 Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
 Fakeout = False #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
+V2 = True
 filepath = 'C:\C1_Output'
 
 
@@ -132,53 +133,51 @@ def assay(theRig):
         theRig.VibrationStart(param.OtherSweepTime, param.OtherStartFreq, param.OtherEndFreq, param.OtherCycles)
         time.sleep(param.OtherMixingPause)
 
+        if V2 == True:
+                theRig.VibRetract()
+                print time.strftime('%H:%M:%S -', time.localtime()), 'Disconnect Sample Port and Place in Eppendorf Tube, Then Press Enter'
+                raw_input()
+                theRig.AllValvesClose()
+                time.sleep(0.5)
+                theRig.ValveOpen('V4')
+                time.sleep(0.5)
+                print time.strftime('%H:%M:%S -', time.localtime()), 'Draining Sample Through V2 to Eppendorf Tube'
+                theRig.PumpStart('B6', 100, 300)
+                time.sleep(182)
 
-        #Add Mags to Chamber While Mixing
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Mags with',param.MagFlowVol,\
-                'uL @',param.MagFlowRate,'uL/min. Mixing Step:', 1, 'of', param.MagMixingSteps
-        theRig.VibrationStart(param.MagFlowTime,param.MagStartFreq,param.MagEndFreq,param.MagCycles)
-        theRig.PumpStart('B4', param.MagFlowRate, param.MagFlowVol)
-        time.sleep(param.MagFlowTime)
-        if Pause == True:
-            raw_input('Press enter to continue')
 
-        # Mix and Incubate Mags
-        if param.EvenlySpaced == True:
-            i = 2
-            print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing and Incubating Mags for', \
-                str(param.MagMixingInc), 'seconds'
-            while i <= param.MagMixingSteps:
-                i = i + 1
-                time.sleep((param.MagMixingInc / (param.MagMixingSteps-1))-param.MagMixingPause)
-                print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i - 1, 'of', param.MagMixingSteps
-                theRig.VibrationStart(param.MagSweepTime, param.MagStartFreq, param.MagEndFreq, param.MagCycles)
-                time.sleep(param.MagMixingPause)
-
-        if param.EvenlySpaced == False:
-            i = 2
-            print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing and Incubating Mags for', \
-                str(param.MagMixingInc), 'seconds'
-            while i <= param.MagMixingSteps:
-                i = i + 1
-                theRig.VibrationStart(param.MagSweepTime, param.MagStartFreq, param.MagEndFreq, param.MagCycles)
-                print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i - 1, 'of', param.MagMixingSteps
-                time.sleep(param.MagMixingPause)
-            time.sleep(param.MagMixingInc-(param.MagMixingPause*param.MagMixingSteps))
-
-        theRig.VibRetract()
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Disconnect Sample Port and Place in Eppendorf Tube, Then Press Enter'
-        raw_input()
-        theRig.AllValvesClose()
-        time.sleep(0.5)
-        theRig.ValveOpen('V4')
-        time.sleep(0.5)
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Draining Sample Through V2 to Eppendorf Tube'
-        theRig.PumpStart('B6', 100, 300)
-        time.sleep(182)
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Assay Complete'
-        stopAll(theRig)
-        beep()
-
+        # #Add Mags to Chamber While Mixing
+        # print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Mags with',param.MagFlowVol,\
+        #         'uL @',param.MagFlowRate,'uL/min. Mixing Step:', 1, 'of', param.MagMixingSteps
+        # theRig.VibrationStart(param.MagFlowTime,param.MagStartFreq,param.MagEndFreq,param.MagCycles)
+        # theRig.PumpStart('B4', param.MagFlowRate, param.MagFlowVol)
+        # time.sleep(param.MagFlowTime)
+        # if Pause == True:
+        #     raw_input('Press enter to continue')
+        #
+        # # Mix and Incubate Mags
+        # if param.EvenlySpaced == True:
+        #     i = 2
+        #     print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing and Incubating Mags for', \
+        #         str(param.MagMixingInc), 'seconds'
+        #     while i <= param.MagMixingSteps:
+        #         i = i + 1
+        #         time.sleep((param.MagMixingInc / (param.MagMixingSteps-1))-param.MagMixingPause)
+        #         print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i - 1, 'of', param.MagMixingSteps
+        #         theRig.VibrationStart(param.MagSweepTime, param.MagStartFreq, param.MagEndFreq, param.MagCycles)
+        #         time.sleep(param.MagMixingPause)
+        #
+        # if param.EvenlySpaced == False:
+        #     i = 2
+        #     print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing and Incubating Mags for', \
+        #         str(param.MagMixingInc), 'seconds'
+        #     while i <= param.MagMixingSteps:
+        #         i = i + 1
+        #         theRig.VibrationStart(param.MagSweepTime, param.MagStartFreq, param.MagEndFreq, param.MagCycles)
+        #         print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i - 1, 'of', param.MagMixingSteps
+        #         time.sleep(param.MagMixingPause)
+        #     time.sleep(param.MagMixingInc-(param.MagMixingPause*param.MagMixingSteps))
+        #
 
         # # Pulldown Mags
         # print time.strftime('%H:%M:%S -', time.localtime()), 'Pulling Down Mags'
@@ -394,21 +393,22 @@ def assay(theRig):
         # if Pause == True:
         #     raw_input('Press enter to continue')
         #
-        # #Run ASV
-        # print time.strftime('%H:%M:%S -', time.localtime()), 'Wetting Electrode for', param.PreASVWait, 'seconds'
-        # time.sleep(param.PreASVWait)
-        # print time.strftime('%H:%M:%S -', time.localtime()), 'Running ASV'
-        # theRig.RunASV()
-        # print time.strftime('%H:%M:%S -', time.localtime()), 'Saving ASV'
-        # theRig.SaveASV(filepath,folder,filename)
-        #
-        # print time.strftime('%H:%M:%S -', time.localtime()), 'Assay Complete!'
-        # stopAll(theRig)
-        # beep()
-        # time.sleep(0.1)
-        # beep()
-        # time.sleep(0.1)
-        # beep()
+        if V2 == False:
+                #Run ASV
+                print time.strftime('%H:%M:%S -', time.localtime()), 'Wetting Electrode for', param.PreASVWait, 'seconds'
+                time.sleep(param.PreASVWait)
+                print time.strftime('%H:%M:%S -', time.localtime()), 'Running ASV'
+                theRig.RunASV()
+                print time.strftime('%H:%M:%S -', time.localtime()), 'Saving ASV'
+                theRig.SaveASV(filepath,folder,filename)
+
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Assay Complete!'
+        stopAll(theRig)
+        beep()
+        time.sleep(0.1)
+        beep()
+        time.sleep(0.1)
+        beep()
 
 ##########
 #

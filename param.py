@@ -27,7 +27,6 @@ MagFlowRate=100         #Flowrate for mag beads being pushed into mixing chamber
 MagFlowVol=50           #Mag Bead volume (uL)
 
 #MAG MIX PARAMETERS
-EvenlySpaced = True
 MagSweepTime = 30       #Magnet Mixing Sweep Time (sec)
 MagStartFreq = 60       #Magnet Mixing Start Frequency (hz)
 MagEndFreq = 90         #Magnet Mixing End Frequency  (hz)

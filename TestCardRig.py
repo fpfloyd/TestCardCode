@@ -154,7 +154,7 @@ class TestCardRig:
 
         def VibConfigure(self,VibEngage,VibRetract):
                 db.PrintDebug("Configuring Vibration Engage/Retract")
-                self.theVibValController.VibConfigure(VibEngage,VibRetract)
+                self.theMagnetController.VibConfigure(VibEngage,VibRetract)
 
         def VibRetract(self):
                 db.PrintDebug("Rectracting Vibration Tip")

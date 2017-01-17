@@ -91,6 +91,12 @@ class Magnet:
                         time.sleep(2)
                         self.theConnection.write("fmov 2 500 b s \r\n")
 
+        def VibConfigure(self,VibEngage,VibRetract):
+                global VibEngageAng
+                global VibRetractAng
+                VibEngageAng = VibEngage
+                VibRetractAng = VibRetract
+
         def VibEngage(self):
                 global VibEngageAng
                 db.PrintDebug("Engaging Vibration Tip")
