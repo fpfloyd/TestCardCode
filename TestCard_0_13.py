@@ -353,47 +353,46 @@ def assay(theRig):
         #     print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i - 1
         #     theRig.VibrationStart(param.MagSweepTime, param.MagStartFreq, param.MagEndFreq, param.MagCycles)
         #
-        #
-        # #Move to ASV Chamber
-        # print time.strftime('%H:%M:%S -', time.localtime()), 'Moving Sandwiches to ASV Chamber with',\
-        #         param.MoveVol,'uL @',param.MoveRate,'uL/min'
-        # theRig.ValveOpen('V3')
-        # time.sleep(0.5)
-        # theRig.ValveClose('V1')
-        # time.sleep(0.5)
-        # theRig.PumpStart('B6',param.MoveRate,param.MoveVol)
-        # time.sleep(param.MoveTime)
-        # if Pause == True:
-        #     raw_input('Press enter to continue')
-        #
-        # #PreFill Mix Chamber with Electrolyte to Stop Bubbles
-        # print time.strftime('%H:%M:%S -', time.localtime()), 'Priming Waste & Mixing Channels with Electrolyte'
-        # theRig.ValveClose('V3')
-        # time.sleep(0.5)
-        # theRig.ValveClose('V4')
-        # time.sleep(0.5)
-        # theRig.ValveOpen('V2')
-        # theRig.PumpStart('B2',param.ElecRate,10) #MAKE PARAMETER
-        # time.sleep(8)
-        # theRig.ValveOpen('V1')
-        # time.sleep(0.5)
-        # theRig.ValveClose('V2')
-        # theRig.PumpStart('B2',param.ElecRate,20) #MAKE PARAMETER
-        # time.sleep(30)
-        #
-        # #Fill ASV Chamber with Electrolyte
-        # print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with',param.ElecVol,\
-        #         'uL of Electrolyte at',param.ElecRate,'uL/min'
-        # theRig.ValveClose('V4')
-        # time.sleep(0.5)
-        # theRig.ValveOpen('V3')
-        # theRig.PumpStart('B2',param.ElecRate, param.ElecVol)
-        # theRig.ValveClose('V1')
-        # time.sleep(param.ElecTime-5)
-        # if Pause == True:
-        #     raw_input('Press enter to continue')
-        #
         if V2 == False:
+                #Move to ASV Chamber
+                print time.strftime('%H:%M:%S -', time.localtime()), 'Moving Sandwiches to ASV Chamber with',\
+                        param.MoveVol,'uL @',param.MoveRate,'uL/min'
+                theRig.ValveOpen('V3')
+                time.sleep(0.5)
+                theRig.ValveClose('V1')
+                time.sleep(0.5)
+                theRig.PumpStart('B6',param.MoveRate,param.MoveVol)
+                time.sleep(param.MoveTime)
+                if Pause == True:
+                    raw_input('Press enter to continue')
+
+                #PreFill Mix Chamber with Electrolyte to Stop Bubbles
+                print time.strftime('%H:%M:%S -', time.localtime()), 'Priming Waste & Mixing Channels with Electrolyte'
+                theRig.ValveClose('V3')
+                time.sleep(0.5)
+                theRig.ValveClose('V4')
+                time.sleep(0.5)
+                theRig.ValveOpen('V2')
+                theRig.PumpStart('B2',param.ElecRate,10) #MAKE PARAMETER
+                time.sleep(8)
+                theRig.ValveOpen('V1')
+                time.sleep(0.5)
+                theRig.ValveClose('V2')
+                theRig.PumpStart('B2',param.ElecRate,20) #MAKE PARAMETER
+                time.sleep(30)
+
+                #Fill ASV Chamber with Electrolyte
+                print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with',param.ElecVol,\
+                        'uL of Electrolyte at',param.ElecRate,'uL/min'
+                theRig.ValveClose('V4')
+                time.sleep(0.5)
+                theRig.ValveOpen('V3')
+                theRig.PumpStart('B2',param.ElecRate, param.ElecVol)
+                theRig.ValveClose('V1')
+                time.sleep(param.ElecTime-5)
+                if Pause == True:
+                    raw_input('Press enter to continue')
+
                 #Run ASV
                 print time.strftime('%H:%M:%S -', time.localtime()), 'Wetting Electrode for', param.PreASVWait, 'seconds'
                 time.sleep(param.PreASVWait)
