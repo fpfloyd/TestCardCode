@@ -81,9 +81,9 @@ ElecVol=40           #Electrolyte Flow Time (sec)
 #ASV PARAMETERS
 PreASVWait = 600
 DissTime = 30
-DissVolt = 1.3
+DissVolt = 0.8
 DepoTime = 120
-DepoVolt = -1.3
+DepoVolt = -0.9
 StartSweep = -1
 EndSweep = 0.1
 SweepStep = 100
