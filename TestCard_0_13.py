@@ -44,7 +44,12 @@ filepath = '/Users/fredfloyd/Desktop/C1_Output'
 def assay(theRig):
 
         #StartUp
-        filename = raw_input('Enter Filename for ASV Data (then press Enter):')
+        filename = ''
+        while filename == '':
+            filename = raw_input('Enter Filename for ASV Data (then press Enter):')
+            if len(filename)==0:
+                print 'Filename needed'
+
         stopAll(theRig)
         theRig.SetupASV(param.DissVolt,param.DissTime,param.DepoVolt,param.DepoTime,param.StartSweep,
                         param.EndSweep,param.SweepStep,param.SweepInc)
@@ -387,13 +392,42 @@ def assay(theRig):
 ##########
 def airReset(theRig):
         ans = raw_input('Ensure card is removed from rig and press Enter')
+        print 'Resetting Air Syringe'
         theRig.ValveOpen('V4')
         time.sleep(0.5)
         theRig.PumpStart('B6', 1800, -1000)
         time.sleep(35)
+        theRig.PumpStart('B6', 100, 5)
+        time.sleep(3)
         theRig.PumpRate('B6', 100)
         return
 
+
+##########
+#
+# Clean the Valves
+#
+##########
+def clean(theRig):
+        print 'This will guide you through cleaning the valves after use. You should also rinse the reagent tubes with ' \
+              'DI Water followed by air\n'
+        stopAll(theRig)
+        print 'Opening Valve 1'
+        theRig.ValveOpen('V1')
+        raw_input('Wash Valve 1 with DI Water then dry with air, press enter when finished')
+        theRig.ValveClose('V1')
+        print 'Opening Valve 2'
+        time.sleep(0.5)
+        theRig.ValveOpen('V2')
+        raw_input('Wash Valve 2 with DI Water then dry with air, press enter when finished')
+        theRig.ValveClose('V2')
+        print 'Opening Valve 3'
+        time.sleep(0.5)
+        theRig.ValveOpen('V3')
+        raw_input('Wash Valve 3 with DI Water then dry with air, press enter when finished')
+        theRig.ValveClose('V3')
+        print 'Cleaning finished, be sure to clean the reagent lines'
+        time.sleep(2)
 
 ##########
 #
@@ -401,41 +435,55 @@ def airReset(theRig):
 #
 ##########
 def prime(theRig):
-        print('Make Sure Card is Removed from Fixture (or Cleaning Card is in)')
-        ans=raw_input('Prime B1 (Lysis Buffer) path?')
-        if (len(ans)>0) and ans[0]=='y':
-                raw_input('Press enter to start')
-                theRig.PumpStart('B1',300)
-                raw_input('press enter to stop B1')
-                theRig.PumpStop('B1')
-                stopAll(theRig)
+    print 'Ensure Card is Removed from Fixture'
+    done = False
+    while not done:
+        a = raw_input('Choose Channel to Prime: 1, 2, 4, 5, (a)ll or (e)xit')
+        if len(a)==0:
+            pass
+        elif a[0]=='1':
+            raw_input('Press enter to start')
+            theRig.PumpStart('B1',600)
+            raw_input('Press enter to stop B1')
+            theRig.PumpStop('B1')
 
-        ans=raw_input('Prime B2 path?')
-        if (len(ans)>0) and ans[0]=='y':
-                raw_input('Press enter to start')
-                theRig.PumpStart('B2',300)
-                raw_input('press enter to stop B2')
-                theRig.PumpStop('B2')
-                stopAll(theRig)
+        elif a[0]=='2':
+            raw_input('Press enter to start')
+            theRig.PumpStart('B2',600)
+            raw_input('Press enter to stop B2')
+            theRig.PumpStop('B2')
 
-        ans=raw_input('Prime B4 path?')
-        if (len(ans)>0) and ans[0]=='y':
-                raw_input('Press enter to start')
-                theRig.PumpStart('B4',300)
-                raw_input('press enter to stop B4')
-                theRig.PumpStop('B4')
-                stopAll(theRig)
+        elif a[0]=='4':
+            raw_input('Press enter to start')
+            theRig.PumpStart('B4',600)
+            raw_input('Press enter to stop B4')
+            theRig.PumpStop('B4')
 
-        ans=raw_input('Prime B5 path?')
-        if (len(ans)>0) and ans[0]=='y':
-                raw_input('Press enter to start')
-                theRig.PumpStart('B5',300)
-                raw_input('press enter to stop B5')
-                theRig.PumpStop('B5')
-                stopAll(theRig)
+        elif a[0]=='5':
+            raw_input('Press enter to start')
+            theRig.PumpStart('B5',600)
+            raw_input('Press enter to stop B5')
+            theRig.PumpStop('B5')
 
-        print('Priming Complete!')
-        beep()
+        elif a[0]=='a':
+            raw_input('Press enter to start')
+            print 'Starting Pumps'
+            theRig.PumpStart('B1', 600)
+            time.sleep(0.5)
+            theRig.PumpStart('B2', 600)
+            time.sleep(0.5)
+            theRig.PumpStart('B4', 600)
+            time.sleep(0.5)
+            theRig.PumpStart('B5', 600)
+            raw_input('Press enter to stop pumps')
+            stopAll(theRig)
+
+        elif a[0]=='e':
+            print('Priming Complete!')
+            done = True
+
+        else:
+            print 'Unknown Command'
 
 ##########
 #
@@ -609,14 +657,17 @@ def main():
                 while not done:
                         print 'Output will be saved in: {}\{}\ '.format(filepath, folder)
                         print time.strftime("%H:%M:%S", time.localtime())
-                        a=raw_input('key to start: (a)ssay, (p)rime, (c)hange folder name, pa(r)se folder, a(i)r reset, (m)anual operation, (q)uit\n')
+                        a=raw_input('key to start: (a)ssay, (p)rime, (c)lean, pa(r)se folder, a(i)r reset,' \
+                                    ' change (f)older, (q)uit')
                         # secretly, we can also turn debug messages on and off with 'd'
                         try:
                                 if (a=='a'):
                                         assay(theRig)
                                 elif(a=='p'):
                                         prime(theRig)
-                                elif (a=='c'):
+                                elif(a=='c'):
+                                        clean(theRig)
+                                elif (a=='f'):
                                         folder = raw_input('Enter Output Folder Name (then press ENTER):')
                                 elif (a=='r'):
                                         theRig.ParseASV(filepath,folder)
