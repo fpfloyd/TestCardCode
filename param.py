@@ -6,8 +6,10 @@
 ##########
 
 #TESTING PARAMETERS
-DispenseFlowrate = 100
+DispenseV2 = True
+DispenseFlowrate = 25
 DispenseVolume = 300
+
 
 #Prime Parameters
 PrimeRate=100
