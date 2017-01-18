@@ -5,6 +5,10 @@
 #
 ##########
 
+#TESTING PARAMETERS
+DispenseFlowrate = 100
+DispenseVolume = 300
+
 #Prime Parameters
 PrimeRate=100
 B1PrimeVol=0

@@ -1,7 +1,6 @@
 # peak finding algorithm. Just pass it an array of signal values. Return is a map of indices of the left, peak, and right of
 # whatever peak is in there, plus a sum of all the signal in that peak.
 import numpy
-import matplotlib.pyplot as plt
 class findPeaks:
 
     def findPeakPositions(self,rawData,startVoltage,endVoltage,stepTimeUS):
@@ -54,10 +53,6 @@ class findPeaks:
         sweepTime = sweepStep * (rightPos-leftPos)
         #baseArea = 0.5 * (data[rightPos]-data[leftPos])*(rightPos-leftPos)+(data[rightPos]*(rightPos-leftPos))
         peakArea = sum(data[leftPos:rightPos])*sweepTime
-        # plt.plot(data)
-        # plt.interactive(False)
-        # plt.plot()
-        # plt.show()
 
         #lets find peak height frome baseline
         if rightPos - leftPos != 0:
