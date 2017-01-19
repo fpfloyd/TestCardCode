@@ -103,7 +103,7 @@ def assay(theRig):
         #Ensure Chamber Is Empty
         print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with', param.WashoutVol50, 'uL @', \
                 param.WashoutRate50, 'uL/min'
-        theRig.MagnetRetract()
+        theRig.VibRetract()
         time.sleep(0.5)
         theRig.ValveClose('V3')
         time.sleep(0.5)
@@ -138,23 +138,25 @@ def assay(theRig):
         time.sleep(param.OtherMixingPause)
 
 
-        # #Add Mags to Chamber While Mixing
-        # print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Mags with',param.MagFlowVol,\
-        #         'uL @',param.MagFlowRate,'uL/min. Mixing Step:', 1, 'of', param.MagMixingSteps
-        # theRig.VibrationStart(param.MagFlowTime,param.MagStartFreq,param.MagEndFreq,param.MagCycles)
-        # theRig.PumpStart('B4', param.MagFlowRate, param.MagFlowVol)
-        # time.sleep(param.MagFlowTime)
-        # if Pause == True:
-        #     raw_input('Press enter to continue')
-        #
-        # # Mix and Incubate Mags
-        # i = 2
-        # while i <= param.MagMixingSteps:
-        #         i = i + 1
-        #         time.sleep(param.MagMixingInc / (param.MagMixingSteps-1))
-        #         print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i - 1, 'of', param.MagMixingSteps
-        #         theRig.VibrationStart(param.MagSweepTime, param.MagStartFreq, param.MagEndFreq, param.MagCycles)
-        #
+        #Add Mags to Chamber While Mixing
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Mags with',param.MagFlowVol,\
+                'uL @',param.MagFlowRate,'uL/min. Mixing Step:', 1, 'of', param.MagMixingSteps
+        theRig.VibrationStart(param.MagFlowTime,param.MagStartFreq,param.MagEndFreq,param.MagCycles)
+        theRig.PumpStart('B4', param.MagFlowRate, param.MagFlowVol)
+        time.sleep(param.MagFlowTime)
+        if Pause == True:
+            raw_input('Press enter to continue')
+
+        # Mix and Incubate Mags
+        i = 2
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Incubating Mags for ', param.MagMixingInc, ' Seconds'
+        while i <= param.MagMixingSteps:
+                i = i + 1
+                time.sleep(param.MagMixingInc / param.MagMixingSteps)
+                print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i - 1, 'of', param.MagMixingSteps
+                theRig.VibrationStart(param.MagSweepTime, param.MagStartFreq, param.MagEndFreq, param.MagCycles)
+        time.sleep(param.MagMixingInc / param.MagMixingSteps)
+
         # # Pulldown Mags
         # print time.strftime('%H:%M:%S -', time.localtime()), 'Pulling Down Mags'
         # theRig.MagnetEngage()
@@ -237,11 +239,10 @@ def assay(theRig):
         #         param.SilverMixingInc,' seconds'
         # theRig.MagnetRetract()
         # while i <= param.SilverMixingSteps:
+        #     print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i , 'of ', param.SilverMixingSteps
         #     i = i + 1
-        #     print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing/Incubation Step:', \
-        #         i - 1, 'of ', param.SilverMixingSteps
         #     theRig.VibrationStart(param.SilverSweepTime, param.SilverStartFreq, param.SilverEndFreq, param.SilverCycles)
-        #     time.sleep(param.SilverMixingInc/(param.SilverMixingSteps - 1))
+        #     time.sleep(param.SilverMixingInc/(param.SilverMixingSteps))
         #
         # # Pulldown Sandwiches
         # print time.strftime('%H:%M:%S -', time.localtime()), 'Pulling Down Full Sandwiches'
@@ -292,6 +293,8 @@ def assay(theRig):
         # # Pulldown Sandwiches
         # print time.strftime('%H:%M:%S -', time.localtime()), 'Pulling Down Full Sandwiches'
         # theRig.MagnetEngage()
+        # time.sleep(0.5)
+        # theRig.VibRetract()
         # time.sleep(param.PulldownTime)
         # if Pause == True:
         #     raw_input('Press enter to continue')
@@ -305,6 +308,7 @@ def assay(theRig):
         # time.sleep(0.5)
         # theRig.PumpStart('B6', param.WashoutRate100, param.WashoutVol100)
         # time.sleep(param.WashoutTime100)
+        # theRig.VibEngage()
         # if Pause == True:
         #     raw_input('Press enter to continue')
         #
@@ -328,11 +332,14 @@ def assay(theRig):
         #     i = i + 1
         #     print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i - 1
         #     theRig.VibrationStart(param.MagSweepTime, param.MagStartFreq, param.MagEndFreq, param.MagCycles)
+        #     time.sleep(param.OtherMixingPause)
         #
         #
         # #Move to ASV Chamber
         # print time.strftime('%H:%M:%S -', time.localtime()), 'Moving Sandwiches to ASV Chamber with',\
         #         param.MoveVol,'uL @',param.MoveRate,'uL/min'
+        # theRig.VibRetract()
+        # time.sleep(0.5)
         # theRig.ValveOpen('V3')
         # time.sleep(0.5)
         # theRig.ValveClose('V1')
