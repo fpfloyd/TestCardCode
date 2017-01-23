@@ -6,7 +6,7 @@
 ##########
 
 #TESTING PARAMETERS
-DispenseV2 = False
+DispenseV2 = True
 DispenseFlowrate = 100
 DispenseVolume = 300
 
@@ -26,7 +26,7 @@ ASVPrimeVol=75          #ASV Prime Volume (uL)
 
 #PLASMA FLOW PARAMETERS
 PlasmaPushRate=100      #Flowrate for plasma being pushed to mixing chamber (uL/min)
-PlasmaPushVol=46        #Plasma Push Volume (uL) [subtracted 25uL to remove lysis buffer]
+PlasmaPushVol=40        #Plasma Push Volume (uL) [subtracted 25uL to remove lysis buffer]
 
 #DILLUTION AND MAG ADDITION PARAMETERS
 MagFlowRate=100         #Flowrate for mag beads being pushed into mixing chamber (uL/min)
@@ -65,7 +65,7 @@ WashoutRate100=100      #Air flowrate for 100 uL(uL/min)
 WashoutVol100=160       #Air Volume for 100 uL (uL)
 PulldownTime1=10        #Time for mags to pull down
 WashoutRate50=100       #Air flowrate (uL/min)
-WashoutVol50=100        #Air volume for 50uL (uL/min)
+WashoutVol50=300        #Air volume for 50uL (uL/min)
 
 #WASH PARAMETERS
 WashRate=100
@@ -74,7 +74,7 @@ WashVol=50
 
 #SILVER ADDITION PARAMETERS
 SilverRate=100
-SilverVol=25 #Subtracted 25uL to simulate 50uL
+SilverVol=31 #Subtracted 25uL to simulate 50uL
 
 #DETECTION CHAMBER PARAMETERS
 SandwichRate=100     #Sandwich Resuspension Flowrate (uL/min)
