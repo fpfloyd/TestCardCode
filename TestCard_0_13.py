@@ -241,8 +241,10 @@ def assay(theRig):
         while i <= param.SilverMixingSteps:
             print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i , 'of ', param.SilverMixingSteps
             i = i + 1
+            time.sleep(param.SilverMixingInc / param.SilverMixingSteps)
             theRig.VibrationStart(param.SilverSweepTime, param.SilverStartFreq, param.SilverEndFreq, param.SilverCycles)
-            time.sleep(param.SilverMixingInc/(param.SilverMixingSteps))
+        time.sleep(param.SilverMixingInc / param.SilverMixingSteps)
+
 
         # # Pulldown Sandwiches
         # print time.strftime('%H:%M:%S -', time.localtime()), 'Pulling Down Full Sandwiches'
