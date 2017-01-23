@@ -69,17 +69,17 @@ class Magnet:
 
         def MagEngage(self):
                 global magSteps
-                db.PrintDebug("Engaging Magnet")
+                db.PrintDebug("Moving Magnet " +str(magSteps) + " Steps")
                 if (self.theConnection):
                         self.theConnection.flushInput()
                         if magSteps > 1000:
                                 'Magnet Engagement Too High'
                                 return False
                         if magSteps > 500:
-                                magSteps = magSteps - 500
+                                Steps = magSteps - 500
                                 self.theConnection.write("fmov 2 500 f f \r\n")
                                 time.sleep(1)
-                                self.theConnection.write("fmov 2 " + str(magSteps) + " f s \r\n")
+                                self.theConnection.write("fmov 2 " + str(Steps) + " f s \r\n")
                         if magSteps < 500:
                                 self.theConnection.write("fmov 2 " + str(magSteps) + " f s \r\n")
 

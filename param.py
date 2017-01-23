@@ -7,7 +7,7 @@
 
 #TESTING PARAMETERS
 DispenseV2 = False
-MagMixingInc = 300      #Mag Incubation Time (sec)
+MagMixingInc = 30      #Mag Incubation Time (sec)
 DispenseFlowrate = 100
 DispenseVolume = 300
 
@@ -38,7 +38,7 @@ MagSweepTime = 30       #Magnet Mixing Sweep Time (sec)
 MagStartFreq = 60       #Magnet Mixing Start Frequency (hz)
 MagEndFreq = 90         #Magnet Mixing End Frequency  (hz)
 MagCycles = 1           #Number of Sweep Cycles
-MagMixingSteps = 2      #Number of mixing steps
+MagMixingSteps = 1      #Number of mixing steps
 #MagMixingInc = 300      #Mag Incubation Time (sec)
 MagMixingPause = (MagCycles * MagSweepTime) + 10 #Sweep Time is not exact
 ### Is the Mag Sweep Time Independent of Cycles??
