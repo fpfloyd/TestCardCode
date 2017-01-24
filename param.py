@@ -26,7 +26,7 @@ ASVPrimeVol=75          #ASV Prime Volume (uL)
 
 #PLASMA FLOW PARAMETERS
 PlasmaPushRate=100      #Flowrate for plasma being pushed to mixing chamber (uL/min)
-PlasmaPushVol=40        #Plasma Push Volume (uL) [subtracted 25uL to remove lysis buffer]
+PlasmaPushVol=71        #Plasma Push Volume (uL) [subtracted 25uL to remove lysis buffer]
 
 #DILLUTION AND MAG ADDITION PARAMETERS
 MagFlowRate=100         #Flowrate for mag beads being pushed into mixing chamber (uL/min)
@@ -38,7 +38,7 @@ MagStartFreq = 60       #Magnet Mixing Start Frequency (hz)
 MagEndFreq = 90         #Magnet Mixing End Frequency  (hz)
 MagCycles = 1           #Number of Sweep Cycles
 MagMixingSteps = 1      #Number of mixing steps
-MagMixingInc = 300      #Mag Incubation Time (sec)
+MagMixingInc = 1200      #Mag Incubation Time (sec)
 MagMixingPause = (MagCycles * MagSweepTime) + 10 #Sweep Time is not exact
 ### Is the Mag Sweep Time Independent of Cycles??
 
@@ -74,7 +74,7 @@ WashVol=50
 
 #SILVER ADDITION PARAMETERS
 SilverRate=100
-SilverVol=31 #Subtracted 25uL to simulate 50uL
+SilverVol=50 #Subtracted 25uL to simulate 50uL
 
 #DETECTION CHAMBER PARAMETERS
 SandwichRate=100     #Sandwich Resuspension Flowrate (uL/min)
