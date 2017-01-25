@@ -118,6 +118,12 @@ def assay(theRig):
         if Pause == True:
             raw_input('Press enter to continue')
 
+        ########
+        #
+        # Start Comment Here 01/25/2017
+        #
+        ########
+
         #Push Plasma to Mixing Chamber with Lysis Buffer
         print time.strftime('%H:%M:%S -', time.localtime()), 'Pushing Plasma to Mixing Chamber with ',\
                 param.PlasmaPushVol,'uL @',param.PlasmaPushRate,'uL/min'
@@ -220,7 +226,13 @@ def assay(theRig):
         # theRig.VibEngage()
         # if Pause == True:
         #     raw_input('Press enter to continue')
-
+        #
+        ########
+        #
+        # Stop Comment HERE 01/25/2017
+        #
+        ########
+        #
         # #Add Silver to Chamber
         # print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Silver with',param.SilverVol,'uL @',\
         #         param.SilverRate,'uL/min'
@@ -243,7 +255,13 @@ def assay(theRig):
         #     i = i + 1
         #     theRig.VibrationStart(param.SilverSweepTime, param.SilverStartFreq, param.SilverEndFreq, param.SilverCycles)
         #     time.sleep(param.SilverMixingInc / param.SilverMixingSteps)
-
+        #
+        #######
+        #
+        # Leave Commented Until if V2 == True
+        #
+        #######
+        #
         # # Pulldown Sandwiches
         # print time.strftime('%H:%M:%S -', time.localtime()), 'Pulling Down Full Sandwiches'
         # theRig.MagnetEngage()
@@ -288,7 +306,11 @@ def assay(theRig):
         #     theRig.VibrationStart(param.OtherSweepTime, param.OtherStartFreq, param.OtherEndFreq, param.OtherCycles)
         #     time.sleep(param.OtherMixingPause)
         #
+        # #######
+        # #
         # #Fix Mixing Beyond This Point
+        # #
+        # #######
         #
         # # Pulldown Sandwiches
         # print time.strftime('%H:%M:%S -', time.localtime()), 'Pulling Down Full Sandwiches'
