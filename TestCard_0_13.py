@@ -31,7 +31,7 @@ import DebugFunctions as db
 from TestCardRig import TestCardRig
 
 Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
-Fakeout = False #Fakeout connections, use for debugging without full test rig
+Fakeout = True #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
 filepath = 'C:\C1_Output'
 
@@ -51,6 +51,7 @@ def assay(theRig):
                 print 'Filename needed'
 
         stopAll(theRig)
+        startTime = time.time()
         theRig.SetupASV(param.DissVolt,param.DissTime,param.DepoVolt,param.DepoTime,param.StartSweep,
                         param.EndSweep,param.SweepStep,param.SweepInc)
         theRig.SetGains(param.DissGain,param.DepoGain,param.SweepGain)
@@ -420,6 +421,8 @@ def assay(theRig):
                 time.sleep((param.DispenseVolume/param.DispenseFlowrate)*60)
 
         print time.strftime('%H:%M:%S -', time.localtime()), 'Assay Complete!'
+        assayTime = round(((time.time()-startTime)/60),2)
+        print 'Assay Time: '+str(assayTime)+' Minutes'
         stopAll(theRig)
         beep()
         time.sleep(0.1)

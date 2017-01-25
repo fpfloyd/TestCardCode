@@ -9,6 +9,13 @@
 DispenseV2 = True
 DispenseFlowrate = 100
 DispenseVolume = 300
+MagMixingInc = 300 #mag incubation in seconds
+DutyCycle = 60 #percentage of time vibration is on
+
+#Testing Math
+VibTime = MagMixingInc * DutyCycle / 100
+MagMixingSteps = int(round(VibTime/30,0))
+
 
 
 #Prime Parameters
@@ -37,10 +44,10 @@ MagSweepTime = 30       #Magnet Mixing Sweep Time (sec)
 MagStartFreq = 60       #Magnet Mixing Start Frequency (hz)
 MagEndFreq = 90         #Magnet Mixing End Frequency  (hz)
 MagCycles = 1           #Number of Sweep Cycles
-MagMixingSteps = 1      #Number of mixing steps
-MagMixingInc = 300      #Mag Incubation Time (sec)
+#MagMixingSteps = 1      #Number of mixing steps
+#MagMixingInc = 300      #Mag Incubation Time (sec)
 MagMixingPause = (MagCycles * MagSweepTime) + 10 #Sweep Time is not exact
-### Is the Mag Sweep Time Independent of Cycles??
+
 
 #SILVER MIX PARAMETERS
 SilverSweepTime = 30
