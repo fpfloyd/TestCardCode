@@ -9,12 +9,16 @@
 DispenseV2 = True
 DispenseFlowrate = 100
 DispenseVolume = 300
-MagMixingInc = 300 #mag incubation in seconds
-DutyCycle = 60 #percentage of time vibration is on
+B4PrimeVol=800  #Increase to 80 for Pre-Wet/Empty (8 otherwise)
+B5PrimeVol=9  #Decrease to zero for Concentration Test (9 otherwise)
+CBfirst = False
+
+
+# DutyCycle = 60 #percentage of time vibration is on
 
 #Testing Math
-VibTime = MagMixingInc * DutyCycle / 100
-MagMixingSteps = int(round(VibTime/30,0))
+# VibTime = MagMixingInc * DutyCycle / 100
+# MagMixingSteps = int(round(VibTime/30,0))
 
 
 
@@ -23,8 +27,8 @@ PrimeRate=100
 B1PrimeVol=0
 B2PrimeVol=0
 B3PrimeVol=0
-B4PrimeVol=9
-B5PrimeVol=8
+# B4PrimeVol=9
+# B5PrimeVol=8
 
 
 #ASV PRIME PARAMETERS
@@ -44,8 +48,8 @@ MagSweepTime = 30       #Magnet Mixing Sweep Time (sec)
 MagStartFreq = 60       #Magnet Mixing Start Frequency (hz)
 MagEndFreq = 90         #Magnet Mixing End Frequency  (hz)
 MagCycles = 1           #Number of Sweep Cycles
-#MagMixingSteps = 1      #Number of mixing steps
-#MagMixingInc = 300      #Mag Incubation Time (sec)
+MagMixingSteps = 1      #Number of mixing steps
+MagMixingInc = 300      #Mag Incubation Time (sec)
 MagMixingPause = (MagCycles * MagSweepTime) + 10 #Sweep Time is not exact
 
 
@@ -72,7 +76,7 @@ WashoutRate100=100      #Air flowrate for 100 uL(uL/min)
 WashoutVol100=160       #Air Volume for 100 uL (uL)
 PulldownTime1=10        #Time for mags to pull down
 WashoutRate50=100       #Air flowrate (uL/min)
-WashoutVol50=300        #Air volume for 50uL (uL/min)
+WashoutVol50=370        #Air volume for 50uL (uL/min)
 
 #WASH PARAMETERS
 WashRate=100
