@@ -75,10 +75,10 @@ OtherMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exac
 #PULLDOWN AND WASHOUT PARAMETERS
 PulldownTime=40         #Time for mags to pull down
 WashoutRate100=100      #Air flowrate for 100 uL(uL/min)
-WashoutVol100=160       #Air Volume for 100 uL (uL)
+WashoutVol100=200       #Air Volume for 100 uL (uL)
 PulldownTime1=10        #Time for mags to pull down
 WashoutRate50=100       #Air flowrate (uL/min)
-WashoutVol50=80         #Air volume for 50uL (uL/min)
+WashoutVol50=120        #Air volume for 50uL (uL/min)
 
 #WASH PARAMETERS
 WashRate=100
@@ -92,7 +92,7 @@ SilverRate=100
 SandwichRate=100     #Sandwich Resuspension Flowrate (uL/min)
 SandwichVol=50       #Sandwich Resuspension Time (sec)
 MoveRate=50          #Sandwich Move Flowrate (uL/min)
-MoveVol=125          #Sandwich Move Flow Time (sec)
+MoveVol=175          #Sandwich Move Flow Time (sec)
 ElecRate=50          #Electrolyte Flowrate (uL/min)
 ElecVol=40           #Electrolyte Flow Time (sec)
 

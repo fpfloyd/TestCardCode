@@ -31,7 +31,7 @@ import DebugFunctions as db
 from TestCardRig import TestCardRig
 
 Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
-Fakeout = True #Fakeout connections, use for debugging without full test rig
+Fakeout = False #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
 filepath = 'C:\C1_Output'
 
@@ -177,6 +177,8 @@ def assay(theRig):
         print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with',param.WashoutVol100,'uL @',param.WashoutRate100,'uL/min '
         theRig.ValveOpen('V2')
         time.sleep(0.5)
+        theRig.ValveOpen('V4')
+        time.sleep(0.5)
         theRig.ValveClose('V1')
         time.sleep(0.5)
         theRig.PumpStart('B6', param.WashoutRate100, param.WashoutVol100)
@@ -205,6 +207,7 @@ def assay(theRig):
             i = i + 1
             print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i - 1, 'of ', param.OtherMixingSteps
             theRig.VibrationStart(param.OtherSweepTime, param.OtherStartFreq, param.OtherEndFreq, param.OtherCycles)
+            time.sleep(param.OtherMixingPause)
 
         # Pulldown Half Sandwiches
         print time.strftime('%H:%M:%S -', time.localtime()), 'Pulling Down Half Sandwiches'

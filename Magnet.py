@@ -78,7 +78,7 @@ class Magnet:
                         if magSteps > 500:
                                 Steps = magSteps - 500
                                 self.theConnection.write("fmov 2 500 f f \r\n")
-                                time.sleep(1)
+                                time.sleep(3)
                                 self.theConnection.write("fmov 2 " + str(Steps) + " f s \r\n")
                         if magSteps < 500:
                                 self.theConnection.write("fmov 2 " + str(magSteps) + " f s \r\n")
