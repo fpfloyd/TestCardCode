@@ -73,7 +73,3 @@ class VibVal:
                         self.theConnection.flushInput()
                         self.theConnection.flushOutput()
                         self.theConnection.write("vswp "+str(SweepTime)+" "+str(StartFreq)+" "+str(EndFreq)+" "+str(TotalCycles)+"\r\n")
-
-
-
-

@@ -136,17 +136,33 @@ class TestCardRig:
                 for i in self.theValves:
                         self.ValveClose(i)
 
+        def MagConfigure(self,MagEngage):
+                db.PrintDebug("Setting Magnet Engagment")
+                self.theMagnetController.Configure(MagEngage)
+
         def MagnetEngage(self):
                 db.PrintDebug("Magnet Engage")
-                self.theMagnetController.Engage()
+                self.theMagnetController.MagEngage()
 
         def MagnetRetract(self):
                 db.PrintDebug("Magnet Retract")
-                self.theMagnetController.Retract()
+                self.theMagnetController.MagRetract()
 
         def MagnetHome(self):
                 db.PrintDebug("Homing Magnet")
-                self.theMagnetController.Home()
+                self.theMagnetController.MagHome()
+
+        def VibConfigure(self,VibEngage,VibRetract):
+                db.PrintDebug("Configuring Vibration Engage/Retract")
+                self.theMagnetController.VibConfigure(VibEngage,VibRetract)
+
+        def VibRetract(self):
+                db.PrintDebug("Rectracting Vibration Tip")
+                self.theMagnetController.VibRetract()
+
+        def VibEngage(self):
+                db.PrintDebug("Engaging Vibration Tip")
+                self.theMagnetController.VibEngage()
 
         def VibrationStart(self,SweepTime,StartFreq,EndFreq,TotalCycles):
                 db.PrintDebug("Vibrating Mixer")

@@ -5,6 +5,19 @@
 #
 ##########
 
+#TESTING PARAMETERS
+DispenseV2 = True
+DispenseFlowrate = 100
+DispenseVolume = 300
+MagMixingInc = 300 #mag incubation in seconds
+DutyCycle = 60 #percentage of time vibration is on
+
+#Testing Math
+VibTime = MagMixingInc * DutyCycle / 100
+MagMixingSteps = int(round(VibTime/30,0))
+
+
+
 #Prime Parameters
 PrimeRate=100
 B1PrimeVol=0
@@ -20,21 +33,38 @@ ASVPrimeVol=75          #ASV Prime Volume (uL)
 
 #PLASMA FLOW PARAMETERS
 PlasmaPushRate=100      #Flowrate for plasma being pushed to mixing chamber (uL/min)
-PlasmaPushVol=71        #Plasma Push Volume (uL)
+PlasmaPushVol=71        #Plasma Push Volume (uL) [subtracted 25uL to remove lysis buffer]
 
 #DILLUTION AND MAG ADDITION PARAMETERS
 MagFlowRate=100         #Flowrate for mag beads being pushed into mixing chamber (uL/min)
 MagFlowVol=50           #Mag Bead volume (uL)
 
-#MIX PARAMETERS
+#MAG MIX PARAMETERS
 MagSweepTime = 30       #Magnet Mixing Sweep Time (sec)
-MagStartFreq = 80       #Magnet Mixing Start Frequency (hz)
-MagEndFreq = 125        #Magnet Mixing End Frequency  (hz)
-MagCycles = 2           #Number of Sweep Cycles
-MagMixingSteps = 1      #Number of mixing steps
-MagMixingInc = 30       #Time between mag mixing steps (sec)
-SilverMixingInc = 30    #Time between Silver Mixing Steps (sec)
+MagStartFreq = 60       #Magnet Mixing Start Frequency (hz)
+MagEndFreq = 90         #Magnet Mixing End Frequency  (hz)
+MagCycles = 1           #Number of Sweep Cycles
+#MagMixingSteps = 1      #Number of mixing steps
+#MagMixingInc = 300      #Mag Incubation Time (sec)
 MagMixingPause = (MagCycles * MagSweepTime) + 10 #Sweep Time is not exact
+
+
+#SILVER MIX PARAMETERS
+SilverSweepTime = 30
+SilverStartFreq = 60
+SilverEndFreq = 80
+SilverCycles = 1
+SilverMixingSteps= 1    #Number of Silver Mixing Steps
+SilverMixingInc = 300     #Silver Incubation Time (sec)
+SilverMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exact
+
+#Other MIX PARAMETERS
+OtherSweepTime = 30
+OtherStartFreq = 60
+OtherEndFreq = 80
+OtherCycles = 1
+OtherMixingSteps= 1   #Number of Silver Mixing Steps
+OtherMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exact
 
 #PULLDOWN AND WASHOUT PARAMETERS
 PulldownTime=40         #Time for mags to pull down
@@ -42,7 +72,7 @@ WashoutRate100=100      #Air flowrate for 100 uL(uL/min)
 WashoutVol100=160       #Air Volume for 100 uL (uL)
 PulldownTime1=10        #Time for mags to pull down
 WashoutRate50=100       #Air flowrate (uL/min)
-WashoutVol50=110        #Air volume for 50uL (uL/min)
+WashoutVol50=300        #Air volume for 50uL (uL/min)
 
 #WASH PARAMETERS
 WashRate=100
@@ -64,9 +94,9 @@ ElecVol=40           #Electrolyte Flow Time (sec)
 #ASV PARAMETERS
 PreASVWait = 600
 DissTime = 30
-DissVolt = 1.3
+DissVolt = 0.8
 DepoTime = 120
-DepoVolt = -1.3
+DepoVolt = -0.9
 StartSweep = -1
 EndSweep = 0.1
 SweepStep = 100
