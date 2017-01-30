@@ -430,7 +430,7 @@ def airReset(theRig):
         print 'Resetting Air Syringe'
         theRig.ValveOpen('V4')
         time.sleep(0.5)
-        theRig.PumpStart('B6', 1800, -1000)
+        theRig.PumpStart('B6', 1800, -3000)
         time.sleep(35)
         theRig.PumpStart('B6', 100, 5)
         time.sleep(3)
