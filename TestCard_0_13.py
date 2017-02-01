@@ -115,6 +115,7 @@ def assay(theRig):
         theRig.ValveOpen('V4')
         theRig.PumpStart('B6', param.WashoutRate50, param.WashoutVol50)
         time.sleep(param.WashoutTime50)
+        theRig.ValveClose('V4')
         theRig.VibEngage()
         if Pause == True:
             raw_input('Press enter to continue')
@@ -250,14 +251,14 @@ def assay(theRig):
         ########
 
         if param.Prefill == True:
-                theRig.PumpStart('B4', 100, 28)
+                theRig.ValveOpen('V1')
+                time.sleep(0.5)
+                theRig.ValveClose('V2')
+                theRig.PumpStart('B4', 100, 23)
                 print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Casein Buffer with 20uL @ 100uL/min'
                 time.sleep(18)
                 theRig.VibrationStart(param.SilverSweepTime, param.SilverStartFreq, param.SilverEndFreq,
                                       param.SilverCycles)
-                theRig.ValveOpen('V1')
-                time.sleep(0.5)
-                theRig.ValveClose('V2')
                 time.sleep(0.5)
 
         if param.SilverSamplePort == False and param.DiluteSilver == False:

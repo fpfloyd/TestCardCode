@@ -11,8 +11,8 @@ DispenseFlowrate = 100
 DispenseVolume = 300
 B4PrimeVol=8  #Increase to 80 for Pre-Wet/Empty (8 otherwise)
 B5PrimeVol=9  #Decrease to zero for Concentration Test (9 otherwise)
-Prefill = True
-SilverSamplePort = False
+Prefill = False
+SilverSamplePort = True
 DiluteSilver = False
 
 
