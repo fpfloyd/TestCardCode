@@ -31,7 +31,7 @@ import DebugFunctions as db
 from TestCardRig import TestCardRig
 
 Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
-Fakeout = True #Fakeout connections, use for debugging without full test rig
+Fakeout = False #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
 filepath = 'C:\C1_Output'
 
@@ -250,9 +250,11 @@ def assay(theRig):
         ########
 
         if param.Prefill == True:
-                theRig.PumpStart('B4', 100, 20)
+                theRig.PumpStart('B4', 100, 28)
                 print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Casein Buffer with 20uL @ 100uL/min'
-                time.sleep(15)
+                time.sleep(18)
+                theRig.VibrationStart(param.SilverSweepTime, param.SilverStartFreq, param.SilverEndFreq,
+                                      param.SilverCycles)
                 theRig.ValveOpen('V1')
                 time.sleep(0.5)
                 theRig.ValveClose('V2')
@@ -276,11 +278,12 @@ def assay(theRig):
         print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing & Incubating Silver Particles for',\
                 param.SilverMixingInc,' seconds'
         theRig.MagnetRetract()
-        while i <= param.SilverMixingSteps:
-            print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i , 'of', param.SilverMixingSteps
-            i = i + 1
-            theRig.VibrationStart(param.SilverSweepTime, param.SilverStartFreq, param.SilverEndFreq, param.SilverCycles)
-            time.sleep(param.SilverMixingInc / param.SilverMixingSteps)
+        if param.Prefill == False:
+                while i <= param.SilverMixingSteps:
+                    print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i , 'of', param.SilverMixingSteps
+                    i = i + 1
+                    theRig.VibrationStart(param.SilverSweepTime, param.SilverStartFreq, param.SilverEndFreq, param.SilverCycles)
+        time.sleep(param.SilverMixingInc / param.SilverMixingSteps)
 
         #######
         #
