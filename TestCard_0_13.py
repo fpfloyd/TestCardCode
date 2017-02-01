@@ -124,20 +124,35 @@ def assay(theRig):
         # Start Comment Here 01/25/2017
         #
         ########
+        if param.DiluteSilver == True:
+                #Push Plasma to Mixing Chamber with Lysis Buffer
+                print time.strftime('%H:%M:%S -', time.localtime()), 'Pushing Plasma to Mixing Chamber with ',\
+                        param.PlasmaPushVol,'uL @',param.PlasmaPushRate,'uL/min'
+                theRig.ValveOpen('V1')
+                time.sleep(0.5)
+                theRig.ValveClose('V2')
+                time.sleep(0.5)
+                theRig.ValveClose('V3')
+                time.sleep(0.5)
+                theRig.PumpStart('B1', param.PlasmaPushRate, param.PlasmaPushVol)
+                time.sleep(param.PlasmaPushTime)
+                if Pause == True:
+                    raw_input('Press enter to continue')
 
-        # #Push Plasma to Mixing Chamber with Lysis Buffer
-        # print time.strftime('%H:%M:%S -', time.localtime()), 'Pushing Plasma to Mixing Chamber with ',\
-        #         param.PlasmaPushVol,'uL @',param.PlasmaPushRate,'uL/min'
-        # theRig.ValveOpen('V1')
-        # time.sleep(0.5)
-        # theRig.ValveClose('V2')
-        # time.sleep(0.5)
-        # theRig.ValveClose('V3')
-        # time.sleep(0.5)
-        # theRig.PumpStart('B1', param.PlasmaPushRate, param.PlasmaPushVol)
-        # time.sleep(param.PlasmaPushTime)
-        # if Pause == True:
-        #     raw_input('Press enter to continue')
+        if param.SilverSamplePort == True:
+                # Push Plasma to Mixing Chamber with Lysis Buffer
+                print time.strftime('%H:%M:%S -', time.localtime()), 'Pushing Plasma to Mixing Chamber with ', \
+                        param.PlasmaPushVol, 'uL @', param.PlasmaPushRate, 'uL/min'
+                theRig.ValveOpen('V1')
+                time.sleep(0.5)
+                theRig.ValveClose('V2')
+                time.sleep(0.5)
+                theRig.ValveClose('V3')
+                time.sleep(0.5)
+                theRig.PumpStart('B1', param.PlasmaPushRate, param.PlasmaPushVol)
+                time.sleep(param.PlasmaPushTime)
+                if Pause == True:
+                        raw_input('Press enter to continue')
 
         # # Mix Lysis Buffer and Plasma
         # print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Lysis Buffer and Plasma'
@@ -234,29 +249,35 @@ def assay(theRig):
         #
         ########
 
-        if param.CBfirst == True:
-                theRig.PumpStart('B4', 100, 50)
-                print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Casein Buffer with 50uL @ 100uL/min'
+        if param.Prefill == True:
+                theRig.PumpStart('B4', 100, 20)
+                print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Casein Buffer with 20uL @ 100uL/min'
+                time.sleep(15)
+                theRig.ValveOpen('V1')
+                time.sleep(0.5)
+                theRig.ValveClose('V2')
+                time.sleep(0.5)
 
-        #Add Silver to Chamber
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Silver with',param.SilverVol,'uL @',\
-                param.SilverRate,'uL/min'
-        theRig.ValveOpen('V1')
-        time.sleep(0.5)
-        theRig.ValveClose('V2')
-        time.sleep(0.5)
-        theRig.PumpStart('B5', param.SilverRate,param.SilverVol)
-        time.sleep(param.SilverTime)
-        if Pause == True:
-            raw_input('Press enter to continue')
+        if param.SilverSamplePort == False and param.DiluteSilver == False:
+                #Add Silver to Chamber
+                print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Silver with',param.SilverVol,'uL @',\
+                        param.SilverRate,'uL/min'
+                theRig.ValveOpen('V1')
+                time.sleep(0.5)
+                theRig.ValveClose('V2')
+                time.sleep(0.5)
+                theRig.PumpStart('B5', param.SilverRate,param.SilverVol)
+                time.sleep(param.SilverTime)
+                if Pause == True:
+                    raw_input('Press enter to continue')
 
         #Mix Resuspend and Incubate Full Sandwiches
         i = 1
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing & Incubating Full Sandwiches for',\
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing & Incubating Silver Particles for',\
                 param.SilverMixingInc,' seconds'
         theRig.MagnetRetract()
         while i <= param.SilverMixingSteps:
-            print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i , 'of ', param.SilverMixingSteps
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i , 'of', param.SilverMixingSteps
             i = i + 1
             theRig.VibrationStart(param.SilverSweepTime, param.SilverStartFreq, param.SilverEndFreq, param.SilverCycles)
             time.sleep(param.SilverMixingInc / param.SilverMixingSteps)

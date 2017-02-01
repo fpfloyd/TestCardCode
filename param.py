@@ -9,9 +9,11 @@
 DispenseV2 = True
 DispenseFlowrate = 100
 DispenseVolume = 300
-B4PrimeVol=800  #Increase to 80 for Pre-Wet/Empty (8 otherwise)
+B4PrimeVol=8  #Increase to 80 for Pre-Wet/Empty (8 otherwise)
 B5PrimeVol=9  #Decrease to zero for Concentration Test (9 otherwise)
-CBfirst = False
+Prefill = False
+SilverSamplePort = False
+DiluteSilver = False
 
 
 # DutyCycle = 60 #percentage of time vibration is on
@@ -19,6 +21,16 @@ CBfirst = False
 #Testing Math
 # VibTime = MagMixingInc * DutyCycle / 100
 # MagMixingSteps = int(round(VibTime/30,0))
+
+if Prefill == True:
+    SilverVol = 30
+else:
+    SilverVol = 50
+
+if SilverSamplePort == True:
+    PlasmaPushVol = 90
+else:
+    PlasmaPushVol = 71
 
 
 
@@ -37,7 +49,7 @@ ASVPrimeVol=75          #ASV Prime Volume (uL)
 
 #PLASMA FLOW PARAMETERS
 PlasmaPushRate=100      #Flowrate for plasma being pushed to mixing chamber (uL/min)
-PlasmaPushVol=71        #Plasma Push Volume (uL) [subtracted 25uL to remove lysis buffer]
+#PlasmaPushVol=71        #Plasma Push Volume (uL) [subtracted 25uL to remove lysis buffer]
 
 #DILLUTION AND MAG ADDITION PARAMETERS
 MagFlowRate=100         #Flowrate for mag beads being pushed into mixing chamber (uL/min)
@@ -85,7 +97,7 @@ WashVol=50
 
 #SILVER ADDITION PARAMETERS
 SilverRate=100
-SilverVol=50
+#SilverVol=50
 
 #DETECTION CHAMBER PARAMETERS
 SandwichRate=100     #Sandwich Resuspension Flowrate (uL/min)
