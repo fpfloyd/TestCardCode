@@ -9,20 +9,6 @@
 DispenseV2 = False
 DispenseFlowrate = 100
 DispenseVolume = 300
-CBfirst = True
-
-
-if CBfirst == True:
-    SilverVol = 25
-else:
-    SilverVol = 50
-
-# DutyCycle = 60 #percentage of time vibration is on
-#Testing Math
-# VibTime = MagMixingInc * DutyCycle / 100
-# MagMixingSteps = int(round(VibTime/30,0))
-
-
 
 #Prime Parameters
 PrimeRate=100

@@ -231,11 +231,6 @@ def assay(theRig):
         if Pause == True:
             raw_input('Press enter to continue')
 
-        if param.CBfirst == True:
-            print time.strftime('%H:%M:%S -', time.localtime()), 'Adding 25uL of Buffer @ 100uL/min'
-            theRig.PumpStart('B4',100,25)
-            time.sleep(17)
-
         #Add Silver to Chamber
         print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Silver with',param.SilverVol,'uL @',\
                 param.SilverRate,'uL/min'
