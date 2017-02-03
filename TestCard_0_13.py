@@ -320,17 +320,31 @@ def assay(theRig):
         if Pause == True:
             raw_input('Press enter to continue')
 
-        #Add Wash to Chamber
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Resuspending Full Sandwiches with',\
-                param.SandwichVol,'uL @',param.SandwichRate,'uL/min '
-        theRig.ValveOpen('V1')
-        time.sleep(0.5)
-        theRig.ValveClose('V2')
-        time.sleep(0.5)
-        theRig.PumpStart('B4',param.SandwichRate,param.SandwichVol)
-        time.sleep(param.SandwichTime)
-        if Pause == True:
-            raw_input('Press enter to continue')
+        if param.Elyte == True:
+            # Add Wash to Chamber
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Resuspending Full Sandwiches with', \
+                param.SandwichVol + 10, 'uL of Electrolyte @', param.SandwichRate, 'uL/min '
+            theRig.ValveOpen('V1')
+            time.sleep(0.5)
+            theRig.ValveClose('V2')
+            time.sleep(0.5)
+            theRig.PumpStart('B2', param.SandwichRate, param.SandwichVol+10)
+            time.sleep(param.SandwichTime)
+            if Pause == True:
+                raw_input('Press enter to continue')
+
+        else:
+            #Add Wash to Chamber
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Resuspending Full Sandwiches with',\
+                    param.SandwichVol,'uL of Casein Buffer @',param.SandwichRate,'uL/min '
+            theRig.ValveOpen('V1')
+            time.sleep(0.5)
+            theRig.ValveClose('V2')
+            time.sleep(0.5)
+            theRig.PumpStart('B4',param.SandwichRate,param.SandwichVol)
+            time.sleep(param.SandwichTime)
+            if Pause == True:
+                raw_input('Press enter to continue')
 
         #Resuspend Sandwiches
         i = 1

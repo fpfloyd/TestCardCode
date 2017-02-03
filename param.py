@@ -9,6 +9,8 @@
 DispenseV2 = False
 DispenseFlowrate = 100
 DispenseVolume = 300
+Elyte = True
+
 
 #Prime Parameters
 PrimeRate=100
@@ -36,8 +38,8 @@ MagSweepTime = 30       #Magnet Mixing Sweep Time (sec)
 MagStartFreq = 60       #Magnet Mixing Start Frequency (hz)
 MagEndFreq = 90         #Magnet Mixing End Frequency  (hz)
 MagCycles = 1           #Number of Sweep Cycles
-MagMixingSteps = 2      #Number of mixing steps
-MagMixingInc = 300      #Mag Incubation Time (sec)
+MagMixingSteps = 1      #Number of mixing steps
+MagMixingInc = 40      #Mag Incubation Time (sec)
 MagMixingPause = (MagCycles * MagSweepTime) + 10 #Sweep Time is not exact
 
 
@@ -46,8 +48,8 @@ SilverSweepTime = 30
 SilverStartFreq = 60
 SilverEndFreq = 90
 SilverCycles = 1
-SilverMixingSteps= 6    #Number of Silver Mixing Steps
-SilverMixingInc = 900     #Silver Incubation Time (sec)
+SilverMixingSteps= 1    #Number of Silver Mixing Steps
+SilverMixingInc = 40     #Silver Incubation Time (sec)
 SilverMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exact
 
 #Other MIX PARAMETERS
@@ -61,7 +63,7 @@ OtherMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exac
 #PULLDOWN AND WASHOUT PARAMETERS
 PulldownTime=40         #Time for mags to pull down
 WashoutRate100=100      #Air flowrate for 100 uL(uL/min)
-WashoutVol100=200       #Air Volume for 100 uL (uL)
+WashoutVol100=150       #Air Volume for 100 uL (uL)
 PulldownTime1=10        #Time for mags to pull down
 WashoutRate50=100       #Air flowrate (uL/min)
 WashoutVol50=120        #Air volume for 50uL (uL/min)
@@ -72,7 +74,7 @@ WashVol=50
 
 #SILVER ADDITION PARAMETERS
 SilverRate=100
-#SilverVol=50
+SilverVol=50
 
 #DETECTION CHAMBER PARAMETERS
 SandwichRate=100     #Sandwich Resuspension Flowrate (uL/min)
