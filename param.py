@@ -10,9 +10,23 @@ DispenseV2 = True
 DispenseFlowrate = 100
 DispenseVolume = 300
 B4PrimeVol=8  #Increase to 80 for Pre-Wet/Empty (8 otherwise)
-B5PrimeVol=9  #Decrease to zero for Concentration Test (9 otherwise)
+#B5PrimeVol=9  #Decrease to zero for Concentration Test (9 otherwise)
+
+Mags = True
+
+if Mags == True:
+    B5PrimeVol = 12
+else:
+    B5PrimeVol = 9
+
+
+
+
+
+
+
 Prefill = False
-SilverSamplePort = True
+SilverSamplePort = False
 DiluteSilver = False
 
 
