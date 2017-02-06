@@ -31,7 +31,7 @@ import DebugFunctions as db
 from TestCardRig import TestCardRig
 
 Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
-Fakeout = True #Fakeout connections, use for debugging without full test rig
+Fakeout = False #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
 filepath = 'C:\C1_Output'
 
@@ -320,84 +320,45 @@ def assay(theRig):
         if Pause == True:
             raw_input('Press enter to continue')
 
-        # #Add Wash to Chamber
-        # print time.strftime('%H:%M:%S -', time.localtime()), 'Resuspending Full Sandwiches with',\
-        #         param.SandwichVol,'uL of Casein Buffer @',param.SandwichRate,'uL/min '
-        # theRig.ValveOpen('V1')
-        # time.sleep(0.5)
-        # theRig.ValveClose('V2')
-        # time.sleep(0.5)
-        # theRig.PumpStart('B4',param.SandwichRate,param.SandwichVol)
-        # time.sleep(param.SandwichTime)
-        # if Pause == True:
-        #     raw_input('Press enter to continue')
+        #Drain ASV Chamber
+        theRig.ValveClose('V2')
+        time.sleep(0.5)
+        theRig.ValveOpen('V3')
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying ASV Chamber with 50uL @ 100uL/min'
+        theRig.PumpStart('B6', 100, 50)
+        time.sleep(30)
 
-        if param.fillOrder == 'A':
-            #Drain ASV Chamber
-            theRig.ValveClose('V2')
-            time.sleep(0.5)
-            theRig.ValveOpen('V3')
-            print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying ASV Chamber with 50uL @ 100uL/min'
-            theRig.PumpStart('B6', 100, 50)
-            time.sleep(30)
+        #Fill ASV Chamber w/ Elyte
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with 50uL @ 100uL/min'
+        theRig.PumpStart('B2', 100, 50)
+        time.sleep(30)
 
-            #Fill ASV Chamber w/ Elyte
-            print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with 50uL @ 100uL/min'
-            theRig.PumpStart('B2', 100, 50)
-            time.sleep(30)
+        #Fill Mixing Chamber with Elyte
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Filling Mixing Chamber with 50uL @ 100uL/min'
+        theRig.ValveOpen('V1')
+        time.sleep(0.5)
+        theRig.ValveClose('V3')
+        time.sleep(0.5)
+        theRig.PumpStart('B2', 100, 50)
+        time.sleep(30)
 
-            #Fill Mixing Chamber with Elyte
-            print time.strftime('%H:%M:%S -', time.localtime()), 'Filling Mixing Chamber with 50uL @ 100uL/min'
-            theRig.ValveOpen('V1')
-            time.sleep(0.5)
-            theRig.ValveClose('V3')
-            time.sleep(0.5)
-            theRig.PumpStart('B2', 100, 50)
-            time.sleep(30)
 
-        if param.fillOrder == 'B':
-            # Fill Mixing Chamber with Elyte
-            print time.strftime('%H:%M:%S -', time.localtime()), 'Filling Mixing Chamber with 50uL @ 100uL/min'
-            theRig.ValveOpen('V1')
-            time.sleep(0.5)
-            theRig.ValveClose('V2')
-            time.sleep(0.5)
-            theRig.PumpStart('B2', 100, 60)
-            time.sleep(30)
+        # Fill Mixing Chamber with Elyte
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Filling Mixing Chamber with 50uL @ 100uL/min'
+        theRig.ValveOpen('V1')
+        time.sleep(0.5)
+        theRig.ValveClose('V3')
+        time.sleep(0.5)
+        theRig.PumpStart('B2', 100, 60)
+        time.sleep(30)
 
-            # Fill ASV Chamber w/ Elyte
-            theRig.ValveOpen('V3')
-            time.sleep(0.5)
-            theRig.ValveClose('V1')
-            print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with 50uL @ 100uL/min'
-            theRig.PumpStart('B2', 100, 50)
-            time.sleep(30)
-
-        if param.fillOrder == 'C':
-            # Drain ASV Chamber
-            theRig.ValveClose('V2')
-            time.sleep(0.5)
-            theRig.ValveOpen('V3')
-            print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying ASV Chamber with 50uL @ 100uL/min'
-            theRig.PumpStart('B6', 100, 50)
-            time.sleep(30)
-
-            # Fill Mixing Chamber with Elyte
-            print time.strftime('%H:%M:%S -', time.localtime()), 'Filling Mixing Chamber with 50uL @ 100uL/min'
-            theRig.ValveOpen('V1')
-            time.sleep(0.5)
-            theRig.ValveClose('V2')
-            time.sleep(0.5)
-            theRig.PumpStart('B2', 100, 60)
-            time.sleep(30)
-
-            # Fill ASV Chamber w/ Elyte
-            theRig.ValveOpen('V3')
-            time.sleep(0.5)
-            theRig.ValveClose('V1')
-            print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with 50uL @ 100uL/min'
-            theRig.PumpStart('B2', 100, 50)
-            time.sleep(30)
+        # Fill ASV Chamber w/ Elyte
+        theRig.ValveOpen('V3')
+        time.sleep(0.5)
+        theRig.ValveClose('V1')
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with 50uL @ 100uL/min'
+        theRig.PumpStart('B2', 100, 50)
+        time.sleep(30)
 
         #Resuspend Sandwiches
         i = 1
@@ -447,13 +408,13 @@ def assay(theRig):
         if Pause == True:
             raw_input('Press enter to continue')
 
-        # #Run ASV
-        # print time.strftime('%H:%M:%S -', time.localtime()), 'Wetting Electrode for', param.PreASVWait, 'seconds'
-        # time.sleep(param.PreASVWait)
-        # print time.strftime('%H:%M:%S -', time.localtime()), 'Running ASV'
-        # theRig.RunASV()
-        # print time.strftime('%H:%M:%S -', time.localtime()), 'Saving ASV'
-        # theRig.SaveASV(filepath,folder,filename)
+        #Run ASV
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Wetting Electrode for', param.PreASVWait, 'seconds'
+        time.sleep(param.PreASVWait)
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Running ASV'
+        theRig.RunASV()
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Saving ASV'
+        theRig.SaveASV(filepath,folder,filename)
 
         if param.DispenseV2 == True:
                 theRig.VibRetract()

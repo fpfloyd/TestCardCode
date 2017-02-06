@@ -9,8 +9,6 @@
 DispenseV2 = False
 DispenseFlowrate = 100
 DispenseVolume = 300
-fillOrder = 'B'
-
 
 #Prime Parameters
 PrimeRate=100
