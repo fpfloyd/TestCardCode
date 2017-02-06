@@ -308,7 +308,7 @@ def assay(theRig):
             raw_input('Press enter to continue')
 
         #Empty Chamber
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with',param.WashoutVol100,\
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Mixing Chamber with',param.WashoutVol100,\
                 'uL @',param.WashoutRate100,'uL/min '
         theRig.ValveOpen('V2')
         time.sleep(0.5)
@@ -320,31 +320,45 @@ def assay(theRig):
         if Pause == True:
             raw_input('Press enter to continue')
 
-        if param.Elyte == True:
-            # Add Wash to Chamber
-            print time.strftime('%H:%M:%S -', time.localtime()), 'Resuspending Full Sandwiches with', \
-                param.SandwichVol + 10, 'uL of Electrolyte @', param.SandwichRate, 'uL/min '
-            theRig.ValveOpen('V1')
-            time.sleep(0.5)
-            theRig.ValveClose('V2')
-            time.sleep(0.5)
-            theRig.PumpStart('B2', param.SandwichRate, param.SandwichVol+10)
-            time.sleep(param.SandwichTime)
-            if Pause == True:
-                raw_input('Press enter to continue')
+        #Drain ASV Chamber
+        theRig.ValveClose('V2')
+        time.sleep(0.5)
+        theRig.ValveOpen('V3')
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying ASV Chamber with 50uL @ 100uL/min'
+        theRig.PumpStart('B6', 100, 50)
+        time.sleep(30)
 
-        else:
-            #Add Wash to Chamber
-            print time.strftime('%H:%M:%S -', time.localtime()), 'Resuspending Full Sandwiches with',\
-                    param.SandwichVol,'uL of Casein Buffer @',param.SandwichRate,'uL/min '
-            theRig.ValveOpen('V1')
-            time.sleep(0.5)
-            theRig.ValveClose('V2')
-            time.sleep(0.5)
-            theRig.PumpStart('B4',param.SandwichRate,param.SandwichVol)
-            time.sleep(param.SandwichTime)
-            if Pause == True:
-                raw_input('Press enter to continue')
+        #Fill ASV Chamber w/ Elyte
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with 50uL @ 100uL/min'
+        theRig.PumpStart('B2', 100, 50)
+        time.sleep(30)
+
+        #Fill Mixing Chamber with Elyte
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Filling Mixing Chamber with 50uL @ 100uL/min'
+        theRig.ValveOpen('V1')
+        time.sleep(0.5)
+        theRig.ValveClose('V3')
+        time.sleep(0.5)
+        theRig.PumpStart('B2', 100, 50)
+        time.sleep(30)
+
+
+        # Fill Mixing Chamber with Elyte
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Filling Mixing Chamber with 50uL @ 100uL/min'
+        theRig.ValveOpen('V1')
+        time.sleep(0.5)
+        theRig.ValveClose('V3')
+        time.sleep(0.5)
+        theRig.PumpStart('B2', 100, 60)
+        time.sleep(30)
+
+        # Fill ASV Chamber w/ Elyte
+        theRig.ValveOpen('V3')
+        time.sleep(0.5)
+        theRig.ValveClose('V1')
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with 50uL @ 100uL/min'
+        theRig.PumpStart('B2', 100, 50)
+        time.sleep(30)
 
         #Resuspend Sandwiches
         i = 1
@@ -355,7 +369,6 @@ def assay(theRig):
             print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i - 1
             theRig.VibrationStart(param.OtherSweepTime, param.OtherStartFreq, param.OtherEndFreq, param.OtherCycles)
             time.sleep(param.OtherMixingPause)
-
 
         #Move to ASV Chamber
         print time.strftime('%H:%M:%S -', time.localtime()), 'Moving Sandwiches to ASV Chamber with',\
@@ -371,30 +384,27 @@ def assay(theRig):
         if Pause == True:
             raw_input('Press enter to continue')
 
-        #PreFill Mix Chamber with Electrolyte to Stop Bubbles
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Priming Waste & Mixing Channels with Electrolyte'
-        theRig.ValveClose('V3')
-        time.sleep(0.5)
-        theRig.ValveClose('V4')
-        time.sleep(0.5)
-        theRig.ValveOpen('V2')
-        theRig.PumpStart('B2',param.ElecRate,10) #MAKE PARAMETER
-        time.sleep(8)
-        theRig.ValveOpen('V1')
-        time.sleep(0.5)
-        theRig.ValveClose('V2')
-        theRig.PumpStart('B2',param.ElecRate,20) #MAKE PARAMETER
-        time.sleep(30)
+        # #PreFill Mix Chamber with Electrolyte to Stop Bubbles
+        # print time.strftime('%H:%M:%S -', time.localtime()), 'Priming Waste & Mixing Channels with Electrolyte'
+        # theRig.ValveClose('V3')
+        # time.sleep(0.5)
+        # theRig.ValveClose('V4')
+        # time.sleep(0.5)
+        # theRig.ValveOpen('V2')
+        # theRig.PumpStart('B2',param.ElecRate,10) #MAKE PARAMETER
+        # time.sleep(8)
+        # theRig.ValveOpen('V1')
+        # time.sleep(0.5)
+        # theRig.ValveClose('V2')
+        # theRig.PumpStart('B2',param.ElecRate,20) #MAKE PARAMETER
+        # time.sleep(30)
 
         #Fill ASV Chamber with Electrolyte
         print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with',param.ElecVol,\
                 'uL of Electrolyte at',param.ElecRate,'uL/min'
-        theRig.ValveClose('V4')
-        time.sleep(0.5)
-        theRig.ValveOpen('V3')
         theRig.PumpStart('B2',param.ElecRate, param.ElecVol)
         theRig.ValveClose('V1')
-        time.sleep(param.ElecTime-5)
+        time.sleep(param.ElecTime)
         if Pause == True:
             raw_input('Press enter to continue')
 
