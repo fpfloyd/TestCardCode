@@ -9,7 +9,7 @@
 DispenseV2 = False
 DispenseFlowrate = 100
 DispenseVolume = 300
-Elyte = True
+fillOrder = 'B'
 
 
 #Prime Parameters
@@ -85,7 +85,7 @@ ElecRate=50          #Electrolyte Flowrate (uL/min)
 ElecVol=40           #Electrolyte Flow Time (sec)
 
 #ASV PARAMETERS
-PreASVWait = 600
+PreASVWait = 1
 DissTime = 30
 DissVolt = 0.8
 DepoTime = 120
