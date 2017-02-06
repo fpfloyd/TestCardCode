@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cf655bb6-4445-4077-9ad6-ab7e86028693" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestCard_0_13.py" afterPath="$PROJECT_DIR$/TestCard_0_13.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/param.py" afterPath="$PROJECT_DIR$/param.py" />
     </list>
     <ignored path="TestCardCode.iws" />
@@ -28,8 +27,8 @@
       <file leaf-file-name="param.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/param.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="88" column="14" lean-forward="true" selection-start-line="88" selection-start-column="14" selection-end-line="88" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -578,7 +577,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486407345713</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Updated how we move sandwiches to ASV Chamber to avoid bubbles">
+      <created>1486410909667</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1486410909667</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -660,7 +666,8 @@
     <MESSAGE value="Particle Testing for 01/25/2017" />
     <MESSAGE value="CBFirst Removed" />
     <MESSAGE value="Added 3 conditions to test electrolyte filling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added 3 conditions to test electrolyte filling" />
+    <MESSAGE value="Updated how we move sandwiches to ASV Chamber to avoid bubbles" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated how we move sandwiches to ASV Chamber to avoid bubbles" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -832,8 +839,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/param.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="88" column="14" lean-forward="true" selection-start-line="88" selection-start-column="14" selection-end-line="88" selection-end-column="14" />
           <folding />
         </state>
       </provider>
