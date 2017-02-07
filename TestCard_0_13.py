@@ -31,7 +31,7 @@ import DebugFunctions as db
 from TestCardRig import TestCardRig
 
 Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
-Fakeout = True #Fakeout connections, use for debugging without full test rig
+Fakeout = False #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
 filepath = 'C:\C1_Output'
 
@@ -338,25 +338,7 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.ValveClose('V3')
         time.sleep(0.5)
-        theRig.PumpStart('B2', 100, 50)
-        time.sleep(30)
-
-
-        # Fill Mixing Chamber with Elyte
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Filling Mixing Chamber with 50uL @ 100uL/min'
-        theRig.ValveOpen('V1')
-        time.sleep(0.5)
-        theRig.ValveClose('V3')
-        time.sleep(0.5)
         theRig.PumpStart('B2', 100, 60)
-        time.sleep(30)
-
-        # Fill ASV Chamber w/ Elyte
-        theRig.ValveOpen('V3')
-        time.sleep(0.5)
-        theRig.ValveClose('V1')
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with 50uL @ 100uL/min'
-        theRig.PumpStart('B2', 100, 50)
         time.sleep(30)
 
         #Resuspend Sandwiches
