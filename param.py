@@ -15,8 +15,8 @@ PrimeRate=100
 B1PrimeVol=0
 B2PrimeVol=0
 B3PrimeVol=0
-B4PrimeVol=9
-B5PrimeVol=8
+B4PrimeVol=4
+B5PrimeVol=3
 
 
 #ASV PRIME PARAMETERS
@@ -25,11 +25,11 @@ ASVPrimeVol=75          #ASV Prime Volume (uL)
 
 #PLASMA FLOW PARAMETERS
 PlasmaPushRate=100      #Flowrate for plasma being pushed to mixing chamber (uL/min)
-PlasmaPushVol=71        #Plasma Push Volume (uL) [subtracted 25uL to remove lysis buffer]
+PlasmaPushVol=46        #Plasma Push Volume (uL) [subtracted 25uL to remove lysis buffer]
 
 #DILLUTION AND MAG ADDITION PARAMETERS
 MagFlowRate=100         #Flowrate for mag beads being pushed into mixing chamber (uL/min)
-MagFlowVol=50           #Mag Bead volume (uL)
+MagFlowVol=30           #Mag Bead volume (uL)
 
 #MAG MIX PARAMETERS
 MagSweepTime = 30       #Magnet Mixing Sweep Time (sec)
@@ -61,14 +61,14 @@ OtherMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exac
 #PULLDOWN AND WASHOUT PARAMETERS
 PulldownTime=40         #Time for mags to pull down
 WashoutRate100=100      #Air flowrate for 100 uL(uL/min)
-WashoutVol100=150       #Air Volume for 100 uL (uL)
+WashoutVol100=160       #Air Volume for 100 uL (uL)
 PulldownTime1=10        #Time for mags to pull down
 WashoutRate50=100       #Air flowrate (uL/min)
-WashoutVol50=120        #Air volume for 50uL (uL/min)
+WashoutVol50=110        #Air volume for 50uL (uL/min)
 
 #WASH PARAMETERS
 WashRate=100
-WashVol=50
+WashVol=100
 
 #SILVER ADDITION PARAMETERS
 SilverRate=100
@@ -83,7 +83,7 @@ ElecRate=50          #Electrolyte Flowrate (uL/min)
 ElecVol=40           #Electrolyte Flow Time (sec)
 
 #ASV PARAMETERS
-PreASVWait = 60
+PreASVWait = 600
 DissTime = 30
 DissVolt = 0.8
 DepoTime = 120

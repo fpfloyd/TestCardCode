@@ -31,7 +31,7 @@ import DebugFunctions as db
 from TestCardRig import TestCardRig
 
 Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
-Fakeout = False #Fakeout connections, use for debugging without full test rig
+Fakeout = True #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
 filepath = 'C:\C1_Output'
 
@@ -139,11 +139,10 @@ def assay(theRig):
         if Pause == True:
             raw_input('Press enter to continue')
 
-        # Mix Lysis Buffer and Plasma
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Lysis Buffer and Plasma'
-        theRig.VibrationStart(param.OtherSweepTime, param.OtherStartFreq, param.OtherEndFreq, param.OtherCycles)
-        time.sleep(param.OtherMixingPause)
-
+        # # Mix Lysis Buffer and Plasma
+        # print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Lysis Buffer and Plasma'
+        # theRig.VibrationStart(param.OtherSweepTime, param.OtherStartFreq, param.OtherEndFreq, param.OtherCycles)
+        # time.sleep(param.OtherMixingPause)
 
         #Add Mags to Chamber While Mixing
         print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Mags with',param.MagFlowVol,\
@@ -174,15 +173,15 @@ def assay(theRig):
                 raw_input('Press enter to continue')
 
         #Empty Chamber
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with',param.WashoutVol100,'uL @',param.WashoutRate100,'uL/min '
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with',param.WashoutVol50,'uL @',param.WashoutRate50,'uL/min '
         theRig.ValveOpen('V2')
         time.sleep(0.5)
         theRig.ValveOpen('V4')
         time.sleep(0.5)
         theRig.ValveClose('V1')
         time.sleep(0.5)
-        theRig.PumpStart('B6', param.WashoutRate100, param.WashoutVol100)
-        time.sleep(param.WashoutTime100)
+        theRig.PumpStart('B6', param.WashoutRate50, param.WashoutVol50)
+        time.sleep(param.WashoutTime50)
         theRig.VibEngage()
         if Pause == True:
             raw_input('Press enter to continue')
@@ -194,7 +193,7 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.ValveClose('V2')
         time.sleep(0.5)
-        theRig.PumpStart('B4', param.WashRate, param.WashVol)
+        theRig.PumpStart('B1', param.WashRate, param.WashVol)
         time.sleep(param.WashTime)
         if Pause == True:
             raw_input('Press enter to continue')
@@ -283,7 +282,7 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.ValveClose('V2')
         time.sleep(0.5)
-        theRig.PumpStart('B4', param.WashRate, param.WashVol)
+        theRig.PumpStart('B1', param.WashRate, param.WashVol)
         time.sleep(param.WashTime)
         if Pause == True:
             raw_input('Press enter to continue')
@@ -383,21 +382,6 @@ def assay(theRig):
         time.sleep(param.MoveTime)
         if Pause == True:
             raw_input('Press enter to continue')
-
-        # #PreFill Mix Chamber with Electrolyte to Stop Bubbles
-        # print time.strftime('%H:%M:%S -', time.localtime()), 'Priming Waste & Mixing Channels with Electrolyte'
-        # theRig.ValveClose('V3')
-        # time.sleep(0.5)
-        # theRig.ValveClose('V4')
-        # time.sleep(0.5)
-        # theRig.ValveOpen('V2')
-        # theRig.PumpStart('B2',param.ElecRate,10) #MAKE PARAMETER
-        # time.sleep(8)
-        # theRig.ValveOpen('V1')
-        # time.sleep(0.5)
-        # theRig.ValveClose('V2')
-        # theRig.PumpStart('B2',param.ElecRate,20) #MAKE PARAMETER
-        # time.sleep(30)
 
         #Fill ASV Chamber with Electrolyte
         print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with',param.ElecVol,\
