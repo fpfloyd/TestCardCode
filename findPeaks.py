@@ -49,7 +49,7 @@ class findPeaks:
         peakVolts = (float(startVoltage)+(peakPos*stepSize))
 
         #find are with respect to curve, not zero
-        sweepStep = float(stepTimeUS)/1000000.0 #convert step size from uS to S
+        sweepStep = float(stepTimeUS)/100000.0 #convert step size from uS to S
         sweepTime = sweepStep * (rightPos-leftPos)
         #baseArea = 0.5 * (data[rightPos]-data[leftPos])*(rightPos-leftPos)+(data[rightPos]*(rightPos-leftPos))
         peakArea = sum(data[leftPos:rightPos])*sweepTime
