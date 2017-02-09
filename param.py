@@ -21,7 +21,7 @@ B5PrimeVol=3
 
 #ASV PRIME PARAMETERS
 ASVPrimeRate=100        #ASV Prime Flowrate (uL/min)
-ASVPrimeVol=75          #ASV Prime Volume (uL)
+ASVPrimeVol=100         #ASV Prime Volume (uL)
 
 #PLASMA FLOW PARAMETERS
 PlasmaPushRate=100      #Flowrate for plasma being pushed to mixing chamber (uL/min)
