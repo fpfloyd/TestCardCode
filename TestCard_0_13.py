@@ -31,9 +31,9 @@ import DebugFunctions as db
 from TestCardRig import TestCardRig
 
 Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
-Fakeout = False #Fakeout connections, use for debugging without full test rig
+Fakeout = True #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
-filepath = 'C:\C1_Output'
+filepath = '/Users/fredfloyd/Desktop/C1_Output'
 
 
 ##########
@@ -115,6 +115,7 @@ def assay(theRig):
         theRig.ValveOpen('V4')
         theRig.PumpStart('B6', param.WashoutRate50, param.WashoutVol50)
         time.sleep(param.WashoutTime50)
+        theRig.ValveClose('V4')
         theRig.VibEngage()
         if Pause == True:
             raw_input('Press enter to continue')
@@ -182,6 +183,7 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.PumpStart('B6', param.WashoutRate50, param.WashoutVol50)
         time.sleep(param.WashoutTime50)
+        theRig.ValveClose('V4')
         theRig.VibEngage()
         if Pause == True:
             raw_input('Press enter to continue')
@@ -224,8 +226,10 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.ValveClose('V1')
         time.sleep(0.5)
+        theRig.ValveOpen('V4')
         theRig.PumpStart('B6', param.WashoutRate100, param.WashoutVol100)
         time.sleep(param.WashoutTime100)
+        theRig.ValveClose('V4')
         theRig.VibEngage()
         if Pause == True:
             raw_input('Press enter to continue')
@@ -269,8 +273,10 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.ValveClose('V1')
         time.sleep(0.5)
+        theRig.ValveOpen('V4')
         theRig.PumpStart('B6', param.WashoutRate50, param.WashoutVol50)
         time.sleep(param.WashoutTime50)
+        theRig.ValveClose('V4')
         theRig.VibEngage()
         if Pause == True:
             raw_input('Press enter to continue')
@@ -313,8 +319,11 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.ValveClose('V1')
         time.sleep(0.5)
+        theRig.ValveOpen('V4')
+        time.sleep(0.5)
         theRig.PumpStart('B6', param.WashoutRate100, param.WashoutVol100)
         time.sleep(param.WashoutTime100)
+        theRig.ValveClose('V4')
         theRig.VibEngage()
         if Pause == True:
             raw_input('Press enter to continue')
@@ -324,9 +333,13 @@ def assay(theRig):
             theRig.ValveClose('V2')
             time.sleep(0.5)
             theRig.ValveOpen('V3')
+            time.sleep(0.5)
+            theRig.ValveOpen('V4')
             print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying ASV Chamber with 50uL @ 100uL/min'
             theRig.PumpStart('B6', 100, 50)
             time.sleep(30)
+            theRig.ValveClose('V4')
+            time.sleep(0.5)
 
             #Fill ASV Chamber w/ Elyte
             print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with 50uL @ 100uL/min'
@@ -362,8 +375,10 @@ def assay(theRig):
             time.sleep(0.5)
             theRig.ValveClose('V1')
             time.sleep(0.5)
+            theRig.ValveOpen('V4')
             theRig.PumpStart('B6',param.MoveRate,param.MoveVol)
             time.sleep(param.MoveTime)
+            theRig.ValveClose('V4')
             if Pause == True:
                 raw_input('Press enter to continue')
 

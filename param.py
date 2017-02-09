@@ -47,7 +47,7 @@ SilverStartFreq = 60
 SilverEndFreq = 90
 SilverCycles = 1
 SilverMixingSteps= 6    #Number of Silver Mixing Steps
-SilverMixingInc = 1200     #Silver Incubation Time (sec)
+SilverMixingInc = 900     #Silver Incubation Time (sec)
 SilverMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exact
 
 #Other MIX PARAMETERS
