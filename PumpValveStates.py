@@ -27,14 +27,12 @@ def fileStart(filename,assayStart):
     global matrix
     start = assayStart
     matrix = [[]]
-    with open('PVS.csv', "wb") as f:
-        writer = csv.writer(f)
-        f.write('Time,V1,V2,V3,V4,P1,P2,P3,P4,P5,P6')
 
 
 def fileStop():
     with open('PVS.csv',"wb") as f:
         writer = csv.writer(f)
+        f.write('Time(s),V1,V2,V3,V4,B1,B2,B3,B4,B5,B6')
         writer.writerows(matrix)
 
 def change():
