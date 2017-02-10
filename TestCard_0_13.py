@@ -29,6 +29,8 @@ import ConfigParser
 import param
 import DebugFunctions as db
 from TestCardRig import TestCardRig
+import PumpValveStates as PVS
+import threading
 
 Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
 Fakeout = True #Fakeout connections, use for debugging without full test rig
@@ -50,11 +52,15 @@ def assay(theRig):
             if len(filename)==0:
                 print 'Filename needed'
 
-        stopAll(theRig)
+
         startTime = time.time()
+        status = threading.Thread(target=PVS.fileStart(filename,startTime), args=filename)
+        status.start()
         theRig.SetupASV(param.DissVolt,param.DissTime,param.DepoVolt,param.DepoTime,param.StartSweep,
                         param.EndSweep,param.SweepStep,param.SweepInc)
         theRig.SetGains(param.DissGain,param.DepoGain,param.SweepGain)
+        stopAll(theRig)
+        time.sleep(1)
 
         #Open all Valves
         print time.strftime('%H:%M:%S -', time.localtime()), 'Starting Assay, Press ctrl+c at any time to quit'
@@ -74,14 +80,19 @@ def assay(theRig):
         print time.strftime('%H:%M:%S -', time.localtime()), 'Priming Blister Channels'
         #theRig.PumpStart('B1', param.PrimeRate, param.B1PrimeVol)
         #time.sleep(param.B1PrimeTime)
+        #PVS.pumpStop('B1')
         #theRig.PumpStart('B6', param.PrimeRate, param.B6PrimeVol)
         #time.sleep(B6PrimeTime)
+        #PVS.pumpStop('B1')
         #theRig.PumpStart('B2', param.PrimeRate, param.B2PrimeVol)
         #time.sleep(param.B2PrimeTime)
+        #PVS.pumpStop('B3')
         theRig.PumpStart('B4', param.PrimeRate, param.B4PrimeVol)
         time.sleep(param.B4PrimeTime)
+        PVS.pumpStop('B4')
         theRig.PumpStart('B5', param.PrimeRate, param.B5PrimeVol)
         time.sleep(param.B5PrimeTime)
+        PVS.pumpStop('B5')
         if Pause == True:
             raw_input('Press enter to continue')
 
@@ -98,6 +109,7 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.PumpStart('B2', param.ASVPrimeRate, param.ASVPrimeVol)
         time.sleep(param.ASVPrimeTime)
+        PVS.pumpStop('B2')
         if Pause == True:
             raw_input('Press enter to continue')
 
@@ -115,6 +127,7 @@ def assay(theRig):
         theRig.ValveOpen('V4')
         theRig.PumpStart('B6', param.WashoutRate50, param.WashoutVol50)
         time.sleep(param.WashoutTime50)
+        PVS.pumpStop('B6')
         theRig.ValveClose('V4')
         theRig.VibEngage()
         if Pause == True:
@@ -132,8 +145,11 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.PumpStart('B1', param.PlasmaPushRate, param.PlasmaPushVol)
         time.sleep(param.PlasmaPushTime)
+        PVS.pumpStop('B1')
         if Pause == True:
             raw_input('Press enter to continue')
+
+        PVS.fileStop()
 
         # # Mix Lysis Buffer and Plasma
         # print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Lysis Buffer and Plasma'
@@ -146,6 +162,7 @@ def assay(theRig):
         theRig.VibrationStart(param.MagFlowTime,param.MagStartFreq,param.MagEndFreq,param.MagCycles)
         theRig.PumpStart('B4', param.MagFlowRate, param.MagFlowVol)
         time.sleep(param.MagFlowTime)
+        PVS.pumpStop('B4')
         if Pause == True:
             raw_input('Press enter to continue')
 
@@ -178,6 +195,7 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.PumpStart('B6', param.WashoutRate50, param.WashoutVol50)
         time.sleep(param.WashoutTime50)
+        PVS.pumpStop('B6')
         theRig.ValveClose('V4')
         theRig.VibEngage()
         if Pause == True:
@@ -191,6 +209,7 @@ def assay(theRig):
         theRig.ValveClose('V2')
         time.sleep(0.5)
         theRig.PumpStart('B1', param.WashRate, param.WashVol)
+        PVS.pumpStop('B1')
         time.sleep(param.WashTime)
         if Pause == True:
             raw_input('Press enter to continue')
@@ -224,6 +243,7 @@ def assay(theRig):
         theRig.ValveOpen('V4')
         theRig.PumpStart('B6', param.WashoutRate100, param.WashoutVol100)
         time.sleep(param.WashoutTime100)
+        PVS.pumpStop('B6')
         theRig.ValveClose('V4')
         theRig.VibEngage()
         if Pause == True:
@@ -238,6 +258,7 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.PumpStart('B5', param.SilverRate,param.SilverVol)
         time.sleep(param.SilverTime)
+        PVS.pumpStop('B5')
         if Pause == True:
             raw_input('Press enter to continue')
 
@@ -271,6 +292,7 @@ def assay(theRig):
         theRig.ValveOpen('V4')
         theRig.PumpStart('B6', param.WashoutRate50, param.WashoutVol50)
         time.sleep(param.WashoutTime50)
+        PVS.pumpStop('B6')
         theRig.ValveClose('V4')
         theRig.VibEngage()
         if Pause == True:
@@ -285,6 +307,7 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.PumpStart('B1', param.WashRate, param.WashVol)
         time.sleep(param.WashTime)
+        PVS.pumpStop('B1')
         if Pause == True:
             raw_input('Press enter to continue')
 
@@ -318,6 +341,7 @@ def assay(theRig):
         # time.sleep(0.5)
         # theRig.PumpStart('B6', param.WashoutRate100, param.WashoutVol100)
         # time.sleep(param.WashoutTime100)
+        #PVS.pumpStop('B6')
         # theRig.ValveClose('V4')
         # theRig.VibEngage()
         # if Pause == True:
@@ -333,6 +357,7 @@ def assay(theRig):
         #     print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying ASV Chamber with 50uL @ 100uL/min'
         #     theRig.PumpStart('B6', 100, 50)
         #     time.sleep(30)
+        #     PVS.pumpStop('B6')
         #     theRig.ValveClose('V4')
         #     time.sleep(0.5)
         #
@@ -340,6 +365,7 @@ def assay(theRig):
         #     print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with 50uL @ 100uL/min'
         #     theRig.PumpStart('B2', 100, 50)
         #     time.sleep(30)
+        #     PVS.pumpStop('B2')
         #
         # #Fill Mixing Chamber with Elyte
         # print time.strftime('%H:%M:%S -', time.localtime()), 'Filling Mixing Chamber with 50uL @ 100uL/min'
@@ -349,6 +375,7 @@ def assay(theRig):
         # time.sleep(0.5)
         # theRig.PumpStart('B2', 100, 60)
         # time.sleep(30)
+        #PVS.pumpStop('B2')
         #
         # #Resuspend Sandwiches
         # i = 1
@@ -373,6 +400,7 @@ def assay(theRig):
         #     theRig.ValveOpen('V4')
         #     theRig.PumpStart('B6',param.MoveRate,param.MoveVol)
         #     time.sleep(param.MoveTime)
+        #     PVS.pumpStop('B6')
         #     theRig.ValveClose('V4')
         #     if Pause == True:
         #         raw_input('Press enter to continue')
@@ -383,6 +411,7 @@ def assay(theRig):
         #     theRig.PumpStart('B2',param.ElecRate, param.ElecVol)
         #     theRig.ValveClose('V1')
         #     time.sleep(param.ElecTime)
+        #     PVS.pumpStop('B2')
         #     if Pause == True:
         #         raw_input('Press enter to continue')
         #
@@ -406,6 +435,7 @@ def assay(theRig):
             print time.strftime('%H:%M:%S -', time.localtime()), 'Draining Sample Through V2 to Eppendorf Tube'
             theRig.PumpStart('B6', param.DispenseFlowrate, param.DispenseVolume)
             time.sleep((param.DispenseVolume/param.DispenseFlowrate)*60)
+            PVS.pumpStop('B6')
 
         print time.strftime('%H:%M:%S -', time.localtime()), 'Assay Complete!'
         assayTime = round(((time.time()-startTime)/60),2)

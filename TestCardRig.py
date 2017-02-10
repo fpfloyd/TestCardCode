@@ -17,6 +17,7 @@ from VibVal import VibVal
 from Magnet import Magnet
 from ASV import ASV
 from ASV_CLS_Parse import ParseASV
+import PumpValveStates as PVS
 
 
 class TestCardRig:
@@ -79,6 +80,7 @@ class TestCardRig:
                         db.PrintDebug("PumpStart FAIL No pump "+which)
 
         def PumpStart(self,which,rate,volume=None):
+                PVS.pumpStart(which, rate, volume)
                 if which in self.thePumps:
                         if (volume <> None):
                                 db.PrintDebug("Set volume on pump "+which+" to "+str(volume))
@@ -120,6 +122,7 @@ class TestCardRig:
         
         def ValveOpen(self,which):
                 if which in self.theValves:
+                        PVS.valveOpen(which)
                         db.PrintDebug("Valve Open "+which)
                         self.theVibValController.Open(self.theValves[which])
                 else:
@@ -127,6 +130,7 @@ class TestCardRig:
 
         def ValveClose(self,which):
                 if which in self.theValves:
+                        PVS.valveClose(which)
                         db.PrintDebug("Valve Close "+which)
                         self.theVibValController.Close(self.theValves[which])
                 else:
