@@ -6,7 +6,7 @@
 ##########
 
 #TESTING PARAMETERS
-DispenseV2 = False
+DispenseV2 = True
 DispenseFlowrate = 100
 DispenseVolume = 300
 
@@ -61,10 +61,10 @@ OtherMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exac
 #PULLDOWN AND WASHOUT PARAMETERS
 PulldownTime=40         #Time for mags to pull down
 WashoutRate100=100      #Air flowrate for 100 uL(uL/min)
-WashoutVol100=160       #Air Volume for 100 uL (uL)
+WashoutVol100=150       #Air Volume for 100 uL (uL)
 PulldownTime1=10        #Time for mags to pull down
 WashoutRate50=100       #Air flowrate (uL/min)
-WashoutVol50=110        #Air volume for 50uL (uL/min)
+WashoutVol50=100        #Air volume for 50uL (uL/min)
 
 #WASH PARAMETERS
 WashRate=100

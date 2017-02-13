@@ -31,9 +31,9 @@ import DebugFunctions as db
 from TestCardRig import TestCardRig
 
 Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
-Fakeout = True #Fakeout connections, use for debugging without full test rig
+Fakeout = False #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
-filepath = '/Users/fredfloyd/Desktop/C1_Output'
+filepath = 'C:\C1_Output'
 
 
 ##########
@@ -269,8 +269,8 @@ def assay(theRig):
         theRig.ValveClose('V1')
         time.sleep(0.5)
         theRig.ValveOpen('V4')
-        theRig.PumpStart('B6', param.WashoutRate50, param.WashoutVol50)
-        time.sleep(param.WashoutTime50)
+        theRig.PumpStart('B6', 100, 200)
+        time.sleep(130)
         theRig.ValveClose('V4')
         theRig.VibEngage()
         if Pause == True:
