@@ -216,7 +216,7 @@ class ParseASV:
             with open('Summary.csv',"wb") as f:
                 writer = csv.writer(f)
                 f.write("{}\{}\n".format(filepath,folder))
-                f.write("Filename, Peak Location (V), Peak Area (uC), Peak Height (uA) \n")
+                f.write("Filename, Peak Location (V), Peak Height (uA), Peak Area (uC) \n")
                 f.write(cleanSummaryMatrix)
 
             print ("Folder Parsed")

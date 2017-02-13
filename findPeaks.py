@@ -49,10 +49,10 @@ class findPeaks:
         peakVolts = (float(startVoltage)+(peakPos*stepSize))
 
         #find are with respect to curve, not zero
-        sweepStep = float(stepTimeUS)/1000000.0 #convert step size from uS to S
-        sweepTime = sweepStep * (rightPos-leftPos)
+        sweepStep = float(stepTimeUS)/100000.0 #convert step size from uS to S
+        #sweepTime = sweepStep * (rightPos-leftPos)
         #baseArea = 0.5 * (data[rightPos]-data[leftPos])*(rightPos-leftPos)+(data[rightPos]*(rightPos-leftPos))
-        peakArea = sum(data[leftPos:rightPos])*sweepTime
+        peakArea = sum(data[leftPos:rightPos])*sweepStep
 
         #lets find peak height frome baseline
         if rightPos - leftPos != 0:
@@ -65,6 +65,6 @@ class findPeaks:
 
 
         # OK, I think we're done here
-        list = peakVolts, peakArea, peakCurrent
+        list = peakVolts, peakCurrent, peakArea
         return list
 
