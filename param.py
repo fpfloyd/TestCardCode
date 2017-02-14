@@ -9,12 +9,12 @@
 DispenseV2 = True
 DispenseFlowrate = 100
 DispenseVolume = 300
-oldCode = False
+oldCode = True
 
 if oldCode == True:
     WashoutVolPre = 110
-    WashoutTimePre = (WashoutVolPre * 60.0/WashoutRate50)+2
-else
+    WashoutTimePre = (WashoutVolPre * 60.0/100)+2
+else:
     WashoutVolPre = 200
     WashoutTimePre = 130
 
@@ -29,7 +29,7 @@ B5PrimeVol=3
 
 #ASV PRIME PARAMETERS
 ASVPrimeRate=100        #ASV Prime Flowrate (uL/min)
-ASVPrimeVol=100         #ASV Prime Volume (uL)
+ASVPrimeVol=200         #ASV Prime Volume (uL)
 
 #PLASMA FLOW PARAMETERS
 PlasmaPushRate=100      #Flowrate for plasma being pushed to mixing chamber (uL/min)
