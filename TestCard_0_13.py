@@ -110,13 +110,13 @@ def assay(theRig):
         theRig.ValveOpen('V4')
         theRig.PumpStart('B6', param.WashoutRate50, param.WashoutVol50)
         time.sleep(param.WashoutTime50)
-        theRig.MagnetEngage()
         if Pause == True:
             raw_input('Press enter to continue')
 
         #Push Plasma to Mixing Chamber with Lysis Buffer
         print time.strftime('%H:%M:%S -', time.localtime()), 'Pushing Plasma to Mixing Chamber with ',\
                 param.PlasmaPushVol,'uL @',param.PlasmaPushRate,'uL/min'
+        theRig.VibEngage()
         theRig.ValveOpen('V1')
         time.sleep(0.5)
         theRig.ValveClose('V2')
@@ -357,6 +357,7 @@ def assay(theRig):
                 #Move to ASV Chamber
                 print time.strftime('%H:%M:%S -', time.localtime()), 'Moving Sandwiches to ASV Chamber with',\
                         param.MoveVol,'uL @',param.MoveRate,'uL/min'
+                theRig.VibRetract()
                 theRig.ValveOpen('V3')
                 time.sleep(0.5)
                 theRig.ValveClose('V1')

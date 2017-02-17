@@ -59,7 +59,7 @@ WashoutRate100=100      #Air flowrate for 100 uL(uL/min)
 WashoutVol100=160       #Air Volume for 100 uL (uL)
 PulldownTime1=10        #Time for mags to pull down
 WashoutRate50=100       #Air flowrate (uL/min)
-WashoutVol50=110        #Air volume for 50uL (uL/min)
+WashoutVol50=300        #Air volume for 50uL (uL/min)
 
 #WASH PARAMETERS
 WashRate=100
@@ -81,9 +81,9 @@ ElecVol=40           #Electrolyte Flow Time (sec)
 #ASV PARAMETERS
 PreASVWait = 600
 DissTime = 30
-DissVolt = 0.8
+DissVolt = 0.7
 DepoTime = 120
-DepoVolt = -0.9
+DepoVolt = -0.8
 StartSweep = -1
 EndSweep = 0.1
 SweepStep = 100
