@@ -6,10 +6,10 @@
 ##########
 
 #TESTING PARAMETERS
-DispenseV2 = True
+DispenseV2 = False
 DispenseFlowrate = 100
 DispenseVolume = 300
-oldCode = True
+oldCode = False
 
 if oldCode == True:
     WashoutVolPre = 110
@@ -31,6 +31,10 @@ B5PrimeVol=3
 ASVPrimeRate=100        #ASV Prime Flowrate (uL/min)
 ASVPrimeVol=200         #ASV Prime Volume (uL)
 
+#TRANSFER CHANNEL PARAMETERS
+TXPrimeRate=100         #Transfer channel prime flowrate (uL/min)
+TXPrimeVol=15           #Transfer channel prime volume (uL)
+
 #PLASMA FLOW PARAMETERS
 PlasmaPushRate=100      #Flowrate for plasma being pushed to mixing chamber (uL/min)
 PlasmaPushVol=46        #Plasma Push Volume (uL) [subtracted 25uL to remove lysis buffer]
@@ -44,8 +48,8 @@ MagSweepTime = 30       #Magnet Mixing Sweep Time (sec)
 MagStartFreq = 60       #Magnet Mixing Start Frequency (hz)
 MagEndFreq = 90         #Magnet Mixing End Frequency  (hz)
 MagCycles = 1           #Number of Sweep Cycles
-MagMixingSteps = 2      #Number of mixing steps
-MagMixingInc = 300      #Mag Incubation Time (sec)
+MagMixingSteps = 1      #Number of mixing steps
+MagMixingInc = 30      #Mag Incubation Time (sec)
 MagMixingPause = (MagCycles * MagSweepTime) + 10 #Sweep Time is not exact
 
 
@@ -54,8 +58,8 @@ SilverSweepTime = 30
 SilverStartFreq = 60
 SilverEndFreq = 90
 SilverCycles = 1
-SilverMixingSteps= 6    #Number of Silver Mixing Steps
-SilverMixingInc = 900     #Silver Incubation Time (sec)
+SilverMixingSteps= 1    #Number of Silver Mixing Steps
+SilverMixingInc = 30     #Silver Incubation Time (sec)
 SilverMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exact
 
 #Other MIX PARAMETERS
@@ -112,6 +116,7 @@ SweepGain = 4
 ##########
 ExtraTime=2             #Extra time after the syringe pump finishes
 ASVPrimeTime=(ASVPrimeVol*60.0/ASVPrimeRate)+ExtraTime
+TXPrimeTime=(TXPrimeVol*60.0/TXPrimeRate)+ExtraTime
 PlasmaPushTime=(PlasmaPushVol*60.0/PlasmaPushRate)+ExtraTime
 MagFlowTime=(MagFlowVol*60.0/MagFlowRate)+ExtraTime
 WashoutTime100=(WashoutVol100*60.0/WashoutRate100)+ExtraTime

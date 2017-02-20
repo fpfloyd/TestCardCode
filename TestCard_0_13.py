@@ -31,7 +31,7 @@ import DebugFunctions as db
 from TestCardRig import TestCardRig
 
 Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
-Fakeout = False #Fakeout connections, use for debugging without full test rig
+Fakeout = True #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
 filepath = 'C:\C1_Output'
 
@@ -101,6 +101,22 @@ def assay(theRig):
         if Pause == True:
             raw_input('Press enter to continue')
 
+        # Prime transfer channel
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Priming transfer channel with ', param.TXPrimeVol, 'uL @', \
+                param.TXPrimeRate, 'uL/min'
+        theRig.ValveOpen('V1')
+        time.sleep(0.5)
+        theRig.ValveClose('V3')
+        time.sleep(0.5)
+        theRig.ValveClose('V4')
+        time.sleep(0.5)
+        theRig.ValveClose('V2')
+        time.sleep(0.5)
+        theRig.PumpStart('B2', param.TXPrimeRate, param.TXPrimeVol)
+        time.sleep(param.TXPrimeTime)
+        if Pause == True:
+            raw_input('Press enter to continue')
+
         #Ensure Chamber Is Empty
         print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with', param.WashoutVol50, 'uL @', \
                 param.WashoutRate50, 'uL/min'
@@ -119,7 +135,6 @@ def assay(theRig):
         theRig.VibEngage()
         if Pause == True:
             raw_input('Press enter to continue')
-
 
         #Push Plasma to Mixing Chamber with Lysis Buffer
         print time.strftime('%H:%M:%S -', time.localtime()), 'Pushing Plasma to Mixing Chamber with ',\
@@ -298,31 +313,31 @@ def assay(theRig):
             theRig.VibrationStart(param.OtherSweepTime, param.OtherStartFreq, param.OtherEndFreq, param.OtherCycles)
             time.sleep(param.OtherMixingPause)
 
-        # # Pulldown Sandwiches
-        # print time.strftime('%H:%M:%S -', time.localtime()), 'Pulling Down Full Sandwiches'
-        # theRig.MagnetEngage()
-        # time.sleep(0.5)
-        # theRig.VibRetract()
-        # time.sleep(param.PulldownTime)
-        # if Pause == True:
-        #     raw_input('Press enter to continue')
-        #
-        # #Empty Chamber
-        # print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Mixing Chamber with',param.WashoutVol100,\
-        #         'uL @',param.WashoutRate100,'uL/min '
-        # theRig.ValveOpen('V2')
-        # time.sleep(0.5)
-        # theRig.ValveClose('V1')
-        # time.sleep(0.5)
-        # theRig.ValveOpen('V4')
-        # time.sleep(0.5)
-        # theRig.PumpStart('B6', param.WashoutRate100, param.WashoutVol100)
-        # time.sleep(param.WashoutTime100)
-        # theRig.ValveClose('V4')
-        # theRig.VibEngage()
-        # if Pause == True:
-        #     raw_input('Press enter to continue')
-        #
+        # Pulldown Sandwiches
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Pulling Down Full Sandwiches'
+        theRig.MagnetEngage()
+        time.sleep(0.5)
+        theRig.VibRetract()
+        time.sleep(param.PulldownTime)
+        if Pause == True:
+            raw_input('Press enter to continue')
+
+        #Empty Chamber
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Mixing Chamber with',param.WashoutVol100,\
+                'uL @',param.WashoutRate100,'uL/min '
+        theRig.ValveOpen('V2')
+        time.sleep(0.5)
+        theRig.ValveClose('V1')
+        time.sleep(0.5)
+        theRig.ValveOpen('V4')
+        time.sleep(0.5)
+        theRig.PumpStart('B6', param.WashoutRate100, param.WashoutVol100)
+        time.sleep(param.WashoutTime100)
+        theRig.ValveClose('V4')
+        theRig.VibEngage()
+        if Pause == True:
+            raw_input('Press enter to continue')
+
         # if param.DispenseV2 == False:
         #     #Drain ASV Chamber
         #     theRig.ValveClose('V2')
@@ -340,59 +355,59 @@ def assay(theRig):
         #     print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with 50uL @ 100uL/min'
         #     theRig.PumpStart('B2', 100, 50)
         #     time.sleep(30)
-        #
-        # #Fill Mixing Chamber with Elyte
-        # print time.strftime('%H:%M:%S -', time.localtime()), 'Filling Mixing Chamber with 50uL @ 100uL/min'
-        # theRig.ValveOpen('V1')
-        # time.sleep(0.5)
-        # theRig.ValveClose('V3')
-        # time.sleep(0.5)
-        # theRig.PumpStart('B2', 100, 60)
-        # time.sleep(30)
-        #
-        # #Resuspend Sandwiches
-        # i = 1
-        # print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing/Washing Full Sandwiches'
-        # theRig.MagnetRetract()
-        # while i <= param.OtherMixingSteps:
-        #     i = i + 1
-        #     print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i - 1
-        #     theRig.VibrationStart(param.OtherSweepTime, param.OtherStartFreq, param.OtherEndFreq, param.OtherCycles)
-        #     time.sleep(param.OtherMixingPause)
-        #
-        # if param.DispenseV2 == False:
-        #     #Move to ASV Chamber
-        #     print time.strftime('%H:%M:%S -', time.localtime()), 'Moving Sandwiches to ASV Chamber with',\
-        #             param.MoveVol,'uL @',param.MoveRate,'uL/min'
-        #     theRig.VibRetract()
-        #     time.sleep(0.5)
-        #     theRig.ValveOpen('V3')
-        #     time.sleep(0.5)
-        #     theRig.ValveClose('V1')
-        #     time.sleep(0.5)
-        #     theRig.ValveOpen('V4')
-        #     theRig.PumpStart('B6',param.MoveRate,param.MoveVol)
-        #     time.sleep(param.MoveTime)
-        #     theRig.ValveClose('V4')
-        #     if Pause == True:
-        #         raw_input('Press enter to continue')
-        #
-        #     #Fill ASV Chamber with Electrolyte
-        #     print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with',param.ElecVol,\
-        #             'uL of Electrolyte at',param.ElecRate,'uL/min'
-        #     theRig.PumpStart('B2',param.ElecRate, param.ElecVol)
-        #     theRig.ValveClose('V1')
-        #     time.sleep(param.ElecTime)
-        #     if Pause == True:
-        #         raw_input('Press enter to continue')
-        #
-        #     #Run ASV
-        #     print time.strftime('%H:%M:%S -', time.localtime()), 'Wetting Electrode for', param.PreASVWait, 'seconds'
-        #     time.sleep(param.PreASVWait)
-        #     print time.strftime('%H:%M:%S -', time.localtime()), 'Running ASV'
-        #     theRig.RunASV()
-        #     print time.strftime('%H:%M:%S -', time.localtime()), 'Saving ASV'
-        #     theRig.SaveASV(filepath,folder,filename)
+
+        #Fill Mixing Chamber with Elyte
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Filling Mixing Chamber with 50uL @ 100uL/min'
+        theRig.ValveOpen('V1')
+        time.sleep(0.5)
+        theRig.ValveClose('V3')
+        time.sleep(0.5)
+        theRig.PumpStart('B2', 100, 60)
+        time.sleep(30)
+
+        #Resuspend Sandwiches
+        i = 1
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing/Washing Full Sandwiches'
+        theRig.MagnetRetract()
+        while i <= param.OtherMixingSteps:
+            i = i + 1
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i - 1
+            theRig.VibrationStart(param.OtherSweepTime, param.OtherStartFreq, param.OtherEndFreq, param.OtherCycles)
+            time.sleep(param.OtherMixingPause)
+
+        if param.DispenseV2 == False:
+            #Move to ASV Chamber
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Moving Sandwiches to ASV Chamber with',\
+                    param.MoveVol,'uL @',param.MoveRate,'uL/min'
+            theRig.VibRetract()
+            time.sleep(0.5)
+            theRig.ValveOpen('V3')
+            time.sleep(0.5)
+            theRig.ValveClose('V1')
+            time.sleep(0.5)
+            theRig.ValveOpen('V4')
+            theRig.PumpStart('B6',param.MoveRate,param.MoveVol)
+            time.sleep(param.MoveTime)
+            theRig.ValveClose('V4')
+            if Pause == True:
+                raw_input('Press enter to continue')
+
+            #Fill ASV Chamber with Electrolyte
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with',param.ElecVol,\
+                    'uL of Electrolyte at',param.ElecRate,'uL/min'
+            theRig.PumpStart('B2',param.ElecRate, param.ElecVol)
+            theRig.ValveClose('V1')
+            time.sleep(param.ElecTime)
+            if Pause == True:
+                raw_input('Press enter to continue')
+
+            # #Run ASV
+            # print time.strftime('%H:%M:%S -', time.localtime()), 'Wetting Electrode for', param.PreASVWait, 'seconds'
+            # time.sleep(param.PreASVWait)
+            # print time.strftime('%H:%M:%S -', time.localtime()), 'Running ASV'
+            # theRig.RunASV()
+            # print time.strftime('%H:%M:%S -', time.localtime()), 'Saving ASV'
+            # theRig.SaveASV(filepath,folder,filename)
 
         if param.DispenseV2 == True:
             theRig.VibRetract()
