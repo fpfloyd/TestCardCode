@@ -397,15 +397,13 @@ def assay(theRig):
                 raw_input('Press enter to continue')
 
             #Fill ASV Chamber with Electrolyte
-            theRig.ValveClose('V3')
-            time.sleep(0.5)
             theRig.ValveOpen('V1')
+            time.sleep(0.5)
+            theRig.ValveOpen('V3')
             time.sleep(0.5)
             print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with', param.ElecVol, \
                 'uL of Electrolyte at', param.ElecRate, 'uL/min'
             theRig.PumpStart('B2', param.ElecRate, param.ElecVol)
-            time.sleep(0.5)
-            theRig.ValveOpen('V3')
             time.sleep(0.5)
             theRig.ValveClose('V1')
             time.sleep(0.5)
