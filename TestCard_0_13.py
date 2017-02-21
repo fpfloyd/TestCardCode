@@ -360,6 +360,8 @@ def assay(theRig):
         print time.strftime('%H:%M:%S -', time.localtime()), 'Filling Mixing Chamber with 50uL @ 100uL/min'
         theRig.ValveOpen('V1')
         time.sleep(0.5)
+        theRig.ValveClose('V2')
+        time.sleep(0.5)
         theRig.ValveClose('V3')
         time.sleep(0.5)
         theRig.PumpStart('B2', 100, 60)
@@ -383,6 +385,8 @@ def assay(theRig):
             time.sleep(0.5)
             theRig.ValveOpen('V3')
             time.sleep(0.5)
+            theRig.ValveClose('V2')
+            time.sleep(0.5)
             theRig.ValveClose('V1')
             time.sleep(0.5)
             theRig.ValveOpen('V4')
@@ -393,11 +397,20 @@ def assay(theRig):
                 raw_input('Press enter to continue')
 
             #Fill ASV Chamber with Electrolyte
-            print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with',param.ElecVol,\
-                    'uL of Electrolyte at',param.ElecRate,'uL/min'
-            theRig.PumpStart('B2',param.ElecRate, param.ElecVol)
+            theRig.ValveClose('V3')
+            time.sleep(0.5)
+            theRig.ValveOpen('V1')
+            time.sleep(0.5)
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with', param.ElecVol, \
+                'uL of Electrolyte at', param.ElecRate, 'uL/min'
+            theRig.PumpStart('B2', param.ElecRate, param.ElecVol)
+            time.sleep(0.5)
+            theRig.ValveOpen('V3')
+            time.sleep(0.5)
             theRig.ValveClose('V1')
+            time.sleep(0.5)
             time.sleep(param.ElecTime)
+
             if Pause == True:
                 raw_input('Press enter to continue')
 

@@ -33,7 +33,7 @@ ASVPrimeVol=200         #ASV Prime Volume (uL)
 
 #TRANSFER CHANNEL PARAMETERS
 TXPrimeRate=100         #Transfer channel prime flowrate (uL/min)
-TXPrimeVol=15           #Transfer channel prime volume (uL)
+TXPrimeVol=5           #Transfer channel prime volume (uL)
 
 #PLASMA FLOW PARAMETERS
 PlasmaPushRate=100      #Flowrate for plasma being pushed to mixing chamber (uL/min)
@@ -73,10 +73,10 @@ OtherMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exac
 #PULLDOWN AND WASHOUT PARAMETERS
 PulldownTime=40         #Time for mags to pull down
 WashoutRate100=100      #Air flowrate for 100 uL(uL/min)
-WashoutVol100=150       #Air Volume for 100 uL (uL)
+WashoutVol100=170       #Air Volume for 100 uL (uL)
 PulldownTime1=10        #Time for mags to pull down
 WashoutRate50=100       #Air flowrate (uL/min)
-WashoutVol50=100        #Air volume for 50uL (uL/min)
+WashoutVol50=120        #Air volume for 50uL (uL/min)
 
 #WASH PARAMETERS
 WashRate=100
