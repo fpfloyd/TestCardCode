@@ -6,17 +6,9 @@
 ##########
 
 #TESTING PARAMETERS
-DispenseV2 = True
+DispenseV2 = False
 DispenseFlowrate = 100
 DispenseVolume = 300
-oldCode = False
-
-if oldCode == True:
-    WashoutVolPre = 110
-    WashoutTimePre = (WashoutVolPre * 60.0/WashoutRate50)+2
-else
-    WashoutVolPre = 200
-    WashoutTimePre = 130
 
 #Prime Parameters
 PrimeRate=100
