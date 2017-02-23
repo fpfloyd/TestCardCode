@@ -377,6 +377,21 @@ def assay(theRig):
             if Pause == True:
                 raw_input('Press enter to continue')
 
+            # PreFill Mix Chamber with Electrolyte to Stop Bubbles
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Priming Waste & Mixing Channels with Electrolyte'
+            theRig.ValveClose('V3')
+            time.sleep(0.5)
+            theRig.ValveClose('V4')
+            time.sleep(0.5)
+            theRig.ValveOpen('V2')
+            theRig.PumpStart('B2', param.ElecRate, 10)  # MAKE PARAMETER
+            time.sleep(8)
+            theRig.ValveOpen('V1')
+            time.sleep(0.5)
+            theRig.ValveClose('V2')
+            theRig.PumpStart('B2', param.ElecRate, 20)  # MAKE PARAMETER
+            time.sleep(30)
+
             #Fill ASV Chamber with Electrolyte
             print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with',param.ElecVol,\
                     'uL of Electrolyte at',param.ElecRate,'uL/min'
@@ -392,7 +407,7 @@ def assay(theRig):
             print time.strftime('%H:%M:%S -', time.localtime()), 'Running ASV'
             theRig.RunASV()
             print time.strftime('%H:%M:%S -', time.localtime()), 'Saving ASV'
-        #     theRig.SaveASV(filepath,folder,filename)
+            theRig.SaveASV(filepath,folder,filename)
 
         if param.DispenseV2 == True:
             theRig.VibRetract()
