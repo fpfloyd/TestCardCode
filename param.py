@@ -29,11 +29,15 @@ B5PrimeVol=3
 
 #ASV PRIME PARAMETERS
 ASVPrimeRate=100        #ASV Prime Flowrate (uL/min)
-ASVPrimeVol=200         #ASV Prime Volume (uL)
+ASVPrimeVol=50         #ASV Prime Volume (uL)
 
 #TRANSFER CHANNEL PARAMETERS
 TXPrimeRate=100         #Transfer channel prime flowrate (uL/min)
 TXPrimeVol=5           #Transfer channel prime volume (uL)
+
+#Valve 3 Prime parameter
+V3PrimeRate=100         #Valve 3 Prime rate
+V3PrimeVol=100          #Valve 3 prime volume
 
 #PLASMA FLOW PARAMETERS
 PlasmaPushRate=100      #Flowrate for plasma being pushed to mixing chamber (uL/min)
@@ -80,7 +84,7 @@ WashoutVol50=120        #Air volume for 50uL (uL/min)
 
 #WASH PARAMETERS
 WashRate=100
-WashVol=100
+WashVol=50
 
 #SILVER ADDITION PARAMETERS
 SilverRate=100
@@ -117,6 +121,7 @@ SweepGain = 4
 ExtraTime=2             #Extra time after the syringe pump finishes
 ASVPrimeTime=(ASVPrimeVol*60.0/ASVPrimeRate)+ExtraTime
 TXPrimeTime=(TXPrimeVol*60.0/TXPrimeRate)+ExtraTime
+V3PrimeTime=(V3PrimeVol*60.0/V3PrimeRate)+ExtraTime
 PlasmaPushTime=(PlasmaPushVol*60.0/PlasmaPushRate)+ExtraTime
 MagFlowTime=(MagFlowVol*60.0/MagFlowRate)+ExtraTime
 WashoutTime100=(WashoutVol100*60.0/WashoutRate100)+ExtraTime

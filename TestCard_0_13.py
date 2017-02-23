@@ -30,7 +30,7 @@ import param
 import DebugFunctions as db
 from TestCardRig import TestCardRig
 
-Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
+Debug = False #set this to True to enable debug by default. Can always toggle it with 'd' command
 Fakeout = True #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
 filepath = 'C:\C1_Output'
@@ -85,12 +85,28 @@ def assay(theRig):
         if Pause == True:
             raw_input('Press enter to continue')
 
-        #Prime ASV Channel
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Priming ASV Channel with ',param.ASVPrimeVol,'uL @',\
-                param.ASVPrimeRate,'uL/min'
+        #Prime Valve 3
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Priming Valve 3 ', param.V3PrimeVol, 'uL @', \
+            param.V3PrimeRate, 'uL/min'
         theRig.ValveOpen('V3')
         time.sleep(0.5)
         theRig.ValveClose('V1')
+        time.sleep(0.5)
+        theRig.ValveClose('V4')
+        time.sleep(0.5)
+        theRig.ValveClose('V2')
+        time.sleep(0.5)
+        theRig.PumpStart('B2', param.V3PrimeRate, param.V3PrimeVol)
+        time.sleep(param.V3PrimeTime)
+        if Pause == True:
+            raw_input('Press enter to continue')
+
+        #Prime ASV Channel
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Priming ASV Channel with ',param.ASVPrimeVol,'uL @',\
+                param.ASVPrimeRate,'uL/min'
+        theRig.ValveOpen('V1')
+        time.sleep(0.5)
+        theRig.ValveClose('V3')
         time.sleep(0.5)
         theRig.ValveClose('V4')
         time.sleep(0.5)
@@ -101,21 +117,21 @@ def assay(theRig):
         if Pause == True:
             raw_input('Press enter to continue')
 
-        # Prime transfer channel
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Priming transfer channel with ', param.TXPrimeVol, 'uL @', \
-                param.TXPrimeRate, 'uL/min'
-        theRig.ValveOpen('V1')
-        time.sleep(0.5)
-        theRig.ValveClose('V3')
-        time.sleep(0.5)
-        theRig.ValveClose('V4')
-        time.sleep(0.5)
-        theRig.ValveClose('V2')
-        time.sleep(0.5)
-        theRig.PumpStart('B2', param.TXPrimeRate, param.TXPrimeVol)
-        time.sleep(param.TXPrimeTime)
-        if Pause == True:
-            raw_input('Press enter to continue')
+        # # Prime transfer channel
+        # print time.strftime('%H:%M:%S -', time.localtime()), 'Priming transfer channel with ', param.TXPrimeVol, 'uL @', \
+        #         param.TXPrimeRate, 'uL/min'
+        # theRig.ValveOpen('V1')
+        # time.sleep(0.5)
+        # theRig.ValveClose('V3')
+        # time.sleep(0.5)
+        # theRig.ValveClose('V4')
+        # time.sleep(0.5)
+        # theRig.ValveClose('V2')
+        # time.sleep(0.5)
+        # theRig.PumpStart('B2', param.TXPrimeRate, param.TXPrimeVol)
+        # time.sleep(param.TXPrimeTime)
+        # if Pause == True:
+        #     raw_input('Press enter to continue')
 
         #Ensure Chamber Is Empty
         print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with', param.WashoutVol50, 'uL @', \
@@ -356,7 +372,7 @@ def assay(theRig):
         #     theRig.PumpStart('B2', 100, 50)
         #     time.sleep(30)
 
-        #Fill Mixing Chamber with Elyte
+        #Fill Mixing Chamber with caseinBB
         print time.strftime('%H:%M:%S -', time.localtime()), 'Filling Mixing Chamber with 50uL @ 100uL/min'
         theRig.ValveOpen('V1')
         time.sleep(0.5)
@@ -364,7 +380,8 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.ValveClose('V3')
         time.sleep(0.5)
-        theRig.PumpStart('B2', 100, 60)
+        theRig.ValveClose('V4')
+        theRig.PumpStart('B1', 100, 50)
         time.sleep(30)
 
         #Resuspend Sandwiches
@@ -396,17 +413,34 @@ def assay(theRig):
             if Pause == True:
                 raw_input('Press enter to continue')
 
+            # Prime Valve 3
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Priming Valve 3 ', param.V3PrimeVol, 'uL @', \
+                param.V3PrimeRate, 'uL/min'
+            theRig.ValveOpen('V3')
+            time.sleep(0.5)
+            theRig.ValveClose('V1')
+            time.sleep(0.5)
+            theRig.ValveClose('V4')
+            time.sleep(0.5)
+            theRig.ValveClose('V2')
+            time.sleep(0.5)
+            theRig.PumpStart('B2', param.V3PrimeRate, param.V3PrimeVol)
+            time.sleep(param.V3PrimeTime)
+            if Pause == True:
+                raw_input('Press enter to continue')
+
             #Fill ASV Chamber with Electrolyte
             theRig.ValveOpen('V1')
             time.sleep(0.5)
-            theRig.ValveOpen('V3')
+            theRig.ValveClose('V3')
+            time.sleep(0.5)
+            theRig.ValveClose('V4')
+            time.sleep(0.5)
+            theRig.ValveClose('V2')
             time.sleep(0.5)
             print time.strftime('%H:%M:%S -', time.localtime()), 'Filling ASV Chamber with', param.ElecVol, \
                 'uL of Electrolyte at', param.ElecRate, 'uL/min'
             theRig.PumpStart('B2', param.ElecRate, param.ElecVol)
-            time.sleep(0.5)
-            theRig.ValveClose('V1')
-            time.sleep(0.5)
             time.sleep(param.ElecTime)
 
             if Pause == True:
