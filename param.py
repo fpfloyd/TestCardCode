@@ -25,7 +25,7 @@ ASVPrimeVol=100         #ASV Prime Volume (uL)
 
 #PLASMA FLOW PARAMETERS
 PlasmaPushRate=100      #Flowrate for plasma being pushed to mixing chamber (uL/min)
-PlasmaPushVol=46        #Plasma Push Volume (uL) [subtracted 25uL to remove lysis buffer]
+PlasmaPushVol=71        #Plasma Push Volume (uL) [subtracted 25uL to remove lysis buffer]
 
 #DILLUTION AND MAG ADDITION PARAMETERS
 MagFlowRate=100         #Flowrate for mag beads being pushed into mixing chamber (uL/min)
@@ -85,9 +85,9 @@ ElecVol=40           #Electrolyte Flow Time (sec)
 #ASV PARAMETERS
 PreASVWait = 600
 DissTime = 30
-DissVolt = 0.8
+DissVolt = 0.7
 DepoTime = 120
-DepoVolt = -0.9
+DepoVolt = -0.8
 StartSweep = -1
 EndSweep = 0.1
 SweepStep = 100
