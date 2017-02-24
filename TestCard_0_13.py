@@ -85,22 +85,6 @@ def assay(theRig):
         if Pause == True:
             raw_input('Press enter to continue')
 
-        #Prime Valve 3
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Priming Valve 3 ', param.V3PrimeVol, 'uL @', \
-            param.V3PrimeRate, 'uL/min'
-        theRig.ValveOpen('V3')
-        time.sleep(0.5)
-        theRig.ValveClose('V1')
-        time.sleep(0.5)
-        theRig.ValveClose('V4')
-        time.sleep(0.5)
-        theRig.ValveClose('V2')
-        time.sleep(0.5)
-        theRig.PumpStart('B2', param.V3PrimeRate, param.V3PrimeVol)
-        time.sleep(param.V3PrimeTime)
-        if Pause == True:
-            raw_input('Press enter to continue')
-
         #Prime ASV Channel
         print time.strftime('%H:%M:%S -', time.localtime()), 'Priming ASV Channel with ',param.ASVPrimeVol,'uL @',\
                 param.ASVPrimeRate,'uL/min'
@@ -114,6 +98,22 @@ def assay(theRig):
         time.sleep(0.5)
         theRig.PumpStart('B2', param.ASVPrimeRate, param.ASVPrimeVol)
         time.sleep(param.ASVPrimeTime)
+        if Pause == True:
+            raw_input('Press enter to continue')
+
+        # Prime Valve 3
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Priming Valve 3 ', param.V3PrimeVol, 'uL @', \
+            param.V3PrimeRate, 'uL/min'
+        theRig.ValveClose('V1')
+        time.sleep(0.5)
+        theRig.ValveOpen('V3')
+        time.sleep(0.5)
+        theRig.ValveClose('V4')
+        time.sleep(0.5)
+        theRig.ValveClose('V2')
+        time.sleep(0.5)
+        theRig.PumpStart('B2', param.V3PrimeRate, param.V3PrimeVol)
+        time.sleep(param.V3PrimeTime)
         if Pause == True:
             raw_input('Press enter to continue')
 
