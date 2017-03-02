@@ -135,7 +135,7 @@ def assay(theRig):
         if Pause == True:
             raw_input('Press enter to continue')
 
-        if param.Mixng == True:
+        if param.Mixing == True:
             # Mix Lysis Buffer and Plasma
             print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Lysis Buffer and Plasma'
             theRig.VibrationStart(param.OtherSweepTime, param.OtherStartFreq, param.OtherEndFreq, param.OtherCycles)

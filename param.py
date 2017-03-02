@@ -10,7 +10,7 @@ DispenseV2 = True
 DispenseFlowrate = 100
 DispenseVolume = 300
 
-MixTime = 5 # 0, 5 or 60
+MixTime = 0 # 0, 5 or 60
 
 
 
@@ -21,6 +21,7 @@ if MixTime < 5:
 else:
     Mixing = True
     OtherSweepTime = MixTime
+    OtherMixingPause = MixTime + 10
 
 
 
@@ -85,7 +86,7 @@ OtherStartFreq = 60
 OtherEndFreq = 90
 OtherCycles = 1
 OtherMixingSteps= 1   #Number of Silver Mixing Steps
-OtherMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exact
+#OtherMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exact
 
 #PULLDOWN AND WASHOUT PARAMETERS
 PulldownTime=40         #Time for mags to pull down
