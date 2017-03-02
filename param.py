@@ -10,7 +10,34 @@ DispenseV2 = True
 DispenseFlowrate = 100
 DispenseVolume = 300
 
-Mixing = True
+MixTime = 5 # 0, 5 or 60
+
+
+
+
+
+if MixTime < 5:
+    Mixing = False
+else:
+    Mixing = True
+    OtherSweepTime = MixTime
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #Prime Parameters
 PrimeRate=100
@@ -53,7 +80,7 @@ SilverMixingInc = 900     #Silver Incubation Time (sec)
 SilverMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exact
 
 #Other MIX PARAMETERS
-OtherSweepTime = 30
+#OtherSweepTime = 30
 OtherStartFreq = 60
 OtherEndFreq = 90
 OtherCycles = 1
@@ -66,7 +93,7 @@ WashoutRate100=100      #Air flowrate for 100 uL(uL/min)
 WashoutVol100=150       #Air Volume for 100 uL (uL)
 PulldownTime1=10        #Time for mags to pull down
 WashoutRate50=100       #Air flowrate (uL/min)
-WashoutVol50=100        #Air volume for 50uL (uL/min)
+WashoutVol50=200        #Air volume for 50uL (uL/min)
 
 #WASH PARAMETERS
 WashRate=100
