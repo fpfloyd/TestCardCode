@@ -135,10 +135,11 @@ def assay(theRig):
         if Pause == True:
             raw_input('Press enter to continue')
 
-        # Mix Lysis Buffer and Plasma
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Lysis Buffer and Plasma'
-        theRig.VibrationStart(param.OtherSweepTime, param.OtherStartFreq, param.OtherEndFreq, param.OtherCycles)
-        time.sleep(param.OtherMixingPause)
+        if param.Mixng == True:
+            # Mix Lysis Buffer and Plasma
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Lysis Buffer and Plasma'
+            theRig.VibrationStart(param.OtherSweepTime, param.OtherStartFreq, param.OtherEndFreq, param.OtherCycles)
+            time.sleep(param.OtherMixingPause)
 
         # #Add Mags to Chamber While Mixing
         # print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Mags with',param.MagFlowVol,\
@@ -588,6 +589,22 @@ def doManual(theRig):
 #
 ##########
 
+def testValves(theRig):
+    i = 0
+    while i < 500:
+        theRig.ValveOpen('V1')
+        theRig.ValveClose('V1')
+        theRig.ValveOpen('V2')
+        theRig.ValveClose('V2')
+        theRig.ValveOpen('V3')
+        theRig.ValveClose('V3')
+        theRig.ValveOpen('V4')
+        theRig.ValveClose('V4')
+        theRig.VibrationStart(10,60,90,1)
+        print time.strftime('%H:%M:%S -', time.localtime()), 'N', i
+        i = i + 1
+
+
 ##########
 #
 # Connect it all up
@@ -725,6 +742,8 @@ def main():
                                         doManual(theRig)
                                 elif (a=='v'):
                                         theRig.RunASV()
+                                elif (a=='t'):
+                                        testValves(theRig)
                                 elif (a=='d'):
                                         db.toggleDebug()
                                 elif (a=='q'):
