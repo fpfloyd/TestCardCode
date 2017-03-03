@@ -9,59 +9,59 @@
 DispenseV2 = True
 DispenseFlowrate = 100
 DispenseVolume = 300
-MagMixingInc = 300 #mag incubation in seconds
-DutyCycle = 60 #percentage of time vibration is on
+oldCode = True
 
-#Testing Math
-VibTime = MagMixingInc * DutyCycle / 100
-MagMixingSteps = int(round(VibTime/30,0))
-
-
+if oldCode == True:
+    WashoutVolPre = 110
+    WashoutTimePre = (WashoutVolPre * 60.0/100)+2
+else:
+    WashoutVolPre = 200
+    WashoutTimePre = 130
 
 #Prime Parameters
 PrimeRate=100
 B1PrimeVol=0
 B2PrimeVol=0
 B3PrimeVol=0
-B4PrimeVol=9
-B5PrimeVol=8
+B4PrimeVol=4
+B5PrimeVol=3
 
 
 #ASV PRIME PARAMETERS
 ASVPrimeRate=100        #ASV Prime Flowrate (uL/min)
-ASVPrimeVol=75          #ASV Prime Volume (uL)
+ASVPrimeVol=200         #ASV Prime Volume (uL)
 
 #PLASMA FLOW PARAMETERS
 PlasmaPushRate=100      #Flowrate for plasma being pushed to mixing chamber (uL/min)
-PlasmaPushVol=71        #Plasma Push Volume (uL) [subtracted 25uL to remove lysis buffer]
+PlasmaPushVol=46        #Plasma Push Volume (uL) [subtracted 25uL to remove lysis buffer]
 
 #DILLUTION AND MAG ADDITION PARAMETERS
 MagFlowRate=100         #Flowrate for mag beads being pushed into mixing chamber (uL/min)
-MagFlowVol=50           #Mag Bead volume (uL)
+MagFlowVol=30           #Mag Bead volume (uL)
 
 #MAG MIX PARAMETERS
 MagSweepTime = 30       #Magnet Mixing Sweep Time (sec)
 MagStartFreq = 60       #Magnet Mixing Start Frequency (hz)
 MagEndFreq = 90         #Magnet Mixing End Frequency  (hz)
 MagCycles = 1           #Number of Sweep Cycles
-#MagMixingSteps = 1      #Number of mixing steps
-#MagMixingInc = 300      #Mag Incubation Time (sec)
+MagMixingSteps = 2      #Number of mixing steps
+MagMixingInc = 300      #Mag Incubation Time (sec)
 MagMixingPause = (MagCycles * MagSweepTime) + 10 #Sweep Time is not exact
 
 
 #SILVER MIX PARAMETERS
 SilverSweepTime = 30
 SilverStartFreq = 60
-SilverEndFreq = 80
+SilverEndFreq = 90
 SilverCycles = 1
-SilverMixingSteps= 1    #Number of Silver Mixing Steps
-SilverMixingInc = 300     #Silver Incubation Time (sec)
+SilverMixingSteps= 6    #Number of Silver Mixing Steps
+SilverMixingInc = 900     #Silver Incubation Time (sec)
 SilverMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exact
 
 #Other MIX PARAMETERS
 OtherSweepTime = 30
 OtherStartFreq = 60
-OtherEndFreq = 80
+OtherEndFreq = 90
 OtherCycles = 1
 OtherMixingSteps= 1   #Number of Silver Mixing Steps
 OtherMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exact
@@ -69,15 +69,14 @@ OtherMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exac
 #PULLDOWN AND WASHOUT PARAMETERS
 PulldownTime=40         #Time for mags to pull down
 WashoutRate100=100      #Air flowrate for 100 uL(uL/min)
-WashoutVol100=160       #Air Volume for 100 uL (uL)
+WashoutVol100=150       #Air Volume for 100 uL (uL)
 PulldownTime1=10        #Time for mags to pull down
 WashoutRate50=100       #Air flowrate (uL/min)
-WashoutVol50=300        #Air volume for 50uL (uL/min)
+WashoutVol50=100        #Air volume for 50uL (uL/min)
 
 #WASH PARAMETERS
 WashRate=100
-WashVol=50
-#hopefully use same mix parameters as before
+WashVol=100
 
 #SILVER ADDITION PARAMETERS
 SilverRate=100
@@ -87,7 +86,7 @@ SilverVol=50
 SandwichRate=100     #Sandwich Resuspension Flowrate (uL/min)
 SandwichVol=50       #Sandwich Resuspension Time (sec)
 MoveRate=50          #Sandwich Move Flowrate (uL/min)
-MoveVol=125          #Sandwich Move Flow Time (sec)
+MoveVol=175          #Sandwich Move Flow Time (sec)
 ElecRate=50          #Electrolyte Flowrate (uL/min)
 ElecVol=40           #Electrolyte Flow Time (sec)
 

@@ -58,13 +58,22 @@ class Valves:
                 if (self.theConnection):
                         self.theConnection.flushInput()
                         self.theConnection.write(str(which)+",1\r") # arduino looks for \r
-#                       db.PrintDebug(self.theConnection.readline())
+                        raw = self.theConnection.readline
+                        if raw == 'OK':
+                                return
+                        else:
+                                print '!!!!Valve Error!!!!'
 
         def Close(self, which):
                 db.PrintDebug("Closing valve "+str(which))
                 if (self.theConnection):
                         self.theConnection.flushInput()
                         self.theConnection.write(str(which)+",0\r") # arduino looks for \r
+                        raw = self.theConnection.readline
+                        if raw == 'OK':
+                                return
+                        else:
+                                print '!!!!Valve Error!!!!'
 
         def SentryReport(self):
                 if (self.theConnection):
