@@ -65,6 +65,7 @@ class Magnet:
                         self.theConnection.write("fmov 2 500 b f \r\n") # arduino looks for \r
                         time.sleep(1)
                         self.theConnection.write("fmov 2 500 b s \r\n")
+                        time.sleep(1)
 
 
         def MagEngage(self):
@@ -73,15 +74,17 @@ class Magnet:
                 if (self.theConnection):
                         self.theConnection.flushInput()
                         if magSteps > 1000:
-                                'Magnet Engagement Too High'
+                                print 'Magnet Engagement Too High'
                                 return False
                         if magSteps > 500:
                                 Steps = magSteps - 500
                                 self.theConnection.write("fmov 2 500 f f \r\n")
                                 time.sleep(3)
                                 self.theConnection.write("fmov 2 " + str(Steps) + " f s \r\n")
+                                time.sleep(1)
                         if magSteps < 500:
                                 self.theConnection.write("fmov 2 " + str(magSteps) + " f s \r\n")
+                                time.sleep(1)
 
         def MagHome(self):
                 db.PrintDebug("Homing Magnet")
