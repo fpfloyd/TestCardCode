@@ -271,8 +271,8 @@ def assay(theRig):
             theRig.ValveClose('V1')
             time.sleep(0.5)
             theRig.ValveOpen('V4')
-            theRig.PumpStart('B6', param.WashoutRate50, param.WashoutVolPre)
-            time.sleep(param.WashoutTimePre)
+            theRig.PumpStart('B6', param.WashoutRate50, param.WashoutVol50)
+            time.sleep(param.WashoutTime50)
             theRig.ValveClose('V4')
             theRig.VibEngage()
             if Pause == True:
@@ -587,6 +587,19 @@ def connect(theRig):
                 return True
         else:
                 return False
+
+def ardTest(theRig):
+    p=0
+    while p<100:
+        print p
+        print 'Open'
+        theRig.ValveOpen('V1')
+        print 'Close'
+        theRig.ValveClose('V1')
+        print 'Vibrate'
+        theRig.VibrationStart(5,60,90,1)
+        time.sleep(7)
+        p = p + 1
         
 ##########
 #
@@ -710,6 +723,8 @@ def main():
                                         airReset(theRig)
                                 elif (a=='m'):
                                         doManual(theRig)
+                                elif (a=='t'):
+                                        ardTest(theRig)
                                 elif (a=='v'):
                                         theRig.RunASV()
                                 elif (a=='d'):

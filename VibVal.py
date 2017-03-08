@@ -58,6 +58,7 @@ class VibVal:
                 if (self.theConnection):
                         self.theConnection.flushInput()
                         self.theConnection.write("vlv "+str(which)+" 1\r\n")  # arduino looks for \r
+                        time.sleep(0.5)
                         raw = self.theConnection.readline()
                         if raw[:2] !='OK':
                             raise ValueError('!!!!VALVE ERROR!!!!')
@@ -69,6 +70,7 @@ class VibVal:
                 if (self.theConnection):
                         self.theConnection.flushInput()
                         self.theConnection.write("vlv "+str(which)+" 0\r\n")  # arduino looks for \r
+                        time.sleep(0.5)
                         raw = self.theConnection.readline()
                         if raw[:2] !='OK':
                             raise ValueError('!!!!VALVE ERROR!!!!')
@@ -83,7 +85,7 @@ class VibVal:
                         self.theConnection.flushInput()
                         self.theConnection.flushOutput()
                         self.theConnection.write("vswp "+str(SweepTime)+" "+str(StartFreq)+" "+str(EndFreq)+" "+str(TotalCycles)+"\r\n")
-                        if raw[:2] !='OK':
-                            raise ValueError('!!!!VIBRATION ERROR!!!!')
-                        else:
-                            return
+                        # if raw[:2] !='OK':
+                        #     raise ValueError('!!!!VIBRATION ERROR!!!!')
+                        # else:
+                        #     return
