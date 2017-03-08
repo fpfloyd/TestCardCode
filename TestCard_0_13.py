@@ -600,15 +600,23 @@ def ardTest(theRig):
         print p
         print 'Open'
         theRig.ValveOpen('V1')
+        theRig.ValveOpen('V2')
+        theRig.ValveOpen('V3')
+        theRig.ValveOpen('V4')
         print 'Engage'
         theRig.VibEngage()
+        theRig.MagnetEngage()
         print 'Vibrate'
         theRig.VibrationStart(5, 60, 90, 1)
         time.sleep(7)
         print 'Retract'
         theRig.VibRetract()
+        theRig.MagnetRetract()
         print 'Close'
         theRig.ValveClose('V1')
+        theRig.ValveClose('V2')
+        theRig.ValveClose('V3')
+        theRig.ValveClose('V4')
 
         p = p + 1
         
