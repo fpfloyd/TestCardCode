@@ -59,11 +59,11 @@ class VibVal:
                         self.theConnection.flushInput()
                         self.theConnection.write("vlv "+str(which)+" 1\r\n")  # arduino looks for \r
                         time.sleep(0.5)
-                        raw = self.theConnection.readline()
-                        if raw[:2] !='OK':
-                            raise ValueError('!!!!VALVE ERROR!!!!')
-                        else:
-                            return
+                        # raw = self.theConnection.readline()
+                        # if raw[:2] !='OK':
+                        #     raise ValueError('!!!!VALVE ERROR!!!!')
+                        # else:
+                        #     return
 
         def Close(self, which):
                 db.PrintDebug("Closing valve " + str(which))
@@ -71,11 +71,11 @@ class VibVal:
                         self.theConnection.flushInput()
                         self.theConnection.write("vlv "+str(which)+" 0\r\n")  # arduino looks for \r
                         time.sleep(0.5)
-                        raw = self.theConnection.readline()
-                        if raw[:2] !='OK':
-                            raise ValueError('!!!!VALVE ERROR!!!!')
-                        else:
-                            return
+                        # raw = self.theConnection.readline()
+                        # if raw[:2] !='OK':
+                        #     raise ValueError('!!!!VALVE ERROR!!!!')
+                        # else:
+                        #     return
 
 
         def Vibrate(self,SweepTime,StartFreq,EndFreq,TotalCycles):

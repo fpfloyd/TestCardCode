@@ -588,17 +588,28 @@ def connect(theRig):
         else:
                 return False
 
+#########
+#
+# Arduino Test
+#
+#########
+
 def ardTest(theRig):
     p=0
     while p<100:
         print p
         print 'Open'
         theRig.ValveOpen('V1')
+        print 'Engage'
+        theRig.VibEngage()
+        print 'Vibrate'
+        theRig.VibrationStart(5, 60, 90, 1)
+        time.sleep(7)
+        print 'Retract'
+        theRig.VibRetract()
         print 'Close'
         theRig.ValveClose('V1')
-        print 'Vibrate'
-        theRig.VibrationStart(5,60,90,1)
-        time.sleep(7)
+
         p = p + 1
         
 ##########

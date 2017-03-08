@@ -103,6 +103,7 @@ class Magnet:
                 if (self.theConnection):
                         self.theConnection.flushInput()
                         self.theConnection.write("serv " + VibEngageAng + " \r\n")
+                        time.sleep(1)
 
         def VibRetract(self):
                 global VibEngageAng
@@ -110,5 +111,6 @@ class Magnet:
                 if (self.theConnection):
                         self.theConnection.flushInput()
                         self.theConnection.write("serv " + VibRetractAng + " \r\n")
+                        time.sleep(1)
 
 
