@@ -58,13 +58,23 @@ class VibVal:
                 if (self.theConnection):
                         self.theConnection.flushInput()
                         self.theConnection.write("vlv "+str(which)+" 1\r\n")  # arduino looks for \r
-                        #                       db.PrintDebug(self.theConnection.readline())
+                        raw = self.theConnection.readline()
+                        if raw[:2] !='OK':
+                            raise ValueError('!!!!VALVE ERROR!!!!')
+                        else:
+                            return
 
         def Close(self, which):
                 db.PrintDebug("Closing valve " + str(which))
                 if (self.theConnection):
                         self.theConnection.flushInput()
                         self.theConnection.write("vlv "+str(which)+" 0\r\n")  # arduino looks for \r
+                        raw = self.theConnection.readline()
+                        if raw[:2] !='OK':
+                            raise ValueError('!!!!VALVE ERROR!!!!')
+                        else:
+                            return
+
 
         def Vibrate(self,SweepTime,StartFreq,EndFreq,TotalCycles):
                 db.PrintDebug("Vibrating Mixer")
@@ -73,3 +83,7 @@ class VibVal:
                         self.theConnection.flushInput()
                         self.theConnection.flushOutput()
                         self.theConnection.write("vswp "+str(SweepTime)+" "+str(StartFreq)+" "+str(EndFreq)+" "+str(TotalCycles)+"\r\n")
+                        if raw[:2] !='OK':
+                            raise ValueError('!!!!VIBRATION ERROR!!!!')
+                        else:
+                            return
