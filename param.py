@@ -37,8 +37,8 @@ MagSweepTime = 30       #Magnet Mixing Sweep Time (sec)
 MagStartFreq = 60       #Magnet Mixing Start Frequency (hz)
 MagEndFreq = 90         #Magnet Mixing End Frequency  (hz)
 MagCycles = 1           #Number of Sweep Cycles
-MagMixingSteps = 2      #Number of mixing steps
-MagMixingInc = 300      #Mag Incubation Time (sec)
+MagMixingSteps = 1      #Number of mixing steps
+MagMixingInc = 40      #Mag Incubation Time (sec)
 MagMixingPause = (MagCycles * MagSweepTime) + 10 #Sweep Time is not exact
 
 
@@ -47,8 +47,8 @@ SilverSweepTime = 30
 SilverStartFreq = 60
 SilverEndFreq = 90
 SilverCycles = 1
-SilverMixingSteps= 6    #Number of Silver Mixing Steps
-SilverMixingInc = 900     #Silver Incubation Time (sec)
+SilverMixingSteps= 1    #Number of Silver Mixing Steps
+SilverMixingInc = 40     #Silver Incubation Time (sec)
 SilverMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exact
 
 #Other MIX PARAMETERS
