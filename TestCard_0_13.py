@@ -49,9 +49,9 @@ def assay(theRig):
             filename = raw_input('Enter Filename for ASV Data (then press Enter):')
             if len(filename)==0:
                 print 'Filename needed'
-        i = 0
-        while i < 20:
-            print 'Assay Number ' +str(i)
+        p = 0
+        while p < 20:
+            print 'Assay Number ' +str(p)
             stopAll(theRig)
             startTime = time.time()
             theRig.SetupASV(param.DissVolt,param.DissTime,param.DepoVolt,param.DepoTime,param.StartSweep,
@@ -418,7 +418,7 @@ def assay(theRig):
             airReset(theRig)
             time.sleep(0.1)
             beep()
-            i = i+1
+            p = p + 1
 
 ##########
 #
@@ -426,7 +426,7 @@ def assay(theRig):
 #
 ##########
 def airReset(theRig):
-        ans = raw_input('Ensure card is removed from rig and press Enter')
+        #raw_input('Ensure card is removed from rig and press Enter')
         print 'Resetting Air Syringe'
         theRig.ValveOpen('V4')
         time.sleep(0.5)
