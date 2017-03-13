@@ -9,21 +9,14 @@
 DispenseV2 = True
 DispenseFlowrate = 100
 DispenseVolume = 300
-oldCode = True
 
-if oldCode == True:
-    WashoutVolPre = 110
-    WashoutTimePre = (WashoutVolPre * 60.0/100)+2
-else:
-    WashoutVolPre = 200
-    WashoutTimePre = 130
 
 #Prime Parameters
 PrimeRate=100
 B1PrimeVol=0
 B2PrimeVol=0
 B3PrimeVol=0
-B4PrimeVol=4
+B4PrimeVol=3
 B5PrimeVol=3
 
 
@@ -54,8 +47,8 @@ SilverSweepTime = 30
 SilverStartFreq = 60
 SilverEndFreq = 90
 SilverCycles = 1
-SilverMixingSteps= 6    #Number of Silver Mixing Steps
-SilverMixingInc = 900     #Silver Incubation Time (sec)
+SilverMixingSteps= 2    #Number of Silver Mixing Steps
+SilverMixingInc = 300     #Silver Incubation Time (sec)
 SilverMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exact
 
 #Other MIX PARAMETERS
