@@ -49,8 +49,6 @@ def assay(theRig):
             filename = raw_input('Enter Filename for ASV Data (then press Enter):')
             if len(filename)==0:
                 print 'Filename needed'
-
-        print 'Assay Number ' +str(p)
         stopAll(theRig)
         startTime = time.time()
         theRig.SetupASV(param.DissVolt,param.DissTime,param.DepoVolt,param.DepoTime,param.StartSweep,
