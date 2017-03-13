@@ -6,7 +6,7 @@
 ##########
 
 #TESTING PARAMETERS
-DispenseV2 = False
+DispenseV2 = True
 DispenseFlowrate = 100
 DispenseVolume = 300
 
@@ -16,7 +16,7 @@ PrimeRate=100
 B1PrimeVol=0
 B2PrimeVol=0
 B3PrimeVol=0
-B4PrimeVol=4
+B4PrimeVol=3
 B5PrimeVol=3
 
 
@@ -37,8 +37,8 @@ MagSweepTime = 30       #Magnet Mixing Sweep Time (sec)
 MagStartFreq = 60       #Magnet Mixing Start Frequency (hz)
 MagEndFreq = 90         #Magnet Mixing End Frequency  (hz)
 MagCycles = 1           #Number of Sweep Cycles
-MagMixingSteps = 1      #Number of mixing steps
-MagMixingInc = 40      #Mag Incubation Time (sec)
+MagMixingSteps = 2      #Number of mixing steps
+MagMixingInc = 300      #Mag Incubation Time (sec)
 MagMixingPause = (MagCycles * MagSweepTime) + 10 #Sweep Time is not exact
 
 
@@ -47,8 +47,8 @@ SilverSweepTime = 30
 SilverStartFreq = 60
 SilverEndFreq = 90
 SilverCycles = 1
-SilverMixingSteps= 1    #Number of Silver Mixing Steps
-SilverMixingInc = 40     #Silver Incubation Time (sec)
+SilverMixingSteps= 2    #Number of Silver Mixing Steps
+SilverMixingInc = 300     #Silver Incubation Time (sec)
 SilverMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exact
 
 #Other MIX PARAMETERS

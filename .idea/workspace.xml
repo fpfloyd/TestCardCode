@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf655bb6-4445-4077-9ad6-ab7e86028693" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/TestCardCode.iml" afterPath="$PROJECT_DIR$/.idea/TestCardCode.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VibVal.py" afterPath="$PROJECT_DIR$/VibVal.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestCard_0_13.py" afterPath="$PROJECT_DIR$/TestCard_0_13.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/param.py" afterPath="$PROJECT_DIR$/param.py" />
     </list>
     <ignored path="TestCardCode.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,8 +29,8 @@
       <file leaf-file-name="param.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/param.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="14" lean-forward="false" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+            <state relative-caret-position="90">
+              <caret line="47" column="18" lean-forward="true" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -37,8 +39,8 @@
       <file leaf-file-name="TestCard_0_13.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestCard_0_13.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4515">
-              <caret line="306" column="31" lean-forward="true" selection-start-line="306" selection-start-column="31" selection-end-line="306" selection-end-column="31" />
+            <state relative-caret-position="-2571">
+              <caret line="365" column="35" lean-forward="false" selection-start-line="365" selection-start-column="35" selection-end-line="365" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -57,8 +59,8 @@
       <file leaf-file-name="VibVal.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/VibVal.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-46">
-              <caret line="64" column="29" lean-forward="true" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
+            <state relative-caret-position="1260">
+              <caret line="86" column="136" lean-forward="true" selection-start-line="86" selection-start-column="136" selection-end-line="86" selection-end-column="136" />
               <folding />
             </state>
           </provider>
@@ -89,6 +91,7 @@
       <find>theValveController</find>
       <find>theVibrationController</find>
       <find>B3</find>
+      <find>time.sleep(0.5)</find>
     </findStrings>
     <replaceStrings>
       <replace>theVibValController</replace>
@@ -107,6 +110,9 @@
     <option name="PUSH_TAGS">
       <GitPushTagMode />
     </option>
+    <push-targets>
+      <push-target-info repo="$PROJECT_DIR$" source="ConnectivityUpdate" target-remote="origin" target-branch="MarMaster" />
+    </push-targets>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -138,10 +144,10 @@
         <option value="$PROJECT_DIR$/TestCardRig.py" />
         <option value="$PROJECT_DIR$/ASV.py" />
         <option value="$PROJECT_DIR$/findPeaks.py" />
-        <option value="$PROJECT_DIR$/param.py" />
         <option value="$PROJECT_DIR$/setup.ini" />
-        <option value="$PROJECT_DIR$/TestCard_0_13.py" />
         <option value="$PROJECT_DIR$/VibVal.py" />
+        <option value="$PROJECT_DIR$/param.py" />
+        <option value="$PROJECT_DIR$/TestCard_0_13.py" />
       </list>
     </option>
   </component>
@@ -698,7 +704,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486518923934</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Updated VibVal">
+      <created>1489365243145</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1489365243146</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -778,7 +791,8 @@
     <MESSAGE value="Fixed silver mixing steps" />
     <MESSAGE value="Particle Testing for 01/25/2017" />
     <MESSAGE value="Changed DispenseV2 param for 02/08/2017" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed DispenseV2 param for 02/08/2017" />
+    <MESSAGE value="Updated VibVal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated VibVal" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -917,26 +931,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/param.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="14" lean-forward="false" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/setup.ini">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestCard_0_13.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4515">
-          <caret line="306" column="31" lean-forward="true" selection-start-line="306" selection-start-column="31" selection-end-line="306" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -949,10 +947,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TestCard_0_13.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2571">
+          <caret line="365" column="35" lean-forward="false" selection-start-line="365" selection-start-column="35" selection-end-line="365" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/param.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="47" column="18" lean-forward="true" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/VibVal.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-46">
-          <caret line="64" column="29" lean-forward="true" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
+        <state relative-caret-position="1260">
+          <caret line="86" column="136" lean-forward="true" selection-start-line="86" selection-start-column="136" selection-end-line="86" selection-end-column="136" />
           <folding />
         </state>
       </provider>
