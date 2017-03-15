@@ -120,11 +120,6 @@ def assay(theRig):
         if Pause == True:
             raw_input('Press enter to continue')
 
-        # Mix Lysis Buffer and Plasma
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Lysis Buffer and Plasma'
-        theRig.VibrationStart(param.OtherSweepTime, param.OtherStartFreq, param.OtherEndFreq, param.OtherCycles)
-        time.sleep(param.OtherMixingPause)
-
         #Add Mags to Chamber While Mixing
         print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Mags with',param.MagFlowVol,\
                 'uL @',param.MagFlowRate,'uL/min. Mixing Step:', 1, 'of', param.MagMixingSteps
