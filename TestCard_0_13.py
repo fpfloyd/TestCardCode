@@ -594,6 +594,33 @@ def stopAll(theRig):
 
 ##########
 #
+# Test Pumps
+#
+##########
+
+def testPumps(theRig):
+    theRig.PumpStart('B1', 100, 500)
+    time.sleep(0.5)
+    theRig.PumpStart('B2', 100, 500)
+    time.sleep(0.5)
+    theRig.PumpStart('B4', 100, 500)
+    time.sleep(0.5)
+    theRig.PumpStart('B5', 100, 500)
+    time.sleep(0.5)
+    theRig.PumpStart('B6', 100, 500)
+    time.sleep(620)
+    theRig.PumpStart('B1', 100, -500)
+    time.sleep(0.5)
+    theRig.PumpStart('B2', 100, -500)
+    time.sleep(0.5)
+    theRig.PumpStart('B4', 100, -500)
+    time.sleep(0.5)
+    theRig.PumpStart('B5', 100, -500)
+    time.sleep(0.5)
+    theRig.PumpStart('B6', 100, -500)
+    time.sleep(620)
+##########
+#
 # a better timing function than time.wait()
 #
 ##########
@@ -692,7 +719,7 @@ def main():
                                 elif (a=='m'):
                                         doManual(theRig)
                                 elif (a=='t'):
-                                        ardTest(theRig)
+                                        testPumps(theRig)
                                 elif (a=='v'):
                                         theRig.RunASV()
                                 elif (a=='d'):
