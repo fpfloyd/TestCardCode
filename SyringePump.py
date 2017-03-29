@@ -29,7 +29,7 @@ class SyringePump:
 		success=True
 		
 		try:
-			self.theConnection=serial.Serial(self.theComPort,9600,serial.EIGHTBITS,serial.PARITY_NONE,serial.STOPBITS_ONE,1,False,False, writeTimeout=1)
+			self.theConnection=serial.Serial(self.theComPort,38400,serial.EIGHTBITS,serial.PARITY_NONE,serial.STOPBITS_ONE,1,False,False, writeTimeout=1)
 		except:
 			db.PrintDebug("No pump connection!")
 			self.theConnection=None
@@ -46,6 +46,10 @@ class SyringePump:
 		db.PrintDebug("Setting syringe pump on port "+str(self.theComPort)+" to diameter "+str(diameter))
 		if (self.theConnection):
 			self.theConnection.flushInput()
+			self.theConnection.write("set units 2")
+			db.PrintDebug("pump: " + self.theConnection.readline())
+			time.sleep(self.pumpDelay)
+			self.theConnection.flushInput()
 			self.theConnection.write("set diameter "+str(diameter)+"\r\n")
 			db.PrintDebug("pump: "+self.theConnection.readline())
 			time.sleep(self.pumpDelay)
@@ -58,6 +62,7 @@ class SyringePump:
 			db.PrintDebug("pump: "+self.theConnection.readline())
 			db.PrintDebug("pump: "+self.theConnection.readline())
 			time.sleep(self.pumpDelay)
+
 
 	def SetVolume(self, vol):
 		db.PrintDebug("Setting volume syringe pump on port "+str(self.theComPort)+" to "+str(vol))
