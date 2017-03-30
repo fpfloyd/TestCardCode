@@ -56,14 +56,18 @@ class VibVal:
         def Open(self, which):
                 db.PrintDebug("Opening valve " + str(which))
                 if (self.theConnection):
+                        raw = ''
                         self.theConnection.flushInput()
                         self.theConnection.write("vlv "+str(which)+" 1\r\n")  # arduino looks for \r
                         time.sleep(0.5)
                         raw = self.theConnection.readline()
-                        if raw[:2] !='OK':
-                            raise ValueError('!!!!VALVE ERROR!!!!')
-                        else:
+                        startTime = int(time)
+                        while raw[:2] !='OK' and (int(time) - startTime) < 5:
+                            raw = self.theConnection.readline()
+                        if raw[:2] == 'OK':
                             return
+                        else:
+                            raise ValueError('!!!!VALVE ERROR!!!!')
 
         def Close(self, which):
                 db.PrintDebug("Closing valve " + str(which))
