@@ -31,7 +31,7 @@ import DebugFunctions as db
 from TestCardRig import TestCardRig
 
 Debug = True # set this to True to enable debug by default. Can always toggle it with 'd' command
-Fakeout = False #Fakeout connections, use for debugging without full test rig
+Fakeout = True #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
 filepath = 'C:\C1_Output'
 
@@ -639,24 +639,7 @@ def main():
         theRig=TestCardRig(config.get('ArduinoSetup','ComVibVal'),config.get('ArduinoSetup','ComMag'),
                            config.get('ArduinoSetup','ComASV'))
 
-        # Configure the pumps
-        theRig.PumpConfigure('B1',config.get('SyringeSetup','ComB1'),config.get('SyringeSetup','DiameterB1'))
-        theRig.PumpConfigure('B2',config.get('SyringeSetup','ComB2'),config.get('SyringeSetup','DiameterB2'))
-        #theRig.PumpConfigure('B3',config.get('SyringeSetup', 'ComB3'), config.get('SyringeSetup', 'DiameterB3'))
-        theRig.PumpConfigure('B4',config.get('SyringeSetup','ComB4'),config.get('SyringeSetup','DiameterB4'))
-        theRig.PumpConfigure('B5',config.get('SyringeSetup','ComB5'),config.get('SyringeSetup','DiameterB5'))
-        theRig.PumpConfigure('B6',config.get('SyringeSetup', 'ComB6'), config.get('SyringeSetup', 'DiameterB6'))
-        #theRig.PumpConfigure('B6',config.get('SyringePumpSetup','ComB6'),config.get('SyringeSetup','DiameterB6'))
 
-        # Configure the valves. These numbers are the digital output line of the Arduino.
-        theRig.ValveConfigure('V1',config.get('PortSetup','PortV1'))
-        theRig.ValveConfigure('V2',config.get('PortSetup','PortV2'))
-        theRig.ValveConfigure('V3',config.get('PortSetup','PortV3'))
-        theRig.ValveConfigure('V4',config.get('PortSetup','PortV4'))
-
-        #Configure the acctuators. These numbers are the steps for the vibration tip and magnet movements
-        theRig.MagConfigure(config.get('AcctuatorSetup','MagEngage'))
-        theRig.VibConfigure(config.get('AcctuatorSetup','VibEngage'),config.get('AcctuatorSetup','VibRetract'))
 
 
         if (Fakeout):

@@ -17,6 +17,7 @@ from VibVal import VibVal
 from Magnet import Magnet
 from ASV import ASV
 from ASV_CLS_Parse import ParseASV
+import ConfigParser
 
 
 class TestCardRig:
@@ -42,15 +43,51 @@ class TestCardRig:
         def Connect(self):
                 success=True
 
+                # Import Configuration from setup file
+                config = ConfigParser.ConfigParser()
+                config.read('setup.ini')
+                config.sections()
 
+                # Configure the pumps
+                print 'Connection to Syringe Pumps...'
+                if not self.PumpConfigure('B1', config.get('SyringeSetup', 'ComB1'), config.get('SyringeSetup', 'DiameterB1')):
+                    print 'No Connection to B1'
+                    success = False
+                if not self.PumpConfigure('B2', config.get('SyringeSetup', 'ComB2'), config.get('SyringeSetup', 'DiameterB2')):
+                    print 'No Connection to B2'
+                    success = False
+                # theRig.PumpConfigure('B3',config.get('SyringeSetup', 'ComB3'), config.get('SyringeSetup', 'DiameterB3'))
+                if not self.PumpConfigure('B4', config.get('SyringeSetup', 'ComB4'), config.get('SyringeSetup', 'DiameterB4')):
+                    print 'No Connection to B4'
+                    success = False
+                if not self.PumpConfigure('B5', config.get('SyringeSetup', 'ComB5'), config.get('SyringeSetup', 'DiameterB5')):
+                    print 'No Connection to B5'
+                    success = False
+                if not self.PumpConfigure('B6', config.get('SyringeSetup', 'ComB6'), config.get('SyringeSetup', 'DiameterB6')):
+                    print 'No Connection to B6'
+                    success = False
+
+                # Configure the valves. These numbers are the digital output line of the Arduino.
+                self.ValveConfigure('V1', config.get('PortSetup', 'PortV1'))
+                self.ValveConfigure('V2', config.get('PortSetup', 'PortV2'))
+                self.ValveConfigure('V3', config.get('PortSetup', 'PortV3'))
+                self.ValveConfigure('V4', config.get('PortSetup', 'PortV4'))
+
+                # Configure the acctuators. These numbers are the steps for the vibration tip and magnet movements
+                self.MagConfigure(config.get('AcctuatorSetup', 'MagEngage'))
+                self.VibConfigure(config.get('AcctuatorSetup', 'VibEngage'), config.get('AcctuatorSetup', 'VibRetract'))
+
+                print 'Connecting to Acutator Controller...'
                 if not self.theMagnetController.Connect():
                         db.PrintDebug("Could not connect to Magnet")
                         success=False
 
+                print 'Connecting to Valve & Vibration Controller...'
                 if not self.theVibValController.Connect():
                         db.PrintDebug("Cound not connect to Mixer")
                         success = False
 
+                print 'Connecting to Potentiostat...'
                 if not self.thePotentiostat.Connect():
                         db.PrintDebug("Could not Connect to Potentiostat")
                         success = False
