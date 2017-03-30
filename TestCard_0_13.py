@@ -476,7 +476,6 @@ def prime(theRig):
 ##########
 
 def doManual(theRig):
-        global ReportingImpedance
         
         done=False
         while not done:
@@ -536,38 +535,6 @@ def connect(theRig):
                 return True
         else:
                 return False
-
-#########
-#
-# Arduino Test
-#
-#########
-
-def ardTest(theRig):
-    p=0
-    while p<100:
-        print p
-        print 'Open'
-        theRig.ValveOpen('V1')
-        theRig.ValveOpen('V2')
-        theRig.ValveOpen('V3')
-        theRig.ValveOpen('V4')
-        print 'Engage'
-        theRig.VibEngage()
-        theRig.MagnetEngage()
-        print 'Vibrate'
-        theRig.VibrationStart(5, 60, 90, 1)
-        time.sleep(7)
-        print 'Retract'
-        theRig.VibRetract()
-        theRig.MagnetRetract()
-        print 'Close'
-        theRig.ValveClose('V1')
-        theRig.ValveClose('V2')
-        theRig.ValveClose('V3')
-        theRig.ValveClose('V4')
-
-        p = p + 1
         
 ##########
 #
@@ -591,16 +558,6 @@ def stopAll(theRig):
         theRig.AllValvesClose()
         theRig.VibRetract()
         theRig.MagnetHome()
-
-##########
-#
-# a better timing function than time.wait()
-#
-##########
-def Delay(wait):
-        nowtime=time.time()
-        while ((time.time()-nowtime) < wait):
-                pass
 
 ##########
 #

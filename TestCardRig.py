@@ -77,19 +77,19 @@ class TestCardRig:
                 self.MagConfigure(config.get('AcctuatorSetup', 'MagEngage'))
                 self.VibConfigure(config.get('AcctuatorSetup', 'VibEngage'), config.get('AcctuatorSetup', 'VibRetract'))
 
-                print 'Connecting to Acutator Controller...'
+                print 'Connecting to Actuator Controller...'
                 if not self.theMagnetController.Connect():
-                        db.PrintDebug("Could not connect to Magnet")
+                        print 'No Connection to Actuator Controller'
                         success=False
 
                 print 'Connecting to Valve & Vibration Controller...'
                 if not self.theVibValController.Connect():
-                        db.PrintDebug("Cound not connect to Mixer")
+                        print 'No Connection to Valve & Vibration Controller'
                         success = False
 
                 print 'Connecting to Potentiostat...'
                 if not self.thePotentiostat.Connect():
-                        db.PrintDebug("Could not Connect to Potentiostat")
+                        print 'No Connection to Potentiostat'
                         success = False
 
                 return success
@@ -104,7 +104,8 @@ class TestCardRig:
         def PumpConfigure(self,which,port,diameter):
                 db.PrintDebug("Configure pump "+port+" to diameter "+str(diameter))
                 self.thePumps[which]=SyringePump(port)
-                self.thePumps[which].Connect()
+                if self.thePumps[which].Connect() == True:
+                    return True
                 self.thePumps[which].Configure(diameter)
                 self.thePumps[which].SetVolume(1800)
                 
