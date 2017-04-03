@@ -32,7 +32,7 @@ class VibVal:
                 success=True
 
                 try:
-                        self.theConnection=serial.Serial(self.theComPort,9600,serial.EIGHTBITS,serial.PARITY_NONE,serial.STOPBITS_ONE,Timeout=5)
+                        self.theConnection=serial.Serial(self.theComPort,9600,serial.EIGHTBITS,serial.PARITY_NONE,serial.STOPBITS_ONE,writeTimeout=0, timeout=5)
                         x=""
                         while(x[:5]<>"Valid"):
                                 x=self.theConnection.readline()
