@@ -6,31 +6,31 @@
 ##########
 
 #TESTING PARAMETERS
-DispenseV2 = True
+DispenseV2 = False
 DispenseFlowrate = 100
 DispenseVolume = 300
 
 
 #Prime Parameters
-PrimeRate=100
-B1PrimeVol=0
-B2PrimeVol=0
-B3PrimeVol=0
-B4PrimeVol=3
-B5PrimeVol=3
-
+PrimeRate = 100
+B1PrimeVol = 0
+B2PrimeVol = 0
+B3PrimeVol = 0
+B4PrimeVol = 3
+B5PrimeVol = 3
+V3PrimeVol = 100
 
 #ASV PRIME PARAMETERS
-ASVPrimeRate=100        #ASV Prime Flowrate (uL/min)
-ASVPrimeVol=200         #ASV Prime Volume (uL)
+ASVPrimeRate = 100        #ASV Prime Flowrate (uL/min)
+ASVPrimeVol = 50         #ASV Prime Volume (uL)
 
 #PLASMA FLOW PARAMETERS
-PlasmaPushRate=100      #Flowrate for plasma being pushed to mixing chamber (uL/min)
-PlasmaPushVol=46        #Plasma Push Volume (uL) [subtracted 25uL to remove lysis buffer]
+PlasmaPushRate = 100      #Flowrate for plasma being pushed to mixing chamber (uL/min)
+PlasmaPushVol = 46        #Plasma Push Volume (uL) [subtracted 25uL to remove lysis buffer]
 
 #DILLUTION AND MAG ADDITION PARAMETERS
-MagFlowRate=100         #Flowrate for mag beads being pushed into mixing chamber (uL/min)
-MagFlowVol=30           #Mag Bead volume (uL)
+MagFlowRate = 100         #Flowrate for mag beads being pushed into mixing chamber (uL/min)
+MagFlowVol = 30           #Mag Bead volume (uL)
 
 #MAG MIX PARAMETERS
 MagSweepTime = 30       #Magnet Mixing Sweep Time (sec)
@@ -47,7 +47,7 @@ SilverSweepTime = 30
 SilverStartFreq = 60
 SilverEndFreq = 90
 SilverCycles = 1
-SilverMixingSteps= 2    #Number of Silver Mixing Steps
+SilverMixingSteps = 2    #Number of Silver Mixing Steps
 SilverMixingInc = 300     #Silver Incubation Time (sec)
 SilverMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exact
 
@@ -60,28 +60,28 @@ OtherMixingSteps= 1   #Number of Silver Mixing Steps
 OtherMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exact
 
 #PULLDOWN AND WASHOUT PARAMETERS
-PulldownTime=40         #Time for mags to pull down
-WashoutRate100=100      #Air flowrate for 100 uL(uL/min)
-WashoutVol100=150       #Air Volume for 100 uL (uL)
-PulldownTime1=10        #Time for mags to pull down
-WashoutRate50=100       #Air flowrate (uL/min)
-WashoutVol50=100        #Air volume for 50uL (uL/min)
+PulldownTime = 40         #Time for mags to pull down
+WashoutRate100 = 100      #Air flowrate for 100 uL(uL/min)
+WashoutVol100 = 150       #Air Volume for 100 uL (uL)
+PulldownTime1 = 10        #Time for mags to pull down
+WashoutRate50 = 100       #Air flowrate (uL/min)
+WashoutVol50 = 100        #Air volume for 50uL (uL/min)
 
 #WASH PARAMETERS
-WashRate=100
-WashVol=100
+WashRate = 100
+WashVol = 100
 
 #SILVER ADDITION PARAMETERS
-SilverRate=100
-SilverVol=50
+SilverRate = 100
+SilverVol = 50
 
 #DETECTION CHAMBER PARAMETERS
-SandwichRate=100     #Sandwich Resuspension Flowrate (uL/min)
-SandwichVol=50       #Sandwich Resuspension Time (sec)
-MoveRate=50          #Sandwich Move Flowrate (uL/min)
-MoveVol=175          #Sandwich Move Flow Time (sec)
-ElecRate=50          #Electrolyte Flowrate (uL/min)
-ElecVol=40           #Electrolyte Flow Time (sec)
+SandwichRate = 100     #Sandwich Resuspension Flowrate (uL/min)
+SandwichVol = 50       #Sandwich Resuspension Time (sec)
+MoveRate = 50          #Sandwich Move Flowrate (uL/min)
+MoveVol = 175          #Sandwich Move Flow Time (sec)
+ElecRate = 50          #Electrolyte Flowrate (uL/min)
+ElecVol = 40           #Electrolyte Flow Time (sec)
 
 #ASV PARAMETERS
 PreASVWait = 600
@@ -103,22 +103,22 @@ SweepGain = 4
 # Calculate Syringe Pump Times (No feedback from pump)
 #
 ##########
-ExtraTime=2             #Extra time after the syringe pump finishes
-ASVPrimeTime=(ASVPrimeVol*60.0/ASVPrimeRate)+ExtraTime
-PlasmaPushTime=(PlasmaPushVol*60.0/PlasmaPushRate)+ExtraTime
-MagFlowTime=(MagFlowVol*60.0/MagFlowRate)+ExtraTime
-WashoutTime100=(WashoutVol100*60.0/WashoutRate100)+ExtraTime
-WashoutTime50=(WashoutVol50*60.0/WashoutRate50)+ExtraTime
-WashTime=(WashVol*60.0/WashRate)+ExtraTime
-SilverTime=(SilverVol*60.0/SilverRate)+ExtraTime
-SandwichTime=(SandwichVol*60.0/SandwichRate)+ExtraTime
-MoveTime=(MoveVol*60.0/MoveRate)+ExtraTime
-ElecTime=(ElecVol*60.0/ElecRate)+ExtraTime
-B1PrimeTime=(B1PrimeVol*60.0/PrimeRate)+ExtraTime
-B2PrimeTime=(B2PrimeVol*60.0/PrimeRate)+ExtraTime
-B3PrimeTime=(B3PrimeVol*60.0/PrimeRate)+ExtraTime
-B4PrimeTime=(B4PrimeVol*60.0/PrimeRate)+ExtraTime
-B5PrimeTime=(B5PrimeVol*60.0/PrimeRate)+ExtraTime
-
+ExtraTime = 2             #Extra time after the syringe pump finishes
+ASVPrimeTime = (ASVPrimeVol*60.0/ASVPrimeRate)+ExtraTime
+PlasmaPushTime = (PlasmaPushVol*60.0/PlasmaPushRate)+ExtraTime
+MagFlowTime = (MagFlowVol*60.0/MagFlowRate)+ExtraTime
+WashoutTime100 = (WashoutVol100*60.0/WashoutRate100)+ExtraTime
+WashoutTime50 = (WashoutVol50*60.0/WashoutRate50)+ExtraTime
+WashTime = (WashVol*60.0/WashRate)+ExtraTime
+SilverTime = (SilverVol*60.0/SilverRate)+ExtraTime
+SandwichTime = (SandwichVol*60.0/SandwichRate)+ExtraTime
+MoveTime = (MoveVol*60.0/MoveRate)+ExtraTime
+ElecTime = (ElecVol*60.0/ElecRate)+ExtraTime
+B1PrimeTime = (B1PrimeVol*60.0/PrimeRate)+ExtraTime
+B2PrimeTime = (B2PrimeVol*60.0/PrimeRate)+ExtraTime
+B3PrimeTime = (B3PrimeVol*60.0/PrimeRate)+ExtraTime
+B4PrimeTime = (B4PrimeVol*60.0/PrimeRate)+ExtraTime
+B5PrimeTime = (B5PrimeVol*60.0/PrimeRate)+ExtraTime
+V3PrimeTime = (V3PrimeVol*60.0/PrimeRate)+ExtraTime
 
 
