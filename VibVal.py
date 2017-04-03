@@ -32,7 +32,7 @@ class VibVal:
                 success=True
 
                 try:
-                        self.theConnection=serial.Serial(self.theComPort,9600,serial.EIGHTBITS,serial.PARITY_NONE,serial.STOPBITS_ONE,writeTimeout=0)
+                        self.theConnection=serial.Serial(self.theComPort,9600,serial.EIGHTBITS,serial.PARITY_NONE,serial.STOPBITS_ONE,Timeout=5)
                         x=""
                         while(x[:5]<>"Valid"):
                                 x=self.theConnection.readline()
@@ -61,9 +61,6 @@ class VibVal:
                         self.theConnection.write("vlv "+str(which)+" 1\r\n")  # arduino looks for \r
                         time.sleep(0.5)
                         raw = self.theConnection.readline()
-                        startTime = int(time)
-                        while raw[:2] !='OK' and (int(time) - startTime) < 5:
-                            raw = self.theConnection.readline()
                         if raw[:2] == 'OK':
                             return
                         else:
