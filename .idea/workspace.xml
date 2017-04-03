@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cf655bb6-4445-4077-9ad6-ab7e86028693" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VibVal.py" afterPath="$PROJECT_DIR$/VibVal.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestCard_0_13.py" afterPath="$PROJECT_DIR$/TestCard_0_13.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/param.py" afterPath="$PROJECT_DIR$/param.py" />
     </list>
     <ignored path="TestCardCode.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/param.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="495">
-              <caret line="112" column="48" lean-forward="true" selection-start-line="112" selection-start-column="48" selection-end-line="112" selection-end-column="48" />
+              <caret line="112" column="50" lean-forward="true" selection-start-line="112" selection-start-column="50" selection-end-line="112" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -44,58 +45,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestCard_0_13.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TestCard_0_13.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestCard_0_13.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
               <caret line="23" column="15" lean-forward="true" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
               <folding>
                 <element signature="e#1338#1349#0" expanded="true" />
-                <marker date="1491237900000" expanded="true" signature="15566:15611" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="15566:16522" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="15649:16202" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="15747:15841" ph="'...'" />
-                <marker date="1491237900000" expanded="true" signature="16524:16569" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="16591:16907" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="16910:16954" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="16973:17819" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="16988:17139" ph="'...'" />
-                <marker date="1491237900000" expanded="true" signature="17821:17871" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="17890:19427" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="17975:19427" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="18116:18283" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="18308:18475" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="18500:18667" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="18692:18859" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="18884:19288" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="19313:19376" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="19429:19473" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="19496:21171" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="19548:21171" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="19883:20424" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="19956:20346" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="20458:21098" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="20569:21020" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="20845:21020" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="21181:21265" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="21286:21466" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="21317:21423" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="21476:21516" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="21540:21686" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="21688:21731" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="21752:21870" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="21872:21912" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="21924:21945" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="21947:21992" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="22021:22070" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="22072:22119" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="22344:22431" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="22711:24973" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="22831:22996" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="23029:24936" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="23230:23366" ph="'...'" />
-                <marker date="1491237900000" expanded="true" signature="23484:24775" ph="..." />
-                <marker date="1491237900000" expanded="true" signature="24826:24936" ph="..." />
               </folding>
             </state>
           </provider>
@@ -123,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VibVal.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="VibVal.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/VibVal.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-165">
-              <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state relative-caret-position="825">
+              <caret line="57" column="40" lean-forward="false" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -171,7 +127,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="AprMaster_B3" />
+        <entry key="$PROJECT_DIR$" value="MarMaster" />
       </map>
     </option>
     <option name="PUSH_TAGS">
@@ -212,9 +168,9 @@
         <option value="$PROJECT_DIR$/setup.ini" />
         <option value="$PROJECT_DIR$/SyringePump.py" />
         <option value="$PROJECT_DIR$/TestCardRig.py" />
+        <option value="$PROJECT_DIR$/VibVal.py" />
         <option value="$PROJECT_DIR$/param.py" />
         <option value="$PROJECT_DIR$/TestCard_0_13.py" />
-        <option value="$PROJECT_DIR$/VibVal.py" />
       </list>
     </option>
   </component>
@@ -692,24 +648,16 @@
       <option name="project" value="LOCAL" />
       <updated>1490904169141</updated>
     </task>
-    <task id="LOCAL-00034" summary="Updated B3 to fit with April Master Code">
-      <created>1491232460098</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1491232460099</updated>
-    </task>
-    <option name="localTasksCounter" value="35" />
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="823" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21388888" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3653643" sideWeight="0.5069444" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36206895" sideWeight="0.49305555" order="2" side_tool="false" content_ui="tabs" x="0" y="296" width="1440" height="276" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36206895" sideWeight="0.49305555" order="2" side_tool="false" content_ui="tabs" x="0" y="296" width="1440" height="276" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282967" sideWeight="0.49791667" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32692307" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -734,11 +682,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3653643" sideWeight="0.5069444" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36206895" sideWeight="0.49305555" order="2" side_tool="false" content_ui="tabs" x="0" y="296" width="1440" height="276" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36206895" sideWeight="0.49305555" order="2" side_tool="false" content_ui="tabs" x="0" y="296" width="1440" height="276" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282967" sideWeight="0.49791667" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32692307" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21388888" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21388888" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3284055" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -760,6 +708,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="new code to find peaks w/ old ASV FW (2.3.0)" />
     <MESSAGE value="Added ability to change ASV settings from main parameters" />
     <MESSAGE value="Added gain selection" />
     <MESSAGE value="Moved computer config parameters to setup.ini" />
@@ -784,8 +733,7 @@
     <MESSAGE value="Added basic bootup dialog&#10;No longer can connect without all syringe pumps" />
     <MESSAGE value="Changed bootup to be more reliable and informative" />
     <MESSAGE value="valve error timeout changed on open" />
-    <MESSAGE value="Updated B3 to fit with April Master Code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated B3 to fit with April Master Code" />
+    <option name="LAST_COMMIT_MESSAGE" value="valve error timeout changed on open" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -911,6 +859,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/VibVal.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="57" column="40" lean-forward="false" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TestCardRig.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1320">
@@ -924,7 +880,7 @@
     <entry file="file://$PROJECT_DIR$/param.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
-          <caret line="112" column="48" lean-forward="true" selection-start-line="112" selection-start-column="48" selection-end-line="112" selection-end-column="48" />
+          <caret line="112" column="50" lean-forward="true" selection-start-line="112" selection-start-column="50" selection-end-line="112" selection-end-column="50" />
           <folding />
         </state>
       </provider>
@@ -935,60 +891,7 @@
           <caret line="23" column="15" lean-forward="true" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
           <folding>
             <element signature="e#1338#1349#0" expanded="true" />
-            <marker date="1491237900000" expanded="true" signature="15566:15611" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="15566:16522" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="15649:16202" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="15747:15841" ph="'...'" />
-            <marker date="1491237900000" expanded="true" signature="16524:16569" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="16591:16907" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="16910:16954" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="16973:17819" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="16988:17139" ph="'...'" />
-            <marker date="1491237900000" expanded="true" signature="17821:17871" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="17890:19427" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="17975:19427" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="18116:18283" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="18308:18475" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="18500:18667" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="18692:18859" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="18884:19288" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="19313:19376" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="19429:19473" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="19496:21171" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="19548:21171" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="19883:20424" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="19956:20346" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="20458:21098" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="20569:21020" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="20845:21020" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="21181:21265" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="21286:21466" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="21317:21423" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="21476:21516" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="21540:21686" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="21688:21731" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="21752:21870" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="21872:21912" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="21924:21945" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="21947:21992" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="22021:22070" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="22072:22119" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="22344:22431" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="22711:24973" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="22831:22996" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="23029:24936" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="23230:23366" ph="'...'" />
-            <marker date="1491237900000" expanded="true" signature="23484:24775" ph="..." />
-            <marker date="1491237900000" expanded="true" signature="24826:24936" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VibVal.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-165">
-          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
