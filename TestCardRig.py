@@ -105,9 +105,10 @@ class TestCardRig:
                 db.PrintDebug("Configure pump "+port+" to diameter "+str(diameter))
                 self.thePumps[which]=SyringePump(port)
                 if self.thePumps[which].Connect() == True:
+                    self.thePumps[which].Configure(diameter)
+                    self.thePumps[which].SetVolume(1800)
                     return True
-                self.thePumps[which].Configure(diameter)
-                self.thePumps[which].SetVolume(1800)
+
                 
         def PumpRate(self,which,rate):
                 if which in self.thePumps:
