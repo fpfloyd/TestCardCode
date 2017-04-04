@@ -9,6 +9,14 @@
 DispenseV2 = True
 DispenseFlowrate = 100
 DispenseVolume = 300
+SilverIncMinutes = 5
+
+if SilverIncMinutes == 5:
+    SilverMixingInc = 300
+    SilverMixingSteps = 2
+if SilverIncMinutes == 15:
+    SilverMixingInc = 900
+    SilverMixngSteps = 6
 
 
 #Prime Parameters
@@ -47,8 +55,8 @@ SilverSweepTime = 30
 SilverStartFreq = 60
 SilverEndFreq = 90
 SilverCycles = 1
-SilverMixingSteps= 2    #Number of Silver Mixing Steps
-SilverMixingInc = 300     #Silver Incubation Time (sec)
+#SilverMixingSteps= 2    #Number of Silver Mixing Steps
+#SilverMixingInc = 300     #Silver Incubation Time (sec)
 SilverMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exact
 
 #Other MIX PARAMETERS
