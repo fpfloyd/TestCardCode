@@ -591,12 +591,6 @@ def main():
                 global folder
                 folder = ''
                 done=False
-                if connect(theRig):
-                    print '\n'
-                    print 'CONNECTED TO FIXTURE'
-                if Fakeout:
-                    print '\n'
-                    print 'FAKING CONNECTION'
                 print '\n'
                 while folder =='':
                         print time.strftime("%b %d %Y", time.localtime())
