@@ -166,6 +166,9 @@ def assay(theRig):
             theRig.VibrationStart(param.OtherSweepTime, param.OtherStartFreq, param.OtherEndFreq, param.OtherCycles)
             time.sleep(param.OtherMixingPause)
 
+        # Pause
+        print 'Pausing for ' + str(param.AgWaitMinutes) + ' Minutes'
+        time.sleep(param.AgWaitMinutes * 60)
 
         # Pulldown Half Sandwiches
         print time.strftime('%H:%M:%S -', time.localtime()), 'Pulling Down Half Sandwiches'
@@ -188,9 +191,6 @@ def assay(theRig):
         theRig.VibEngage()
         if Pause == True:
             raw_input('Press enter to continue')
-
-        #Pause
-        time.sleep(param.AgWaitMinutes * 60)
 
         #Add Silver to Chamber
         print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Silver with',param.SilverVol,'uL @',\

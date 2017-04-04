@@ -4,7 +4,6 @@
     <list default="true" id="cf655bb6-4445-4077-9ad6-ab7e86028693" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestCard_0_13.py" afterPath="$PROJECT_DIR$/TestCard_0_13.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/param.py" afterPath="$PROJECT_DIR$/param.py" />
     </list>
     <ignored path="TestCardCode.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,7 +24,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="param.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="param.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/param.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -45,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestCard_0_13.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TestCard_0_13.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestCard_0_13.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2407">
-              <caret line="189" column="48" lean-forward="true" selection-start-line="189" selection-start-column="48" selection-end-line="189" selection-end-column="48" />
+            <state relative-caret-position="217">
+              <caret line="169" column="60" lean-forward="false" selection-start-line="169" selection-start-column="60" selection-end-line="169" selection-end-column="60" />
               <folding>
                 <element signature="e#209#220#0" expanded="true" />
               </folding>
@@ -170,8 +169,8 @@
         <option value="$PROJECT_DIR$/TestCardRig.py" />
         <option value="$PROJECT_DIR$/setup.ini" />
         <option value="$PROJECT_DIR$/VibVal.py" />
-        <option value="$PROJECT_DIR$/TestCard_0_13.py" />
         <option value="$PROJECT_DIR$/param.py" />
+        <option value="$PROJECT_DIR$/TestCard_0_13.py" />
       </list>
     </option>
   </component>
@@ -663,7 +662,14 @@
       <option name="project" value="LOCAL" />
       <updated>1491328952051</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Changed Params for Silver Incubation Testing">
+      <created>1491334176167</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1491334176171</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -702,7 +708,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Moved computer config parameters to setup.ini" />
     <MESSAGE value="initial parameter list" />
     <MESSAGE value="decoupled parameters from main program" />
     <MESSAGE value="intial computer file setup" />
@@ -727,7 +732,8 @@
     <MESSAGE value="Added Version Printout" />
     <MESSAGE value="Fixed second connect" />
     <MESSAGE value="Updated VCS and connection issues changed for B3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated VCS and connection issues changed for B3" />
+    <MESSAGE value="Changed Params for Silver Incubation Testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed Params for Silver Incubation Testing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -871,21 +877,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestCard_0_13.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2407">
-          <caret line="189" column="48" lean-forward="true" selection-start-line="189" selection-start-column="48" selection-end-line="189" selection-end-column="48" />
-          <folding>
-            <element signature="e#209#220#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/param.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCard_0_13.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="169" column="60" lean-forward="false" selection-start-line="169" selection-start-column="60" selection-end-line="169" selection-end-column="60" />
+          <folding>
+            <element signature="e#209#220#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
