@@ -1,37 +1,23 @@
 #! /usr/bin/env python
-# Functionalization Controller
+# C1 Test Card Fixture
 #
-# Connects to a bunch of valves and syringe pumps and makes magic
+# Runs assay on C1 cards
+# Connects to syringe pumps, valves, actuators and potentiostat through various microcontrollers
 #
 # Fred Floyd
 # Daktari Diagnostics
-#
-# ChangeLog
-#               v0.01        20151007      Stripped Code from Functionator for test card
-#               v0.02        20151015      Changed syringe size callout, reinstate debug
-#               v0.03        20151019      Added pump stop time to manual operation
-#               v0.04        20151020      Added ability to import parameters from csv
-#               v0.05        20160907      Completely Changed for C1 Card (vs Card of the Month)
-#               v0.06        20160908      Added pauses after each segment, adjusted volumes
-#               v0.07        20160912      Adjusted Volumes from video, made valves open before closing other
-#               v0.08        20160913      Changed from times to volume control
-#               v0.09        20160915      Added Magnet Actuation
-#               v0.010       20160915      Added Vibration Actuation
-#               v0.011       20160919      Mix while filling / Pause 20 sec while emptying 100uL / Added Valve 4
-#               v0.012       20160928      Added ASV control and output filepath
-#               v0.13        20160930      Added Parser and Locked down Assay Parameters
 
-VERSION='0.013'
 
 import time
 import csv
 import ConfigParser
 import param
+import git
 import DebugFunctions as db
 from TestCardRig import TestCardRig
 
 Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
-Fakeout = False #Fakeout connections, use for debugging without full test rig
+Fakeout = True #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
 filepath = 'C:\C1_Output'
 
@@ -581,7 +567,13 @@ def changeFolder(newfolder):
 #
 ##########
 def main():
-        global VERSION
+
+        repo = git.Repo(search_parent_directories=True)
+        sha = repo.head.object.hexsha
+        branch = repo.active_branch
+        print '\n'
+        print 'VERSION: ' + str(branch) + '_' + str(sha[:5])
+        print '\n'
 
         db.setDebug(Debug)
 
@@ -595,23 +587,24 @@ def main():
         theRig=TestCardRig(config.get('ArduinoSetup','ComVibVal'),config.get('ArduinoSetup','ComMag'),
                            config.get('ArduinoSetup','ComASV'))
 
-
-
-
-        if (Fakeout):
-                print ('FAKING CONNECTION!')
-
         if (connect(theRig) or Fakeout):
                 global folder
                 folder = ''
                 done=False
+                if connect(theRig):
+                    print '\n'
+                    print 'CONNECTED TO FIXTURE'
+                if Fakeout:
+                    print '\n'
+                    print 'FAKING CONNECTION'
+                print '\n'
                 while folder =='':
                         print time.strftime("%b %d %Y", time.localtime())
                         folder = raw_input('Enter Output Folder Name (then press ENTER):')
 
                 while not done:
+                        print 'VERSION: ' + str(branch) + '_' + str(sha[:5])
                         print 'Output will be saved in: {}\{}\ '.format(filepath, folder)
-                        print time.strftime("%H:%M:%S", time.localtime())
                         a=raw_input('key to start: (a)ssay, (p)rime, (c)lean, pa(r)se folder, a(i)r reset,' \
                                     ' change (f)older, (q)uit')
                         # secretly, we can also turn debug messages on and off with 'd'
