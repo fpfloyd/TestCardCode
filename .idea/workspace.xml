@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf655bb6-4445-4077-9ad6-ab7e86028693" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/TestCardCode.iml" afterPath="$PROJECT_DIR$/.idea/TestCardCode.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestCard_0_13.py" afterPath="$PROJECT_DIR$/TestCard_0_13.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/param.py" afterPath="$PROJECT_DIR$/param.py" />
     </list>
     <ignored path="TestCardCode.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="param.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="param.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/param.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="36" column="59" lean-forward="false" selection-start-line="36" selection-start-column="59" selection-end-line="36" selection-end-column="59" />
+            <state relative-caret-position="120">
+              <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -38,18 +38,18 @@
       <file leaf-file-name="Magnet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Magnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
+            <state relative-caret-position="-64">
               <caret line="56" column="27" lean-forward="false" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestCard_0_13.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TestCard_0_13.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestCard_0_13.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="360" column="10" lean-forward="true" selection-start-line="360" selection-start-column="10" selection-end-line="360" selection-end-column="10" />
+            <state relative-caret-position="-2407">
+              <caret line="189" column="48" lean-forward="true" selection-start-line="189" selection-start-column="48" selection-end-line="189" selection-end-column="48" />
               <folding>
                 <element signature="e#209#220#0" expanded="true" />
               </folding>
@@ -130,6 +130,7 @@
         <entry key="$PROJECT_DIR$" value="AprMaster" />
       </map>
     </option>
+    <option name="RECENT_COMMON_BRANCH" value="AprMaster" />
     <option name="PUSH_TAGS">
       <GitPushTagMode />
     </option>
@@ -169,8 +170,8 @@
         <option value="$PROJECT_DIR$/TestCardRig.py" />
         <option value="$PROJECT_DIR$/setup.ini" />
         <option value="$PROJECT_DIR$/VibVal.py" />
-        <option value="$PROJECT_DIR$/param.py" />
         <option value="$PROJECT_DIR$/TestCard_0_13.py" />
+        <option value="$PROJECT_DIR$/param.py" />
       </list>
     </option>
   </component>
@@ -655,17 +656,23 @@
       <option name="project" value="LOCAL" />
       <updated>1491328541591</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Updated VCS and connection issues changed for B3">
+      <created>1491328952051</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1491328952051</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="823" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21388888" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3653643" sideWeight="0.5069444" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36074272" sideWeight="0.49305555" order="2" side_tool="false" content_ui="tabs" x="0" y="296" width="1440" height="276" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36074272" sideWeight="0.49305555" order="2" side_tool="false" content_ui="tabs" x="0" y="296" width="1440" height="276" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32724902" sideWeight="0.49791667" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32692307" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -695,7 +702,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added gain selection" />
     <MESSAGE value="Moved computer config parameters to setup.ini" />
     <MESSAGE value="initial parameter list" />
     <MESSAGE value="decoupled parameters from main program" />
@@ -720,14 +726,15 @@
     <MESSAGE value="changed timeout" />
     <MESSAGE value="Added Version Printout" />
     <MESSAGE value="Fixed second connect" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed second connect" />
+    <MESSAGE value="Updated VCS and connection issues changed for B3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated VCS and connection issues changed for B3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/param.py</url>
-          <line>88</line>
+          <line>97</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
@@ -822,14 +829,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Magnet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="56" column="27" lean-forward="false" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SyringePump.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
@@ -864,21 +863,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/param.py">
+    <entry file="file://$PROJECT_DIR$/Magnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="36" column="59" lean-forward="false" selection-start-line="36" selection-start-column="59" selection-end-line="36" selection-end-column="59" />
+        <state relative-caret-position="-64">
+          <caret line="56" column="27" lean-forward="false" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TestCard_0_13.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="360" column="10" lean-forward="true" selection-start-line="360" selection-start-column="10" selection-end-line="360" selection-end-column="10" />
+        <state relative-caret-position="-2407">
+          <caret line="189" column="48" lean-forward="true" selection-start-line="189" selection-start-column="48" selection-end-line="189" selection-end-column="48" />
           <folding>
             <element signature="e#209#220#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/param.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
