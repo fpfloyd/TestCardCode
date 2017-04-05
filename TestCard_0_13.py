@@ -651,8 +651,8 @@ def main():
         if (Fakeout):
                 print ('FAKING CONNECTION!')
 
-        if connect(theRig):
-                print ('CONNECTION ESTABLISHED TO FIXTURE')
+        # if connect(theRig):
+        #         print ('CONNECTION ESTABLISHED TO FIXTURE')
 
         if (connect(theRig) or Fakeout):
                 global folder
