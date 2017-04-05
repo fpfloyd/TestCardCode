@@ -16,7 +16,7 @@ if SilverIncMinutes == 5:
     SilverMixingSteps = 2
 if SilverIncMinutes == 15:
     SilverMixingInc = 900
-    SilverMixngSteps = 6
+    SilverMixingSteps = 6
 
 
 #Prime Parameters

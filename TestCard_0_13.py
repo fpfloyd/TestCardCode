@@ -14,11 +14,11 @@ import csv
 import ConfigParser
 import param
 import DebugFunctions as db
-import git
+#import git
 from TestCardRig import TestCardRig
 
 Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
-Fakeout = True #Fakeout connections, use for debugging without full test rig
+Fakeout = False #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
 filepath = 'C:\C1_Output'
 
@@ -612,9 +612,9 @@ def changeFolder(newfolder):
 #
 ##########
 def main():
-        repo = git.Repo(search_parent_directories=True)
-        sha = repo.head.object.hexsha
-        branch = repo.active_branch
+        # repo = git.Repo(search_parent_directories=True)
+        # sha = repo.head.object.hexsha
+        # branch = repo.active_branch
 
         db.setDebug(Debug)
 
@@ -663,7 +663,7 @@ def main():
                         folder = raw_input('Enter Output Folder Name (then press ENTER):')
 
                 while not done:
-                        print 'VERSION: ' + str(branch) + '_' + str(sha[:5])
+                        #print 'VERSION: ' + str(branch) + '_' + str(sha[:5])
                         print 'Output will be saved in: {}\{}\ '.format(filepath, folder)
                         a=raw_input('key to start: (a)ssay, (p)rime, (c)lean, pa(r)se folder, a(i)r reset,' \
                                     ' change (f)older, (q)uit')
