@@ -289,7 +289,7 @@ def assay(theRig):
         print time.strftime('%H:%M:%S -', time.localtime()), 'Filling Mixing Chamber with 50uL @ 100uL/min'
         theRig.ValveOpen('V1')
         theRig.ValveClose('V3')
-        theRig.PumpStart('B1', param.SandwichRate, param.SandwichVol)
+        theRig.PumpStart('B2', param.SandwichRate, param.SandwichVol)
         time.sleep(param.SandwichTime)
 
         #Resuspend Sandwiches
