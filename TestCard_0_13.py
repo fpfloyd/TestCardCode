@@ -311,8 +311,14 @@ def assay(theRig):
             theRig.ValveOpen('V3')
             theRig.ValveClose('V1')
             theRig.ValveOpen('V4')
+            raw_input('Press Enter to Start Transfer')
             theRig.PumpStart('B6',param.MoveRate,param.MoveVol)
-            time.sleep(param.MoveTime)
+            MoveStart = time.time()
+            raw_input('Press Enter to Stop Transfer')
+            MoveTime = time.time()-MoveStart
+            print 'time' + round(MoveTime,2)
+            volume = MoveTime * 100 / 60
+            print volume
             theRig.ValveClose('V4')
             if Pause == True:
                 raw_input('Press enter to continue')
