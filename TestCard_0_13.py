@@ -193,8 +193,12 @@ def assay(theRig):
             raw_input('Press enter to continue')
 
         #Add Silver to Chamber
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Silver with',param.SilverVol,'uL @',\
-                param.SilverRate,'uL/min'
+        if param.AddAgNPs == True:
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Silver AgNPs and Diluent with',param.SilverVol,'uL @',\
+                    param.SilverRate,'uL/min'
+        if param.AddAgNPs == False:
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Silver Diluent with', param.SilverVol, 'uL @', \
+                param.SilverRate, 'uL/min'
         theRig.ValveOpen('V1')
         theRig.ValveClose('V2')
         theRig.PumpStart('B5', param.SilverRate,param.SilverVol)

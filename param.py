@@ -6,7 +6,7 @@
 ##########
 
 #TESTING PARAMETERS
-AgWaitMinutes = 10
+AgWaitMinutes = 0
 AddAgNPs = False
 
 
