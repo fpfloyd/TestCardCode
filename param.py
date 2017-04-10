@@ -11,7 +11,7 @@ B3 = True
 
 
 
-DispenseV2 = False
+DispenseV2 = True
 DispenseFlowrate = 100
 DispenseVolume = 300
 
