@@ -308,17 +308,21 @@ def assay(theRig):
                     param.MoveVol,'uL @',param.MoveRate,'uL/min'
             theRig.VibRetract()
             time.sleep(0.5)
+            theRig.ValveClose('V2')
             theRig.ValveOpen('V3')
             theRig.ValveClose('V1')
             theRig.ValveOpen('V4')
-            raw_input('Press Enter to Start Transfer')
+            #raw_input('Press Enter to Start Transfer')
             theRig.PumpStart('B6',param.MoveRate,param.MoveVol)
-            MoveStart = time.time()
-            raw_input('Press Enter to Stop Transfer')
-            MoveTime = time.time()-MoveStart
-            print 'time' + round(MoveTime,2)
-            volume = MoveTime * 100 / 60
-            print volume
+            # MoveStart = time.time()
+            # raw_input('Press Enter to Stop Transfer')
+            # MoveTime = round((time.time() - MoveStart),2)
+            # theRig.ValveOpen('V1')
+            # theRig.PumpStop('B6')
+            # print 'time' + str(MoveTime)
+            # volume = MoveTime * 100 / 60
+            # print 'volume' + str(volume)
+            time.sleep(param.MoveTime)
             theRig.ValveClose('V4')
             if Pause == True:
                 raw_input('Press enter to continue')
