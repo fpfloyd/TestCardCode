@@ -65,34 +65,75 @@ def assay(theRig):
         time.sleep(param.B5PrimeTime)
         if Pause == True:
             raw_input('Press enter to continue')
+        if param.B3 == False:
+            #Prime ASV Channel
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Priming ASV Channel with ',param.ASVPrimeVol,'uL @',\
+                    param.ASVPrimeRate,'uL/min'
+            theRig.ValveOpen('V3')
+            theRig.ValveClose('V1')
+            theRig.ValveClose('V4')
+            theRig.ValveClose('V2')
+            theRig.PumpStart('B2', param.ASVPrimeRate, param.ASVPrimeVol)
+            time.sleep(param.ASVPrimeTime)
+            if Pause == True:
+                raw_input('Press enter to continue')
 
-        #Prime ASV Channel
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Priming ASV Channel with ',param.ASVPrimeVol,'uL @',\
-                param.ASVPrimeRate,'uL/min'
-        theRig.ValveOpen('V3')
-        theRig.ValveClose('V1')
-        theRig.ValveClose('V4')
-        theRig.ValveClose('V2')
-        theRig.PumpStart('B2', param.ASVPrimeRate, param.ASVPrimeVol)
-        time.sleep(param.ASVPrimeTime)
-        if Pause == True:
-            raw_input('Press enter to continue')
+            #Ensure Chamber Is Empty
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with', param.WashoutVol50, 'uL @', \
+                    param.WashoutRate50, 'uL/min'
+            theRig.VibRetract()
+            time.sleep(0.5)
+            theRig.ValveClose('V3')
+            theRig.ValveOpen('V2')
+            theRig.ValveClose('V1')
+            theRig.ValveOpen('V4')
+            theRig.PumpStart('B6', param.WashoutRate50, param.WashoutVol50)
+            time.sleep(param.WashoutTime50)
+            theRig.ValveClose('V4')
+            theRig.VibEngage()
+            if Pause == True:
+                raw_input('Press enter to continue')
 
-        #Ensure Chamber Is Empty
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with', param.WashoutVol50, 'uL @', \
+        if param.B3 == True:
+            # Prime ASV Channel
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Priming ASV Channel with ', param.ASVPrimeVol, 'uL @', \
+                param.ASVPrimeRate, 'uL/min'
+            theRig.ValveOpen('V1')
+            theRig.ValveClose('V3')
+            theRig.ValveClose('V4')
+            theRig.ValveClose('V2')
+            theRig.PumpStart('B2', param.ASVPrimeRate, param.ASVPrimeVol)
+            time.sleep(param.ASVPrimeTime)
+            if Pause == True:
+                raw_input('Press enter to continue')
+
+            # Prime V3
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Priming V3 with ', param.V3PrimeVol, 'uL @', \
+                param.ASVPrimeRate, 'uL/min'
+            theRig.ValveOpen('V3')
+            theRig.ValveClose('V1')
+            theRig.ValveClose('V4')
+            theRig.ValveClose('V2')
+            theRig.PumpStart('B2', param.PrimeRate, param.V3PrimeVol)
+            time.sleep(param.V3PrimeTime)
+            if Pause == True:
+                raw_input('Press enter to continue')
+
+            # Ensure Chamber Is Empty
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with', param.WashoutVol50, 'uL @', \
                 param.WashoutRate50, 'uL/min'
-        theRig.VibRetract()
-        time.sleep(0.5)
-        theRig.ValveClose('V3')
-        theRig.ValveOpen('V2')
-        theRig.ValveClose('V1')
-        theRig.ValveOpen('V4')
-        theRig.PumpStart('B6', param.WashoutRate50, param.WashoutVol50)
-        time.sleep(param.WashoutTime50)
-        theRig.ValveClose('V4')
-        theRig.VibEngage()
-        if Pause == True:
-            raw_input('Press enter to continue')
+            theRig.VibRetract()
+            time.sleep(0.5)
+            theRig.ValveClose('V3')
+            theRig.ValveOpen('V2')
+            theRig.ValveClose('V1')
+            theRig.ValveOpen('V4')
+            theRig.PumpStart('B6', param.WashoutRate50, param.WashoutVol50)
+            time.sleep(param.WashoutTime50)
+            theRig.ValveClose('V4')
+            theRig.VibEngage()
+            if Pause == True:
+                raw_input('Press enter to continue')
 
 
         #Push Plasma to Mixing Chamber with Lysis Buffer

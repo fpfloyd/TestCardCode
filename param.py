@@ -6,6 +6,11 @@
 ##########
 
 #TESTING PARAMETERS
+B3 = True
+
+
+
+
 DispenseV2 = False
 DispenseFlowrate = 100
 DispenseVolume = 300
