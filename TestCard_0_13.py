@@ -17,7 +17,7 @@ import DebugFunctions as db
 from TestCardRig import TestCardRig
 
 Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
-Fakeout = False #Fakeout connections, use for debugging without full test rig
+Fakeout = True #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
 filepath = 'C:\C1_Output'
 
@@ -229,26 +229,53 @@ def assay(theRig):
         if Pause == True:
             raw_input('Press enter to continue')
 
-        #Add Silver to Chamber
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Silver with',param.SilverVol,'uL @',\
-                param.SilverRate,'uL/min'
-        theRig.ValveOpen('V1')
-        theRig.ValveClose('V2')
-        theRig.PumpStart('B5', param.SilverRate,param.SilverVol)
-        time.sleep(param.SilverTime)
-        if Pause == True:
-            raw_input('Press enter to continue')
+        if param.NewMixing == True:
+            # Add Wash Buffer to Chamber
+            theRig.ValveOpen('V1')
+            theRig.ValveClose('V2')
+            theRig.PumpStart('B1',100,25)
+            time.sleep(17)
 
-        #Mix Resuspend and Incubate Full Sandwiches
-        i = 1
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing & Incubating Full Sandwiches for',\
-                param.SilverMixingInc,' seconds'
-        theRig.MagnetRetract()
-        while i <= param.SilverMixingSteps:
-            print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i , 'of ', param.SilverMixingSteps
-            i = i + 1
+            # Add Silver to Chamber While Mixing
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Mags with', param.MagFlowVol, \
+                'uL @', param.MagFlowRate, 'uL/min. Mixing Step:', 1, 'of', param.MagMixingSteps
             theRig.VibrationStart(param.SilverSweepTime, param.SilverStartFreq, param.SilverEndFreq, param.SilverCycles)
+            theRig.PumpStart('B5', 100, 25)
+            time.sleep(17)
+            if Pause == True:
+                raw_input('Press enter to continue')
+
+            # Mix and Incubate Silver
+            i = 2
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Incubating Silver for ', param.SilverMixingInc, ' Seconds'
+            while i <= param.MagMixingSteps:
+                i = i + 1
+                time.sleep(param.SilverMixingInc / param.SilverMixingSteps)
+                print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i - 1, 'of', param.SilverMixingSteps
+                theRig.VibrationStart(param.SilverSweepTime, param.SilverStartFreq, param.SilverEndFreq, param.SilverCycles)
             time.sleep(param.SilverMixingInc / param.SilverMixingSteps)
+
+        if param.NewMixing == False:
+            #Add Silver to Chamber
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Silver with',param.SilverVol,'uL @',\
+                    param.SilverRate,'uL/min'
+            theRig.ValveOpen('V1')
+            theRig.ValveClose('V2')
+            theRig.PumpStart('B5', param.SilverRate,param.SilverVol)
+            time.sleep(param.SilverTime)
+            if Pause == True:
+                raw_input('Press enter to continue')
+
+            #Mix Resuspend and Incubate Full Sandwiches
+            i = 1
+            print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing & Incubating Full Sandwiches for',\
+                    param.SilverMixingInc,' seconds'
+            theRig.MagnetRetract()
+            while i <= param.SilverMixingSteps:
+                print time.strftime('%H:%M:%S -', time.localtime()), 'Mixing Step:', i , 'of ', param.SilverMixingSteps
+                i = i + 1
+                theRig.VibrationStart(param.SilverSweepTime, param.SilverStartFreq, param.SilverEndFreq, param.SilverCycles)
+                time.sleep(param.SilverMixingInc / param.SilverMixingSteps)
 
         # Pulldown Sandwiches
         print time.strftime('%H:%M:%S -', time.localtime()), 'Pulling Down Full Sandwiches'

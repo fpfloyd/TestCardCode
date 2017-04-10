@@ -6,11 +6,11 @@
 ##########
 
 #TESTING PARAMETERS
-B3 = True
+NewMixing = False
 
 
 
-
+B3 = False
 DispenseV2 = True
 DispenseFlowrate = 100
 DispenseVolume = 300
