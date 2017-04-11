@@ -734,7 +734,14 @@
       <option name="project" value="LOCAL" />
       <updated>1491859533401</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Fixed Mixing">
+      <created>1491923033215</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1491923033219</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -774,7 +781,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed Parameters for cTnI benchmark" />
     <MESSAGE value="Added extra wash before resuspending in silver" />
     <MESSAGE value="Added time to output command line, removed some errant print lines from parser code" />
     <MESSAGE value="Changed wash Vol to 100uL" />
@@ -799,7 +805,8 @@
     <MESSAGE value="DispenseV2 True, Fakeout False" />
     <MESSAGE value="Commented out manual drain" />
     <MESSAGE value="Made new silver mixing steps" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made new silver mixing steps" />
+    <MESSAGE value="Fixed Mixing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Mixing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
