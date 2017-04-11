@@ -229,12 +229,16 @@ def assay(theRig):
         if Pause == True:
             raw_input('Press enter to continue')
 
+
+
         if param.NewMixing == True:
             # Add Wash Buffer to Chamber
             theRig.ValveOpen('V1')
             theRig.ValveClose('V2')
             theRig.PumpStart('B1',100,25)
             time.sleep(17)
+            theRig.MagnetRetract()
+
 
             # Add Silver to Chamber While Mixing
             print time.strftime('%H:%M:%S -', time.localtime()), 'Adding Mags with', param.MagFlowVol, \
