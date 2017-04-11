@@ -46,12 +46,14 @@ class SyringePump:
 		db.PrintDebug("Setting syringe pump on port "+str(self.theComPort)+" to diameter "+str(diameter))
 		if (self.theConnection):
 			self.theConnection.flushInput()
-			self.theConnection.write("set units 2")
-			db.PrintDebug("pump: " + self.theConnection.readline())
+			self.theConnection.write("set units 2\r\n")
+			db.PrintDebug("Python: " + self.theConnection.readline())
+			db.PrintDebug("Pump: " + self.theConnection.readline())
 			time.sleep(self.pumpDelay)
 			self.theConnection.flushInput()
 			self.theConnection.write("set diameter "+str(diameter)+"\r\n")
-			db.PrintDebug("pump: "+self.theConnection.readline())
+			db.PrintDebug("Python: " + self.theConnection.readline())
+			db.PrintDebug("Pump: " + self.theConnection.readline())
 			time.sleep(self.pumpDelay)
 
 	def SetRate(self, rate):
@@ -69,9 +71,8 @@ class SyringePump:
 		if (self.theConnection):
 			self.theConnection.flushInput()
 			self.theConnection.write("set volume "+str(vol)+"\r\n")
-			db.PrintDebug("pump: "+self.theConnection.readline())
-			db.PrintDebug("pump: "+self.theConnection.readline())
-			db.PrintDebug("pump: "+self.theConnection.readline())
+			db.PrintDebug("Python: "+self.theConnection.readline())
+			db.PrintDebug("Pump: "+self.theConnection.readline())
 			time.sleep(self.pumpDelay)
 
 	def EnableWithdraw(self):

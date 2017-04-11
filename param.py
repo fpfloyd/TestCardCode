@@ -80,8 +80,8 @@ SandwichRate = 100     #Sandwich Resuspension Flowrate (uL/min)
 SandwichVol = 50       #Sandwich Resuspension Time (sec)
 MoveRate = 50          #Sandwich Move Flowrate (uL/min)
 MoveVol = 175          #Sandwich Move Flow Time (sec)
-ElecRate = 50          #Electrolyte Flowrate (uL/min)
-ElecVol = 40           #Electrolyte Flow Time (sec)
+ElecRate = 100         #Electrolyte Flowrate (uL/min)
+ElecVol = 50           #Electrolyte Flow Time (sec)
 
 #ASV PARAMETERS
 PreASVWait = 600
