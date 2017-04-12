@@ -6,7 +6,33 @@
 ##########
 
 #TESTING PARAMETERS
-NewMixing = False
+ExtraMixing = True
+
+if ExtraMixing == False:
+    MagSweepTime = 30  # Magnet Mixing Sweep Time (sec)
+    MagStartFreq = 60  # Magnet Mixing Start Frequency (hz)
+    MagEndFreq = 90  # Magnet Mixing End Frequency  (hz)
+    MagCycles = 1  # Number of Sweep Cycles
+    MagMixingSteps = 2
+
+    SilverSweepTime = 30
+    SilverStartFreq = 60
+    SilverEndFreq = 90
+    SilverCycles = 1
+    SilverMixingSteps = 2
+
+if ExtraMixing == True:
+    MagSweepTime = 22  # Magnet Mixing Sweep Time (sec)
+    MagStartFreq = 60  # Magnet Mixing Start Frequency (hz)
+    MagEndFreq = 90  # Magnet Mixing End Frequency  (hz)
+    MagCycles = 2  # Number of Sweep Cycles
+    MagMixingSteps = 3
+
+    SilverSweepTime = 22
+    SilverStartFreq = 60
+    SilverEndFreq = 90
+    SilverCycles = 2
+    SilverMixingSteps = 2
 
 
 
@@ -38,21 +64,21 @@ MagFlowRate = 100         #Flowrate for mag beads being pushed into mixing chamb
 MagFlowVol = 30           #Mag Bead volume (uL)
 
 #MAG MIX PARAMETERS
-MagSweepTime = 30       #Magnet Mixing Sweep Time (sec)
-MagStartFreq = 60       #Magnet Mixing Start Frequency (hz)
-MagEndFreq = 90         #Magnet Mixing End Frequency  (hz)
-MagCycles = 1           #Number of Sweep Cycles
-MagMixingSteps = 2      #Number of mixing steps
+# MagSweepTime = 30       #Magnet Mixing Sweep Time (sec)
+# MagStartFreq = 60       #Magnet Mixing Start Frequency (hz)
+# MagEndFreq = 90         #Magnet Mixing End Frequency  (hz)
+# MagCycles = 1           #Number of Sweep Cycles
+# MagMixingSteps = 2      #Number of mixing steps
 MagMixingInc = 300      #Mag Incubation Time (sec)
 MagMixingPause = (MagCycles * MagSweepTime) + 10 #Sweep Time is not exact
 
 
 #SILVER MIX PARAMETERS
-SilverSweepTime = 30
-SilverStartFreq = 60
-SilverEndFreq = 90
-SilverCycles = 1
-SilverMixingSteps = 2    #Number of Silver Mixing Steps
+# SilverSweepTime = 30
+# SilverStartFreq = 60
+# SilverEndFreq = 90
+# SilverCycles = 1
+# SilverMixingSteps = 2    #Number of Silver Mixing Steps
 SilverMixingInc = 300     #Silver Incubation Time (sec)
 SilverMixingPause = (SilverCycles * SilverSweepTime) + 10 #Sweep Time is not exact
 
@@ -111,7 +137,7 @@ SweepGain = 4
 ExtraTime = 2             #Extra time after the syringe pump finishes
 ASVPrimeTime = (ASVPrimeVol*60.0/ASVPrimeRate)+ExtraTime
 PlasmaPushTime = (PlasmaPushVol*60.0/PlasmaPushRate)+ExtraTime
-MagFlowTime = (MagFlowVol*60.0/MagFlowRate)+ExtraTime
+MagFlowTime = int((MagFlowVol*60.0/MagFlowRate)+ExtraTime)
 WashoutTime100 = (WashoutVol100*60.0/WashoutRate100)+ExtraTime
 WashoutTime50 = (WashoutVol50*60.0/WashoutRate50)+ExtraTime
 WashTime = (WashVol*60.0/WashRate)+ExtraTime
