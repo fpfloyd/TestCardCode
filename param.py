@@ -6,9 +6,6 @@
 ##########
 
 #TESTING PARAMETERS
-NewMixing = False
-
-
 
 B3 = False
 DispenseV2 = True
