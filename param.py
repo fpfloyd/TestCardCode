@@ -6,7 +6,6 @@
 ##########
 
 #TESTING PARAMETERS
-
 B3 = False
 DispenseV2 = True
 DispenseFlowrate = 100
@@ -68,6 +67,8 @@ WashoutVol100 = 150       #Air Volume for 100 uL (uL)
 PulldownTime1 = 10        #Time for mags to pull down
 WashoutRate50 = 100       #Air flowrate (uL/min)
 WashoutVol50 = 100        #Air volume for 50uL (uL/min)
+WashoutRatePre = 100
+WashoutVolPre = 300
 
 #WASH PARAMETERS
 WashRate = 100
@@ -111,6 +112,7 @@ PlasmaPushTime = (PlasmaPushVol*60.0/PlasmaPushRate)+ExtraTime
 MagFlowTime = (MagFlowVol*60.0/MagFlowRate)+ExtraTime
 WashoutTime100 = (WashoutVol100*60.0/WashoutRate100)+ExtraTime
 WashoutTime50 = (WashoutVol50*60.0/WashoutRate50)+ExtraTime
+WashoutTimePre = (WashoutVolPre*60.0/WashoutRatePre)+ExtraTime
 WashTime = (WashVol*60.0/WashRate)+ExtraTime
 SilverTime = (SilverVol*60.0/SilverRate)+ExtraTime
 SandwichTime = (SandwichVol*60.0/SandwichRate)+ExtraTime

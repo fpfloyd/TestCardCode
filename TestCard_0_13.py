@@ -260,13 +260,13 @@ def assay(theRig):
             raw_input('Press enter to continue')
 
         #Empty Chamber
-        print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with',param.WashoutVol50,\
+        print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with',param.WashoutVolPre,\
                 'uL @',param.WashoutRate50,'uL/min'
         theRig.ValveOpen('V2')
         theRig.ValveClose('V1')
         theRig.ValveOpen('V4')
-        theRig.PumpStart('B6', param.WashoutRate50, param.WashoutVol50)
-        time.sleep(param.WashoutTime50)
+        theRig.PumpStart('B6', param.WashoutRatePre, param.WashoutVolPre)
+        time.sleep(param.WashoutTimePre)
         theRig.ValveClose('V4')
         theRig.VibEngage()
         if Pause == True:
