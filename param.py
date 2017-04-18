@@ -6,6 +6,9 @@
 ##########
 
 #TESTING PARAMETERS
+AddSilver = True
+
+
 B3 = False
 DispenseV2 = True
 DispenseFlowrate = 100
