@@ -6,7 +6,7 @@
 ##########
 
 #TESTING PARAMETERS
-AddSilver = True
+AddSilver = False
 
 
 B3 = False
