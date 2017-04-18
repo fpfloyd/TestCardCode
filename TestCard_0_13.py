@@ -17,7 +17,7 @@ import DebugFunctions as db
 from TestCardRig import TestCardRig
 
 Debug = False # set this to True to enable debug by default. Can always toggle it with 'd' command
-Fakeout = True #Fakeout connections, use for debugging without full test rig
+Fakeout = False #Fakeout connections, use for debugging without full test rig
 Pause = False #Adds pause between each assay step that requires user input
 filepath = 'C:\C1_Output'
 
@@ -173,9 +173,9 @@ def assay(theRig):
         theRig.VibRetract()
         time.sleep(param.PulldownTime)
         if Pause == True:
-                raw_input('Press enter to continue'
+                raw_input('Press enter to continue')
 
-        if param.AddSilver == True:
+        if param.AddSilver:
             #Empty Chamber
             print time.strftime('%H:%M:%S -', time.localtime()), 'Emptying Chamber with',param.WashoutVol50,'uL @',param.WashoutRate50,'uL/min '
             theRig.ValveOpen('V2')
