@@ -3,7 +3,7 @@
 #
 # Connects to a bunch of valves and syringe pumps and makes magic
 #
-# Aaron Oppenheimer & Fred Floyd
+# Fred Floyd
 # Daktari Diagnostics
 #
 # ChangeLog

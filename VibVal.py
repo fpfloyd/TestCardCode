@@ -3,7 +3,7 @@
 #
 # A class allowing control of a set of valves through a serial interface
 #
-# Aaron Oppenheimer
+# Fred Floyd
 # Daktari Diagnostics
 #
 # ChangeLog

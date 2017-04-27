@@ -1,15 +1,11 @@
 #
-# Class Valve
+# Class Magnet
 #
-# A class allowing control of a set of valves through a serial interface
+# A class allowing control of actuators
 #
-# Aaron Oppenheimer
+# Fred Floyd
 # Daktari Diagnostics
 #
-# ChangeLog
-#               20120726        Initial work
-#               20120731        Added ability to read change to a sentry and report up the chain
-#               20120821        Updated to align with Arduino code 1.0.2
 
 
 import DebugFunctions as db

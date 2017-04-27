@@ -1,5 +1,11 @@
-# peak finding algorithm. Just pass it an array of signal values. Return is a map of indices of the left, peak, and right of
-# whatever peak is in there, plus a sum of all the signal in that peak.
+#
+# Class FindPeaks
+#
+# A class to find and quantify peaks
+#
+# Fred Floyd
+# Daktari Diagnostics
+#
 import numpy
 class findPeaks:
 
